@@ -51,3 +51,4 @@ var AdvancedStatCollector = (function (_StatCollector) {
 })(_StatCollector3.default);
 
 exports.default = AdvancedStatCollector;
+//# sourceMappingURL=AdvancedStatCollector.js.map

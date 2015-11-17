@@ -32,3 +32,4 @@ var leastFactor = function leastFactor(n) {
 };
 
 exports.default = leastFactor;
+//# sourceMappingURL=leastFactor.js.map

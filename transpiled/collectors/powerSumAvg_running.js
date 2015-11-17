@@ -16,3 +16,4 @@ exports.default = function () {
     }
   };
 };
+//# sourceMappingURL=powerSumAvg_running.js.map

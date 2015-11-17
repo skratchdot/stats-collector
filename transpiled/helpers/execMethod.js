@@ -13,3 +13,4 @@ var execMethod = function execMethod(obj, methodName, value) {
 };
 
 exports.default = execMethod;
+//# sourceMappingURL=execMethod.js.map

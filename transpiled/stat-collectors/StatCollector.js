@@ -40,3 +40,4 @@ var StatCollector = (function (_BasicStatCollector) {
 })(_BasicStatCollector3.default);
 
 exports.default = StatCollector;
+//# sourceMappingURL=StatCollector.js.map

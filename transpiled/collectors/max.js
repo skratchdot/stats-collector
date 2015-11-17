@@ -13,3 +13,4 @@ exports.default = function () {
     }
   };
 };
+//# sourceMappingURL=max.js.map

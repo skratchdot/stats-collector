@@ -39,3 +39,4 @@ exports.AdvancedStatCollector = _AdvancedStatCollector2.default;
 exports.BaseStatCollector = _BaseStatCollector2.default;
 exports.BasicStatCollector = _BasicStatCollector2.default;
 exports.StatCollector = _StatCollector2.default;
+//# sourceMappingURL=index.js.map

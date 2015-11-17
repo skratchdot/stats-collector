@@ -13,3 +13,4 @@ exports.default = function () {
     }
   };
 };
+//# sourceMappingURL=min.js.map

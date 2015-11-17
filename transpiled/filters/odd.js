@@ -7,3 +7,4 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = function (value) {
   return value % 2 === 1;
 };
+//# sourceMappingURL=odd.js.map

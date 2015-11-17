@@ -122,3 +122,4 @@ var BaseStatCollector = (function () {
 })();
 
 exports.default = BaseStatCollector;
+//# sourceMappingURL=BaseStatCollector.js.map

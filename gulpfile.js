@@ -7,9 +7,10 @@ const babel = require('gulp-babel');
 const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 const rimraf = require('gulp-rimraf');
+const sourcemaps = require('gulp-sourcemaps');
 const files = {
   build: ['./src/**/*.js'],
-  clean: ['./lib'],
+  clean: ['./transpiled'],
   lint: ['./src/**/*.js', './test/**/*.js', './gulpfile.js'],
   test: ['./test/**/*.js']
 };
@@ -38,7 +39,9 @@ gulp.task('build-helpers', function (next) {
 
 gulp.task('transpile', function () {
   return gulp.src(files.build)
+    .pipe(sourcemaps.init())
     .pipe(babel())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('transpiled'));
 });
 
@@ -75,4 +78,4 @@ gulp.task('watch', function () {
 
 gulp.task('build', ['build-helpers', 'lint', 'transpile', 'test']);
 gulp.task('build-clean', ['clean', 'build']);
-gulp.task('default', ['build-clean', 'watch']);
+gulp.task('default', ['build', 'watch']);

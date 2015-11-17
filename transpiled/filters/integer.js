@@ -7,3 +7,4 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = function (value) {
   return value % 1 === 0;
 };
+//# sourceMappingURL=integer.js.map

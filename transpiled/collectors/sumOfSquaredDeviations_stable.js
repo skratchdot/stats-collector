@@ -21,3 +21,4 @@ exports.default = function () {
     }
   };
 };
+//# sourceMappingURL=sumOfSquaredDeviations_stable.js.map
