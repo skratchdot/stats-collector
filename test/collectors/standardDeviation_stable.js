@@ -1,7 +1,7 @@
 /*eslint strict:0 */
 'use strict';
 const expect = require('chai').expect;
-const lib = require('../../transpiled/index');
+const lib = require('../../src/index');
 const collectorNames = ['AdvancedStatCollector'];
 const methodName = 'standardDeviation_stable';
 let collector;

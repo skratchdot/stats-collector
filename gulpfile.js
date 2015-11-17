@@ -1,10 +1,12 @@
-/*eslint strict: 0 */
+/*eslint strict: 0, no-console: 0 */
 'use strict';
 
 const fs = require('fs');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const eslint = require('gulp-eslint');
+const isparta = require('isparta');
+const istanbul = require('gulp-istanbul');
 const mocha = require('gulp-mocha');
 const rimraf = require('gulp-rimraf');
 const sourcemaps = require('gulp-sourcemaps');
@@ -59,9 +61,27 @@ gulp.task('lint', function () {
 });
 
 gulp.task('test', function () {
-  return gulp.src(files.test, {read: false})
-    // gulp-mocha needs filepaths so you can't have any plugins before it
-    .pipe(mocha({reporter: 'spec'}));
+  return gulp.src(files.build)
+    .pipe(istanbul({
+      instrumenter: isparta.Instrumenter,
+      includeUntested: true
+    }))
+    // Force `require` to return covered files
+    .pipe(istanbul.hookRequire())
+    .on('finish', function () {
+      gulp.src(files.test, {read: false})
+        // gulp-mocha needs filepaths so you can't have any plugins before it
+        .pipe(mocha({
+          reporter: 'spec'
+        }))
+        .on('error', function (err) {
+          console.error(err.toString());
+          this.emit('end');
+        })
+        .pipe(istanbul.writeReports({
+          dir: './coverage'
+        }));
+    });
 });
 
 gulp.task('watch', function () {

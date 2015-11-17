@@ -1,10 +1,8 @@
 /*eslint strict:0 */
 'use strict';
-require('source-map-support').install({
-  handleUncaughtExceptions: false
-});
+
 const expect = require('chai').expect;
-const lib = require('../transpiled/index');
+const lib = require('../src/index');
 
 let statCollector;
 
