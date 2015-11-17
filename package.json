@@ -11,6 +11,14 @@
     "node": ">=4.0.x"
   },
   "author": "skratchdot",
+  "homepage": "https://github.com/skratchdot/stats-collector",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/skratchdot/stats-collector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skratchdot/stats-collector/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.1.21",
