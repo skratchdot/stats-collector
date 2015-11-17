@@ -28,7 +28,7 @@ gulp.task('build-helpers', function (next) {
       names.push(name);
       contents = `${contents}\nimport ${name} from '${importPrefix}${name}';`;
     });
-    contents = `${contents}\nexport { ${names.join(', ')} };\n`;
+    contents = `${contents}\nexport {\n  ${names.join(',\n  ')}\n};\n`;
     fs.writeFileSync(destFilename, contents, 'utf-8');
   };
   build('./src/collectors', '../collectors/', './src/helpers/collectors.js');

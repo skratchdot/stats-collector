@@ -9,4 +9,14 @@ import odd from '../filters/odd';
 import positive from '../filters/positive';
 import prime from '../filters/prime';
 import zero from '../filters/zero';
-export { even, float, integer, negative, nonZero, odd, positive, prime, zero };
+export {
+  even,
+  float,
+  integer,
+  negative,
+  nonZero,
+  odd,
+  positive,
+  prime,
+  zero
+};
