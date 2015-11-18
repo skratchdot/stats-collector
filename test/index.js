@@ -24,7 +24,7 @@ const testResetValues = function (coll) {
 
 const testCommon = function (numCollectors) {
   testBaseMethods();
-  it('should have ${numCollectors} collectors', function () {
+  it(`should have ${numCollectors} collectors`, function () {
     expect(statCollector._collectors).to.be.an('array');
     expect(statCollector._collectors).to.have.length(numCollectors);
     if (numCollectors === 0) {
