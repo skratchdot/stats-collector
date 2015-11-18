@@ -1,6 +1,6 @@
 {
   "name": "stats-collector",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "collect stats about numbers",
   "main": "transpiled/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "test": "gulp test"
   },
   "engines": {
-    "node": ">=4.0.x"
+    "node": ">=0.12.0"
   },
   "author": "skratchdot",
   "homepage": "https://github.com/skratchdot/stats-collector",
