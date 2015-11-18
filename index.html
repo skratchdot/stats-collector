@@ -73,7 +73,42 @@
 <a href="https://david-dm.org/skratchdot/stats-collector#info=devDependencies"><img src="https://david-dm.org/skratchdot/stats-collector/dev-status.svg" alt="devDependency Status"></a></p>
 <p><a href="https://npmjs.org/package/stats-collector"><img src="https://nodei.co/npm/stats-collector.png" alt="NPM"></a></p>
 <h2 id="description">Description</h2>
-<p>An object that collects stats about the numbers passed to it</p>
+<p>Collect stats about numbers.  This library provides a few different default
+collectors, but allows you to add your own &quot;stat collectors&quot; by exposing an
+API that lets you pass in reducer-like functions that act on numbers passed
+to it.</p>
+<p>For examples and api documentation, continue reading below.</p>
+<h2 id="node-js-library">Node.js Library</h2>
+<h3 id="getting-started">Getting Started</h3>
+<p>Install the module with: <code>npm install stats-collector</code></p>
+<h4 id="usage-method-1-">Usage (Method 1)</h4>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">import * as lib from &apos;stats-collector&apos;;
+const statsCollector = new lib.StatsCollector();
+statsCollector.update([1,2,3,4,5]);
+console.log(statsCollector.get());</code>
+</code></pre>
+<h4 id="usage-method-2-">Usage (Method 2)</h4>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">import StatsCollector from &apos;stats-collector/lib/StatsCollector&apos;;
+const statsCollector = new StatsCollector();
+statsCollector.update([1,2,3,4,5]);
+console.log(statsCollector.get());</code>
+</code></pre>
+<h4 id="usage-different-types-of-collectors-">Usage (Different types of collectors)</h4>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">import * as lib from &apos;stats-collector&apos;;
+const c1 = new lib.BaseStatsCollector();      // 0 default collectors
+const c2 = new lib.BasicStatsCollector();     // 5 default collectors
+const c3 = new lib.StatsCollector();          // 8 default collectors
+const c4 = new lib.AdvancedStatsCollector();  // 21 default collectors
+const collectors = lib.collectors; // some collector functions
+const filters = lib.filters; // some filter functions
+console.log(c1.get(), c2.get(), c3.get(), c4.get(), collectors, filters);</code>
+</code></pre>
+<h3 id="api-documentation">API Documentation</h3>
+<p>Read the <a href="http://projects.skratchdot.com/stats-collector/">API Docs</a>
+by using this link:</p>
+<ul>
+<li><a href="http://projects.skratchdot.com/stats-collector/">http://projects.skratchdot.com/stats-collector/</a></li>
+</ul>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="https://www.npmjs.com/package/stats-incremental">https://www.npmjs.com/package/stats-incremental</a></li>
