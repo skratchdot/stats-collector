@@ -12,7 +12,57 @@
 
 ## Description
 
-An object that collects stats about the numbers passed to it
+Collect stats about numbers.  This library provides a few different default
+collectors, but allows you to add your own "stat collectors" by exposing an
+API that lets you pass in reducer-like functions that act on numbers passed
+to it.
+
+For examples and api documentation, continue reading below.
+
+
+## Node.js Library
+
+### Getting Started
+
+Install the module with: `npm install stats-collector`
+
+#### Usage (Method 1)
+
+```javascript
+import * as lib from 'stats-collector';
+const statsCollector = new lib.StatsCollector();
+statsCollector.update([1,2,3,4,5]);
+console.log(statsCollector.get());
+```
+
+#### Usage (Method 2)
+
+```javascript
+import StatsCollector from 'stats-collector/lib/StatsCollector';
+const statsCollector = new StatsCollector();
+statsCollector.update([1,2,3,4,5]);
+console.log(statsCollector.get());
+```
+
+#### Usage (Different types of collectors)
+
+```javascript
+import * as lib from 'stats-collector';
+const c1 = new lib.BaseStatsCollector();      // 0 default collectors
+const c2 = new lib.BasicStatsCollector();     // 5 default collectors
+const c3 = new lib.StatsCollector();          // 8 default collectors
+const c4 = new lib.AdvancedStatsCollector();  // 21 default collectors
+const collectors = lib.collectors; // some collector functions
+const filters = lib.filters; // some filter functions
+console.log(c1.get(), c2.get(), c3.get(), c4.get(), collectors, filters);
+```
+
+### API Documentation
+
+Read the [API Docs](http://projects.skratchdot.com/stats-collector/)
+by using this link:
+
+- http://projects.skratchdot.com/stats-collector/
 
 
 ## See Also
