@@ -2,7 +2,7 @@
 'use strict';
 const expect = require('chai').expect;
 const lib = require('../../src/index');
-const collectorNames = ['BasicStatCollector', 'StatCollector', 'AdvancedStatCollector'];
+const collectorNames = ['BasicStatsCollector', 'StatsCollector', 'AdvancedStatsCollector'];
 const methodName = 'count';
 let collector;
 

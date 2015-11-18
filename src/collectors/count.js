@@ -1,3 +1,7 @@
+/**
+ * Returns the definition of a collector that captures `count`
+ * @return {Object} A `count` collector object
+ */
 export default function () {
   return {
     name: 'count',

@@ -1,7 +1,9 @@
-/*
- *  Modified from the following source:
- *  https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/
- */
+ /**
+  * Returns the definition of a collector that captures `variance_running`
+  *   - Modified from the following source:
+  *     https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/
+  * @return {Object} A `variance_running` collector object
+  */
 export default function () {
   return {
     name: 'variance_running',

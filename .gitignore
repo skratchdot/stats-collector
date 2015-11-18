@@ -29,3 +29,6 @@ tags
 
 # Code Coverage
 coverage/
+
+# transpiled code
+lib/

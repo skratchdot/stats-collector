@@ -1,0 +1,18 @@
+{
+  "source": "./src",
+  "destination": "./gh-pages",
+  "coverage": false,
+  "includeSource": true,
+  "title": "Stats Collector",
+  "plugins": [
+    {
+      "name": "esdoc-importpath-plugin",
+      "option": {
+        "replaces": [
+          {"from": "^src/", "to": "lib/"},
+          {"from": ".js", "to": ""}
+        ]
+      }
+    }
+  ]
+}

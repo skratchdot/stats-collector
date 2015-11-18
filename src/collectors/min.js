@@ -1,3 +1,7 @@
+/**
+ * Returns the definition of a collector that captures `min`
+ * @return {Object} A `min` collector object
+ */
 export default function () {
   return {
     name: 'min',

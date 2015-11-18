@@ -4,12 +4,12 @@
 const expect = require('chai').expect;
 const lib = require('../src/index');
 
-let statCollector;
+let statsCollector;
 
 const testBaseMethods = function () {
   it('should have the correct base methods', function () {
     ['addCollector', 'get', 'update', 'reset'].forEach(function (method) {
-      expect(statCollector).to.respondTo(method);
+      expect(statsCollector).to.respondTo(method);
     });
   });
 };
@@ -25,27 +25,27 @@ const testResetValues = function (coll) {
 const testCommon = function (numCollectors) {
   testBaseMethods();
   it(`should have ${numCollectors} collectors`, function () {
-    expect(statCollector._collectors).to.be.an('array');
-    expect(statCollector._collectors).to.have.length(numCollectors);
+    expect(statsCollector._collectors).to.be.an('array');
+    expect(statsCollector._collectors).to.have.length(numCollectors);
     if (numCollectors === 0) {
-      expect(statCollector._collectors).to.eql([]);
+      expect(statsCollector._collectors).to.eql([]);
     }
   });
   it('should have results', function () {
-    const results = statCollector.get();
+    const results = statsCollector.get();
     expect(results).to.be.an('object');
   });
   it('should be able to use addIgnore(name)', function () {
-    statCollector.addIgnore('count');
-    statCollector.update(42);
-    const results = statCollector.get();
+    statsCollector.addIgnore('count');
+    statsCollector.update(42);
+    const results = statsCollector.get();
     expect(results.count).to.be.undefined;
     if (numCollectors > 0) {
       expect(results.sum).to.equal(42);
     }
     // duplicate addIgnore() call okay
     expect(function () {
-      statCollector.addIgnore('count');
+      statsCollector.addIgnore('count');
     }).to.not.throw(Error);
   });
   describe('update() with NaN and Infinite', function () {
@@ -55,10 +55,10 @@ const testCommon = function (numCollectors) {
       undefined, null, [], {}
     ].forEach(function (val) {
       it(`should ignore ${val}`, function () {
-        statCollector.update(42);
-        statCollector.update(val);
-        statCollector.update(3);
-        const result = statCollector.get();
+        statsCollector.update(42);
+        statsCollector.update(val);
+        statsCollector.update(3);
+        const result = statsCollector.get();
         expect(result).to.be.object;
         if (numCollectors > 0) {
           expect(result.count).to.equal(2);
@@ -71,34 +71,34 @@ const testCommon = function (numCollectors) {
     const describeText = 'values should be undefined';
     describe('after construction', function () {
       it(describeText, function () {
-        testResetValues(statCollector);
+        testResetValues(statsCollector);
       });
     });
     describe('after update(5)', function () {
       it(describeText, function () {
-        statCollector.update(5);
-        statCollector.reset();
-        testResetValues(statCollector);
+        statsCollector.update(5);
+        statsCollector.reset();
+        testResetValues(statsCollector);
       });
     });
   });
   describe('Expected Errors', function () {
     it('cannot call addCollector() after update()', function () {
-      statCollector.update(5);
+      statsCollector.update(5);
       expect(function () {
-        statCollector.addCollector({name: 'test'});
+        statsCollector.addCollector({name: 'test'});
       }).to.throw(Error);
     });
     it('cannot add a collector with the same name', function () {
       const addIt = function () {
-        statCollector.addCollector({name: 'test'});
+        statsCollector.addCollector({name: 'test'});
       };
       expect(addIt).to.not.throw(Error); // first call works
       expect(addIt).to.throw(Error); // second call fails
     });
     it('cannot addCollector() if requirements aren\'t met', function () {
       expect(function () {
-        statCollector.addCollector({
+        statsCollector.addCollector({
           name: 'test',
           requirements: ['aNamedCollectorThatDoesNotExist']
         });
@@ -106,16 +106,16 @@ const testCommon = function (numCollectors) {
     });
     it('addCollector() only accepts objects with a name', function () {
       expect(function () {
-        statCollector.addCollector();
+        statsCollector.addCollector();
       }).to.throw(Error);
       expect(function () {
-        statCollector.addCollector('test');
+        statsCollector.addCollector('test');
       }).to.throw(Error);
       expect(function () {
-        statCollector.addCollector({});
+        statsCollector.addCollector({});
       }).to.throw(Error);
       expect(function () {
-        statCollector.addCollector({onUpdate: function () {
+        statsCollector.addCollector({onUpdate: function () {
           return 42;
         }});
       }).to.throw(Error);
@@ -123,30 +123,30 @@ const testCommon = function (numCollectors) {
   });
 };
 
-describe('BaseStatCollector', function () {
+describe('BaseStatsCollector', function () {
   beforeEach(function () {
-    statCollector = new lib.BaseStatCollector();
+    statsCollector = new lib.BaseStatsCollector();
   });
   testCommon(0);
 });
 
-describe('BasicStatCollector', function () {
+describe('BasicStatsCollector', function () {
   beforeEach(function () {
-    statCollector = new lib.BasicStatCollector();
+    statsCollector = new lib.BasicStatsCollector();
   });
   testCommon(5);
 });
 
-describe('StatCollector', function () {
+describe('StatsCollector', function () {
   beforeEach(function () {
-    statCollector = new lib.StatCollector();
+    statsCollector = new lib.StatsCollector();
   });
   testCommon(8);
 });
 
-describe('AdvancedStatCollector', function () {
+describe('AdvancedStatsCollector', function () {
   beforeEach(function () {
-    statCollector = new lib.AdvancedStatCollector();
+    statsCollector = new lib.AdvancedStatsCollector();
   });
   testCommon(21);
 });

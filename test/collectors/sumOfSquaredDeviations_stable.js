@@ -2,7 +2,7 @@
 'use strict';
 const expect = require('chai').expect;
 const lib = require('../../src/index');
-const collectorNames = ['AdvancedStatCollector'];
+const collectorNames = ['AdvancedStatsCollector'];
 const methodName = 'sumOfSquaredDeviations_stable';
 let collector;
 

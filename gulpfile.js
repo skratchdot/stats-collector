@@ -1,6 +1,7 @@
 /*eslint strict: 0, no-console: 0 */
 'use strict';
 
+const childProcess = require('child_process');
 const fs = require('fs');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
@@ -12,7 +13,7 @@ const rimraf = require('gulp-rimraf');
 const sourcemaps = require('gulp-sourcemaps');
 const files = {
   build: ['./src/**/*.js'],
-  clean: ['./transpiled'],
+  clean: ['./lib'],
   lint: ['./src/**/*.js', './test/**/*.js', './gulpfile.js'],
   test: ['./test/**/*.js']
 };
@@ -20,6 +21,17 @@ const files = {
 gulp.task('clean', function () {
   return gulp.src(files.clean)
     .pipe(rimraf());
+});
+
+gulp.task('gh-pages', function (next) {
+  childProcess.exec([
+    './node_modules/.bin/esdoc',
+    '-c',
+    './esdoc.json'
+  ].join(' '), { cwd: __dirname }, function (err, stdout) {
+    console.log(stdout);
+    next();
+  });
 });
 
 gulp.task('build-helpers', function (next) {
@@ -44,7 +56,7 @@ gulp.task('transpile', function () {
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('transpiled'));
+    .pipe(gulp.dest('lib'));
 });
 
 gulp.task('lint', function () {

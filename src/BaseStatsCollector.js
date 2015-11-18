@@ -1,12 +1,38 @@
-import execMethod from '../helpers/execMethod';
+import execMethod from './helpers/execMethod';
 
-export default class BaseStatCollector {
+/**
+ * A stat collector that initially includes no collector functions.
+ * @example
+ * const statsCollector = new BaseStatsCollector();
+ * statsCollector.addCollector({name: 'custom', onUpdate: fn});
+ * statsCollector.update([1, 2, 3, 4, 5]);
+ * statsCollector.get();
+ */
+export default class BaseStatsCollector {
   constructor() {
     this._collectors = [];
     this._reset = true;
     this._state = {};
     this._ignore = [];
   }
+  /**
+   * Add a collector function that can process data
+   * when update() or get() is called.
+   * @param {Object} collector An object with the following properties:
+   *   - **name** - [String] The name of the collector
+   *   - **initialValue** - [any] The initial value if update() has never been called
+   *   - **requirements** - [Array] An array of collector names that must be added before this collector
+   *   - **onUpdate** - [Function]
+   *   - **onGet** - [Function]
+   * @example
+   * const statCollector = new BaseStatsCollector();
+   * statCollector.addCollector({
+   *   name: 'test-sum',
+   *   initialValue: 0,
+   *   onUpdate: function (prev, state, val) { return prev + val; }
+   * });
+   * @return {undefined}
+   */
   addCollector(collector) {
     if (!this._reset) {
       throw new Error('Cannot add a new collector unless you call reset() first');

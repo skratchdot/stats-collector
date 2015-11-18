@@ -1,1 +1,0 @@
-{"version":3,"sources":["even.js"],"names":[],"mappings":";;;;;;kBAAe,UAAU,KAAK,EAAE;AAC9B,SAAO,KAAK,GAAG,CAAC,KAAK,CAAC,CAAC;CACxB","file":"filters/even.js","sourcesContent":["export default function (value) {\n  return value % 2 === 0;\n}\n"],"sourceRoot":"/source/"}

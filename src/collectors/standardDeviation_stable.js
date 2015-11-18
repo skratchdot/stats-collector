@@ -1,3 +1,7 @@
+/**
+ * Returns the definition of a collector that captures `standardDeviation_stable`
+ * @return {Object} A `standardDeviation_stable` collector object
+ */
 export default function () {
   return {
     name: 'standardDeviation_stable',

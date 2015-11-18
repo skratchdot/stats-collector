@@ -1,9 +1,12 @@
-// Source: http://www.javascripter.net/faq/numberisprime.htm
-//
-// leastFactor(n)
-// returns the smallest prime that divides n
-//      0  if n=0
-//      1  if n=1, n=-1, or n is not an integer
+/**
+ * Returns the smallest prime that divides n
+ *
+ * Original Source: http://www.javascripter.net/faq/numberisprime.htm
+ * @param  {Number} n The input number
+ * @return {Number} returns the smallest prime that divides n
+ *   - returns 0 if n=0
+ *   - returns 1 if n=1, n=-1, or n is not an integer
+ */
 const leastFactor = function (n) {
   if (n === 0) {
     return 0;
