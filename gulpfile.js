@@ -79,7 +79,8 @@ gulp.task('test', function () {
           this.emit('end');
         })
         .pipe(istanbul.writeReports({
-          dir: './coverage'
+          dir: './coverage',
+          reporters: ['lcov', 'json', 'text-summary']
         }));
     });
 });

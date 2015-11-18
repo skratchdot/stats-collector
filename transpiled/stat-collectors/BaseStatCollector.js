@@ -55,6 +55,8 @@ var BaseStatCollector = (function () {
           }
           _this._collectors.push(collector);
         })();
+      } else {
+        throw new Error('Collector must be an object with a name');
       }
       this.reset();
     }

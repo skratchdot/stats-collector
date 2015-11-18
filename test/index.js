@@ -35,6 +35,38 @@ const testCommon = function (numCollectors) {
     const results = statCollector.get();
     expect(results).to.be.an('object');
   });
+  it('should be able to use addIgnore(name)', function () {
+    statCollector.addIgnore('count');
+    statCollector.update(42);
+    const results = statCollector.get();
+    expect(results.count).to.be.undefined;
+    if (numCollectors > 0) {
+      expect(results.sum).to.equal(42);
+    }
+    // duplicate addIgnore() call okay
+    expect(function () {
+      statCollector.addIgnore('count');
+    }).to.not.throw(Error);
+  });
+  describe('update() with NaN and Infinite', function () {
+    [
+      NaN, -Infinity, Infinity,
+      '', 'wow', 'a string',
+      undefined, null, [], {}
+    ].forEach(function (val) {
+      it(`should ignore ${val}`, function () {
+        statCollector.update(42);
+        statCollector.update(val);
+        statCollector.update(3);
+        const result = statCollector.get();
+        expect(result).to.be.object;
+        if (numCollectors > 0) {
+          expect(result.count).to.equal(2);
+          expect(result.sum).to.equal(45);
+        }
+      });
+    });
+  });
   describe('reset()', function () {
     const describeText = 'values should be undefined';
     describe('after construction', function () {
@@ -48,6 +80,45 @@ const testCommon = function (numCollectors) {
         statCollector.reset();
         testResetValues(statCollector);
       });
+    });
+  });
+  describe('Expected Errors', function () {
+    it('cannot call addCollector() after update()', function () {
+      statCollector.update(5);
+      expect(function () {
+        statCollector.addCollector({name: 'test'});
+      }).to.throw(Error);
+    });
+    it('cannot add a collector with the same name', function () {
+      const addIt = function () {
+        statCollector.addCollector({name: 'test'});
+      };
+      expect(addIt).to.not.throw(Error); // first call works
+      expect(addIt).to.throw(Error); // second call fails
+    });
+    it('cannot addCollector() if requirements aren\'t met', function () {
+      expect(function () {
+        statCollector.addCollector({
+          name: 'test',
+          requirements: ['aNamedCollectorThatDoesNotExist']
+        });
+      }).to.throw(Error);
+    });
+    it('addCollector() only accepts objects with a name', function () {
+      expect(function () {
+        statCollector.addCollector();
+      }).to.throw(Error);
+      expect(function () {
+        statCollector.addCollector('test');
+      }).to.throw(Error);
+      expect(function () {
+        statCollector.addCollector({});
+      }).to.throw(Error);
+      expect(function () {
+        statCollector.addCollector({onUpdate: function () {
+          return 42;
+        }});
+      }).to.throw(Error);
     });
   });
 };
