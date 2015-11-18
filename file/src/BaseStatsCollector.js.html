@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/BaseStatsCollector.js | Stats Collector API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="git://github.com/skratchdot/stats-collector.git">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/AdvancedStatsCollector.js~AdvancedStatsCollector.html">AdvancedStatsCollector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/BaseStatsCollector.js~BaseStatsCollector.html">BaseStatsCollector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/BasicStatsCollector.js~BasicStatsCollector.html">BasicStatsCollector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/StatsCollector.js~StatsCollector.html">StatsCollector</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collectors</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-count">count</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-filteredCount">filteredCount</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-max">max</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mean">mean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-min">min</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-powerSumAvg_running">powerSumAvg_running</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-standardDeviation_running">standardDeviation_running</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-standardDeviation_stable">standardDeviation_stable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sum">sum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sumOfSquaredDeviations_stable">sumOfSquaredDeviations_stable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-values">values</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-variance_running">variance_running</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-variance_stable">variance_stable</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">filters</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-even">even</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-float">float</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-integer">integer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-negative">negative</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-nonZero">nonZero</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-odd">odd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-positive">positive</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prime">prime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-zero">zero</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">helpers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-execMethod">execMethod</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-leastFactor">leastFactor</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/BaseStatsCollector.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import execMethod from &apos;./helpers/execMethod&apos;;
+
+/**
+ * A stat collector that initially includes no collector functions.
+ * @example
+ * const statsCollector = new BaseStatsCollector();
+ * statsCollector.addCollector({name: &apos;custom&apos;, onUpdate: fn});
+ * statsCollector.update([1, 2, 3, 4, 5]);
+ * statsCollector.get();
+ */
+export default class BaseStatsCollector {
+  constructor() {
+    this._collectors = [];
+    this._reset = true;
+    this._state = {};
+    this._ignore = [];
+  }
+  /**
+   * Add a collector function that can process data
+   * when update() or get() is called.
+   * @param {Object} collector An object with the following properties:
+   *   - **name** - [String] The name of the collector
+   *   - **initialValue** - [any] The initial value if update() has never been called
+   *   - **requirements** - [Array] An array of collector names that must be added before this collector
+   *   - **onUpdate** - [Function]
+   *   - **onGet** - [Function]
+   * @example
+   * const statCollector = new BaseStatsCollector();
+   * statCollector.addCollector({
+   *   name: &apos;test-sum&apos;,
+   *   initialValue: 0,
+   *   onUpdate: function (prev, state, val) { return prev + val; }
+   * });
+   * @return {undefined}
+   */
+  addCollector(collector) {
+    if (!this._reset) {
+      throw new Error(&apos;Cannot add a new collector unless you call reset() first&apos;);
+    }
+    if (typeof collector === &apos;object&apos; &amp;&amp; typeof collector.name === &apos;string&apos;) {
+      let reqIndex;
+      let requirements = collector.requirements;
+      if (!Array.isArray(requirements)) {
+        requirements = [];
+      }
+      this._collectors.forEach(function (currentCollector) {
+        if (currentCollector.name === collector.name) {
+          throw new Error(&apos;A collector with that name has already been added.&apos;);
+        }
+        reqIndex = requirements.indexOf(currentCollector.name);
+        if (reqIndex &gt;= 0) {
+          requirements.splice(reqIndex, 1);
+        }
+      });
+      if (requirements.length) {
+        throw new Error(`Did not meet the requirements: ${requirements}`);
+      }
+      this._collectors.push(collector);
+    } else {
+      throw new Error(&apos;Collector must be an object with a name&apos;);
+    }
+    this.reset();
+  }
+  addIgnore(name) {
+    if (this._ignore.indexOf(name) === -1) {
+      this._ignore.push(name);
+    }
+  }
+  get() {
+    const self = this;
+    const result = {};
+    if (!this._reset) {
+      execMethod(this, &apos;onGet&apos;);
+    }
+    Object.keys(this._state).sort().forEach(function (key) {
+      if (self._ignore.indexOf(key) === -1) {
+        let val = self._state[key];
+        if (val) {
+          val = JSON.parse(JSON.stringify(val));
+        }
+        result[key] = val;
+      }
+    });
+    return result;
+  }
+  update(...values) {
+    const self = this;
+    values.forEach(function (value) {
+      if (Array.isArray(value)) {
+        value.forEach(function (v) {
+          self.update(v);
+        });
+      } else {
+        const v = parseFloat(value);
+        if (Number.isFinite(v)) {
+          execMethod(self, &apos;onUpdate&apos;, v);
+        }
+      }
+    });
+  }
+  reset() {
+    const self = this;
+    this._state = {};
+    this._collectors.forEach(function (collector) {
+      self._state[collector.name] = undefined;
+    });
+    this._reset = true;
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.3)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
