@@ -4,15 +4,17 @@
   "coverage": false,
   "includeSource": true,
   "title": "Stats Collector",
-  "plugins": [
-    {
-      "name": "esdoc-importpath-plugin",
-      "option": {
-        "replaces": [
-          {"from": "^src/", "to": "lib/"},
-          {"from": ".js", "to": ""}
-        ]
-      }
+  "styles": ["./esdoc/style.css"],
+  "scripts": ["./esdoc/script.js"],
+  "plugins": [{
+    "name": "esdoc-importpath-plugin",
+    "option": {
+      "replaces": [
+        {"from": "^src/", "to": "lib/"},
+        {"from": ".js", "to": ""}
+      ]
     }
-  ]
+  }, {
+    "name": "./esdoc/plugin.js"
+  }]
 }

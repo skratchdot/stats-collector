@@ -28,8 +28,9 @@ gulp.task('gh-pages', function (next) {
     './node_modules/.bin/esdoc',
     '-c',
     './esdoc.json'
-  ].join(' '), { cwd: __dirname }, function (err, stdout) {
+  ].join(' '), { cwd: __dirname }, function (err, stdout, stderr) {
     console.log(stdout);
+    console.error(stderr);
     next();
   });
 });
