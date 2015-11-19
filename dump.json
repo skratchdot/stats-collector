@@ -331,7 +331,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import * as collectors from './helpers/collectors';\nimport BaseStatsCollector from './BaseStatsCollector';\n\n/**\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n * @class BasicStatsCollector\n * @extends BaseStatsCollector\n * @public\n * @example\n * const statsCollector = new BasicStatsCollector();\n * statsCollector.update([1, 2, 3, 4, 5]);\n * statsCollector.get();\n */\nexport default class BasicStatsCollector extends BaseStatsCollector {\n  constructor() {\n    super();\n    this.addCollector(collectors.count());\n    this.addCollector(collectors.sum());\n    this.addCollector(collectors.min());\n    this.addCollector(collectors.max());\n    this.addCollector(collectors.mean());\n  }\n}\n"
+    "content": "import * as collectors from './helpers/collectors';\nimport BaseStatsCollector from './BaseStatsCollector';\n\n/**\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n * @example\n * const statsCollector = new BasicStatsCollector();\n * statsCollector.update([1, 2, 3, 4, 5]);\n * statsCollector.get();\n */\nexport default class BasicStatsCollector extends BaseStatsCollector {\n  constructor() {\n    super();\n    this.addCollector(collectors.count());\n    this.addCollector(collectors.sum());\n    this.addCollector(collectors.min());\n    this.addCollector(collectors.max());\n    this.addCollector(collectors.mean());\n  }\n}\n"
   },
   {
     "__docId__": 18,
@@ -341,7 +341,7 @@
     "name": "BasicStatsCollector",
     "memberof": "src/BasicStatsCollector.js",
     "longname": "src/BasicStatsCollector.js~BasicStatsCollector",
-    "access": "public",
+    "access": null,
     "export": true,
     "importPath": "stats-collector/lib/BasicStatsCollector",
     "importStyle": "BasicStatsCollector",
@@ -349,16 +349,10 @@
     "examples": [
       "const statsCollector = new BasicStatsCollector();\nstatsCollector.update([1, 2, 3, 4, 5]);\nstatsCollector.get();"
     ],
-    "lineNumber": 19,
-    "unknown": [
-      {
-        "tagName": "@class",
-        "tagValue": "BasicStatsCollector"
-      }
-    ],
+    "lineNumber": 16,
     "interface": false,
     "extends": [
-      "*"
+      "src/BaseStatsCollector~BaseStatsCollector"
     ]
   },
   {
@@ -371,7 +365,7 @@
     "longname": "src/BasicStatsCollector.js~BasicStatsCollector#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 20,
+    "lineNumber": 17,
     "undocument": true,
     "params": [],
     "generator": false
