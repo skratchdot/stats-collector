@@ -1,740 +1,740 @@
 window.esdocSearchIndex = [
   [
-    "stats-collector/lib/advancedstatscollector~advancedstatscollector",
-    "class/src/AdvancedStatsCollector.js~AdvancedStatsCollector.html",
-    "<span>AdvancedStatsCollector</span> <span class=\"search-result-import-path\">stats-collector/lib/AdvancedStatsCollector</span>",
-    "class"
+    &quot;stats-collector/lib/advancedstatscollector~advancedstatscollector&quot;,
+    &quot;class/src/AdvancedStatsCollector.js~AdvancedStatsCollector.html&quot;,
+    &quot;<span>AdvancedStatsCollector</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/AdvancedStatsCollector</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "stats-collector/lib/basestatscollector~basestatscollector",
-    "class/src/BaseStatsCollector.js~BaseStatsCollector.html",
-    "<span>BaseStatsCollector</span> <span class=\"search-result-import-path\">stats-collector/lib/BaseStatsCollector</span>",
-    "class"
+    &quot;stats-collector/lib/basestatscollector~basestatscollector&quot;,
+    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html&quot;,
+    &quot;<span>BaseStatsCollector</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/BaseStatsCollector</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "stats-collector/lib/basicstatscollector~basicstatscollector",
-    "class/src/BasicStatsCollector.js~BasicStatsCollector.html",
-    "<span>BasicStatsCollector</span> <span class=\"search-result-import-path\">stats-collector/lib/BasicStatsCollector</span>",
-    "class"
+    &quot;stats-collector/lib/basicstatscollector~basicstatscollector&quot;,
+    &quot;class/src/BasicStatsCollector.js~BasicStatsCollector.html&quot;,
+    &quot;<span>BasicStatsCollector</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/BasicStatsCollector</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "stats-collector/lib/statscollector~statscollector",
-    "class/src/StatsCollector.js~StatsCollector.html",
-    "<span>StatsCollector</span> <span class=\"search-result-import-path\">stats-collector/lib/StatsCollector</span>",
-    "class"
+    &quot;stats-collector/lib/statscollector~statscollector&quot;,
+    &quot;class/src/StatsCollector.js~StatsCollector.html&quot;,
+    &quot;<span>StatsCollector</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/StatsCollector</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "stats-collector/lib/collectors/count~count",
-    "function/index.html#static-function-count",
-    "<span>count</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/count</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/count~count&quot;,
+    &quot;function/index.html#static-function-count&quot;,
+    &quot;<span>count</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/count</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/filters/even~even",
-    "function/index.html#static-function-even",
-    "<span>even</span> <span class=\"search-result-import-path\">stats-collector/lib/filters/even</span>",
-    "function"
+    &quot;stats-collector/lib/filters/even~even&quot;,
+    &quot;function/index.html#static-function-even&quot;,
+    &quot;<span>even</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/even</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/helpers/execmethod~execmethod",
-    "function/index.html#static-function-execMethod",
-    "<span>execMethod</span> <span class=\"search-result-import-path\">stats-collector/lib/helpers/execMethod</span>",
-    "function"
+    &quot;stats-collector/lib/helpers/execmethod~execmethod&quot;,
+    &quot;function/index.html#static-function-execMethod&quot;,
+    &quot;<span>execMethod</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/helpers/execMethod</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/filteredcount~filteredcount",
-    "function/index.html#static-function-filteredCount",
-    "<span>filteredCount</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/filteredCount</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/filteredcount~filteredcount&quot;,
+    &quot;function/index.html#static-function-filteredCount&quot;,
+    &quot;<span>filteredCount</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/filteredCount</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/filters/float~float",
-    "function/index.html#static-function-float",
-    "<span>float</span> <span class=\"search-result-import-path\">stats-collector/lib/filters/float</span>",
-    "function"
+    &quot;stats-collector/lib/filters/float~float&quot;,
+    &quot;function/index.html#static-function-float&quot;,
+    &quot;<span>float</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/float</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/filters/integer~integer",
-    "function/index.html#static-function-integer",
-    "<span>integer</span> <span class=\"search-result-import-path\">stats-collector/lib/filters/integer</span>",
-    "function"
+    &quot;stats-collector/lib/filters/integer~integer&quot;,
+    &quot;function/index.html#static-function-integer&quot;,
+    &quot;<span>integer</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/integer</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/helpers/leastfactor~leastfactor",
-    "function/index.html#static-function-leastFactor",
-    "<span>leastFactor</span> <span class=\"search-result-import-path\">stats-collector/lib/helpers/leastFactor</span>",
-    "function"
+    &quot;stats-collector/lib/helpers/leastfactor~leastfactor&quot;,
+    &quot;function/index.html#static-function-leastFactor&quot;,
+    &quot;<span>leastFactor</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/helpers/leastFactor</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/max~max",
-    "function/index.html#static-function-max",
-    "<span>max</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/max</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/max~max&quot;,
+    &quot;function/index.html#static-function-max&quot;,
+    &quot;<span>max</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/max</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/mean~mean",
-    "function/index.html#static-function-mean",
-    "<span>mean</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/mean</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/mean~mean&quot;,
+    &quot;function/index.html#static-function-mean&quot;,
+    &quot;<span>mean</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/mean</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/min~min",
-    "function/index.html#static-function-min",
-    "<span>min</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/min</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/min~min&quot;,
+    &quot;function/index.html#static-function-min&quot;,
+    &quot;<span>min</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/min</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/filters/negative~negative",
-    "function/index.html#static-function-negative",
-    "<span>negative</span> <span class=\"search-result-import-path\">stats-collector/lib/filters/negative</span>",
-    "function"
+    &quot;stats-collector/lib/filters/negative~negative&quot;,
+    &quot;function/index.html#static-function-negative&quot;,
+    &quot;<span>negative</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/negative</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/filters/nonzero~nonzero",
-    "function/index.html#static-function-nonZero",
-    "<span>nonZero</span> <span class=\"search-result-import-path\">stats-collector/lib/filters/nonZero</span>",
-    "function"
+    &quot;stats-collector/lib/filters/nonzero~nonzero&quot;,
+    &quot;function/index.html#static-function-nonZero&quot;,
+    &quot;<span>nonZero</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/nonZero</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/filters/odd~odd",
-    "function/index.html#static-function-odd",
-    "<span>odd</span> <span class=\"search-result-import-path\">stats-collector/lib/filters/odd</span>",
-    "function"
+    &quot;stats-collector/lib/filters/odd~odd&quot;,
+    &quot;function/index.html#static-function-odd&quot;,
+    &quot;<span>odd</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/odd</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/filters/positive~positive",
-    "function/index.html#static-function-positive",
-    "<span>positive</span> <span class=\"search-result-import-path\">stats-collector/lib/filters/positive</span>",
-    "function"
+    &quot;stats-collector/lib/filters/positive~positive&quot;,
+    &quot;function/index.html#static-function-positive&quot;,
+    &quot;<span>positive</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/positive</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/powersumavg_running~powersumavg_running",
-    "function/index.html#static-function-powerSumAvg_running",
-    "<span>powerSumAvg_running</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/powerSumAvg_running</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/powersumavg_running~powersumavg_running&quot;,
+    &quot;function/index.html#static-function-powerSumAvg_running&quot;,
+    &quot;<span>powerSumAvg_running</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/powerSumAvg_running</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/filters/prime~prime",
-    "function/index.html#static-function-prime",
-    "<span>prime</span> <span class=\"search-result-import-path\">stats-collector/lib/filters/prime</span>",
-    "function"
+    &quot;stats-collector/lib/filters/prime~prime&quot;,
+    &quot;function/index.html#static-function-prime&quot;,
+    &quot;<span>prime</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/prime</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/standarddeviation_running~standarddeviation_running",
-    "function/index.html#static-function-standardDeviation_running",
-    "<span>standardDeviation_running</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/standardDeviation_running</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/standarddeviation_running~standarddeviation_running&quot;,
+    &quot;function/index.html#static-function-standardDeviation_running&quot;,
+    &quot;<span>standardDeviation_running</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/standardDeviation_running</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/standarddeviation_stable~standarddeviation_stable",
-    "function/index.html#static-function-standardDeviation_stable",
-    "<span>standardDeviation_stable</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/standardDeviation_stable</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/standarddeviation_stable~standarddeviation_stable&quot;,
+    &quot;function/index.html#static-function-standardDeviation_stable&quot;,
+    &quot;<span>standardDeviation_stable</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/standardDeviation_stable</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/sum~sum",
-    "function/index.html#static-function-sum",
-    "<span>sum</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/sum</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/sum~sum&quot;,
+    &quot;function/index.html#static-function-sum&quot;,
+    &quot;<span>sum</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/sum</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/sumofsquareddeviations_stable~sumofsquareddeviations_stable",
-    "function/index.html#static-function-sumOfSquaredDeviations_stable",
-    "<span>sumOfSquaredDeviations_stable</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/sumOfSquaredDeviations_stable</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/sumofsquareddeviations_stable~sumofsquareddeviations_stable&quot;,
+    &quot;function/index.html#static-function-sumOfSquaredDeviations_stable&quot;,
+    &quot;<span>sumOfSquaredDeviations_stable</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/sumOfSquaredDeviations_stable</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/values~values",
-    "function/index.html#static-function-values",
-    "<span>values</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/values</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/values~values&quot;,
+    &quot;function/index.html#static-function-values&quot;,
+    &quot;<span>values</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/values</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/variance_running~variance_running",
-    "function/index.html#static-function-variance_running",
-    "<span>variance_running</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/variance_running</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/variance_running~variance_running&quot;,
+    &quot;function/index.html#static-function-variance_running&quot;,
+    &quot;<span>variance_running</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/variance_running</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/collectors/variance_stable~variance_stable",
-    "function/index.html#static-function-variance_stable",
-    "<span>variance_stable</span> <span class=\"search-result-import-path\">stats-collector/lib/collectors/variance_stable</span>",
-    "function"
+    &quot;stats-collector/lib/collectors/variance_stable~variance_stable&quot;,
+    &quot;function/index.html#static-function-variance_stable&quot;,
+    &quot;<span>variance_stable</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/variance_stable</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "stats-collector/lib/filters/zero~zero",
-    "function/index.html#static-function-zero",
-    "<span>zero</span> <span class=\"search-result-import-path\">stats-collector/lib/filters/zero</span>",
-    "function"
+    &quot;stats-collector/lib/filters/zero~zero&quot;,
+    &quot;function/index.html#static-function-zero&quot;,
+    &quot;<span>zero</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/zero</span>&quot;,
+    &quot;function&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~arraybuffer",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~arraybuffer&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~boolean",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Boolean",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~boolean&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Boolean&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~dataview",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~DataView",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~dataview&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~DataView&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~date",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Date",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~date&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Date&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~error",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Error",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~error&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Error&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~evalerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~EvalError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~evalerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~EvalError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~float32array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~float32array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Float32Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~float64array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~float64array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Float64Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~function",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Function",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~function&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Function&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~generator",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Generator",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~generator&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Generator&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~generatorfunction",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~generatorfunction&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~infinity",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Infinity",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~infinity&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Infinity&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~int16array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~int16array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Int16Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~int32array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~int32array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Int32Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~int8array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~int8array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Int8Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~internalerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~InternalError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~internalerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~InternalError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~json",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~JSON",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~json&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~JSON&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~map",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Map",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~map&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Map&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~nan",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~NaN",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~nan&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~NaN&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~number",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Number",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~number&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Number&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~object",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Object",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~object&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Object&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~promise",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Promise",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~promise&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Promise&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~proxy",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Proxy",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~proxy&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Proxy&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~rangeerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~RangeError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~rangeerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~RangeError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~referenceerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~referenceerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~ReferenceError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~reflect",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Reflect",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~reflect&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Reflect&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~regexp",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~RegExp",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~regexp&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~RegExp&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~set",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Set",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~set&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Set&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~string",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~String",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~string&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~String&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~symbol",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Symbol",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~symbol&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Symbol&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~syntaxerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~syntaxerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~SyntaxError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~typeerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~TypeError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~typeerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~TypeError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~urierror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~URIError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~urierror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~URIError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~uint16array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~uint16array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Uint16Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~uint32array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~uint32array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Uint32Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~uint8array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~uint8array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Uint8Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~uint8clampedarray",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~uint8clampedarray&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~weakmap",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~weakmap&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~WeakMap&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~weakset",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~weakset&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~WeakSet&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~boolean",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~boolean",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~boolean&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~boolean&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~function",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~function",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~function&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~function&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~null",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~null",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~null&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~null&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~number",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~number",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~number&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~number&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~object",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~object",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~object&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~object&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~string",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~string",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~string&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~string&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~undefined",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~undefined",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~undefined&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~undefined&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~audiocontext",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~AudioContext",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~audiocontext&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~AudioContext&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~canvasrenderingcontext2d",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~canvasrenderingcontext2d&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~documentfragment",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~documentfragment&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~DocumentFragment&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~element",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~Element",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~element&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~Element&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~event",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~Event",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~event&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~Event&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~node",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~Node",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~node&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~Node&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~nodelist",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~NodeList",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~nodelist&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~NodeList&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~xmlhttprequest",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~xmlhttprequest&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~XMLHttpRequest&quot;,
+    &quot;external&quot;
   ],
   [
-    "src/advancedstatscollector.js",
-    "file/src/AdvancedStatsCollector.js.html",
-    "src/AdvancedStatsCollector.js",
-    "file"
+    &quot;src/advancedstatscollector.js&quot;,
+    &quot;file/src/AdvancedStatsCollector.js.html&quot;,
+    &quot;src/AdvancedStatsCollector.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/advancedstatscollector.js~advancedstatscollector#constructor",
-    "class/src/AdvancedStatsCollector.js~AdvancedStatsCollector.html#instance-constructor-constructor",
-    "src/AdvancedStatsCollector.js~AdvancedStatsCollector#constructor",
-    "method"
+    &quot;src/advancedstatscollector.js~advancedstatscollector#constructor&quot;,
+    &quot;class/src/AdvancedStatsCollector.js~AdvancedStatsCollector.html#instance-constructor-constructor&quot;,
+    &quot;src/AdvancedStatsCollector.js~AdvancedStatsCollector#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "src/basestatscollector.js",
-    "file/src/BaseStatsCollector.js.html",
-    "src/BaseStatsCollector.js",
-    "file"
+    &quot;src/basestatscollector.js&quot;,
+    &quot;file/src/BaseStatsCollector.js.html&quot;,
+    &quot;src/BaseStatsCollector.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/basestatscollector.js~basestatscollector#addcollector",
-    "class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-addCollector",
-    "src/BaseStatsCollector.js~BaseStatsCollector#addCollector",
-    "method"
+    &quot;src/basestatscollector.js~basestatscollector#addcollector&quot;,
+    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-addCollector&quot;,
+    &quot;src/BaseStatsCollector.js~BaseStatsCollector#addCollector&quot;,
+    &quot;method&quot;
   ],
   [
-    "src/basestatscollector.js~basestatscollector#addignore",
-    "class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-addIgnore",
-    "src/BaseStatsCollector.js~BaseStatsCollector#addIgnore",
-    "method"
+    &quot;src/basestatscollector.js~basestatscollector#addignore&quot;,
+    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-addIgnore&quot;,
+    &quot;src/BaseStatsCollector.js~BaseStatsCollector#addIgnore&quot;,
+    &quot;method&quot;
   ],
   [
-    "src/basestatscollector.js~basestatscollector#constructor",
-    "class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-constructor-constructor",
-    "src/BaseStatsCollector.js~BaseStatsCollector#constructor",
-    "method"
+    &quot;src/basestatscollector.js~basestatscollector#constructor&quot;,
+    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-constructor-constructor&quot;,
+    &quot;src/BaseStatsCollector.js~BaseStatsCollector#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "src/basestatscollector.js~basestatscollector#get",
-    "class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-get",
-    "src/BaseStatsCollector.js~BaseStatsCollector#get",
-    "method"
+    &quot;src/basestatscollector.js~basestatscollector#get&quot;,
+    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-get&quot;,
+    &quot;src/BaseStatsCollector.js~BaseStatsCollector#get&quot;,
+    &quot;method&quot;
   ],
   [
-    "src/basestatscollector.js~basestatscollector#reset",
-    "class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-reset",
-    "src/BaseStatsCollector.js~BaseStatsCollector#reset",
-    "method"
+    &quot;src/basestatscollector.js~basestatscollector#reset&quot;,
+    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-reset&quot;,
+    &quot;src/BaseStatsCollector.js~BaseStatsCollector#reset&quot;,
+    &quot;method&quot;
   ],
   [
-    "src/basestatscollector.js~basestatscollector#update",
-    "class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-update",
-    "src/BaseStatsCollector.js~BaseStatsCollector#update",
-    "method"
+    &quot;src/basestatscollector.js~basestatscollector#update&quot;,
+    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-update&quot;,
+    &quot;src/BaseStatsCollector.js~BaseStatsCollector#update&quot;,
+    &quot;method&quot;
   ],
   [
-    "src/basicstatscollector.js",
-    "file/src/BasicStatsCollector.js.html",
-    "src/BasicStatsCollector.js",
-    "file"
+    &quot;src/basicstatscollector.js&quot;,
+    &quot;file/src/BasicStatsCollector.js.html&quot;,
+    &quot;src/BasicStatsCollector.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/basicstatscollector.js~basicstatscollector#constructor",
-    "class/src/BasicStatsCollector.js~BasicStatsCollector.html#instance-constructor-constructor",
-    "src/BasicStatsCollector.js~BasicStatsCollector#constructor",
-    "method"
+    &quot;src/basicstatscollector.js~basicstatscollector#constructor&quot;,
+    &quot;class/src/BasicStatsCollector.js~BasicStatsCollector.html#instance-constructor-constructor&quot;,
+    &quot;src/BasicStatsCollector.js~BasicStatsCollector#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "src/statscollector.js",
-    "file/src/StatsCollector.js.html",
-    "src/StatsCollector.js",
-    "file"
+    &quot;src/statscollector.js&quot;,
+    &quot;file/src/StatsCollector.js.html&quot;,
+    &quot;src/StatsCollector.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/statscollector.js~statscollector#constructor",
-    "class/src/StatsCollector.js~StatsCollector.html#instance-constructor-constructor",
-    "src/StatsCollector.js~StatsCollector#constructor",
-    "method"
+    &quot;src/statscollector.js~statscollector#constructor&quot;,
+    &quot;class/src/StatsCollector.js~StatsCollector.html#instance-constructor-constructor&quot;,
+    &quot;src/StatsCollector.js~StatsCollector#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "src/collectors/count.js",
-    "file/src/collectors/count.js.html",
-    "src/collectors/count.js",
-    "file"
+    &quot;src/collectors/count.js&quot;,
+    &quot;file/src/collectors/count.js.html&quot;,
+    &quot;src/collectors/count.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/filteredcount.js",
-    "file/src/collectors/filteredCount.js.html",
-    "src/collectors/filteredCount.js",
-    "file"
+    &quot;src/collectors/filteredcount.js&quot;,
+    &quot;file/src/collectors/filteredCount.js.html&quot;,
+    &quot;src/collectors/filteredCount.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/max.js",
-    "file/src/collectors/max.js.html",
-    "src/collectors/max.js",
-    "file"
+    &quot;src/collectors/max.js&quot;,
+    &quot;file/src/collectors/max.js.html&quot;,
+    &quot;src/collectors/max.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/mean.js",
-    "file/src/collectors/mean.js.html",
-    "src/collectors/mean.js",
-    "file"
+    &quot;src/collectors/mean.js&quot;,
+    &quot;file/src/collectors/mean.js.html&quot;,
+    &quot;src/collectors/mean.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/min.js",
-    "file/src/collectors/min.js.html",
-    "src/collectors/min.js",
-    "file"
+    &quot;src/collectors/min.js&quot;,
+    &quot;file/src/collectors/min.js.html&quot;,
+    &quot;src/collectors/min.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/powersumavg_running.js",
-    "file/src/collectors/powerSumAvg_running.js.html",
-    "src/collectors/powerSumAvg_running.js",
-    "file"
+    &quot;src/collectors/powersumavg_running.js&quot;,
+    &quot;file/src/collectors/powerSumAvg_running.js.html&quot;,
+    &quot;src/collectors/powerSumAvg_running.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/standarddeviation_running.js",
-    "file/src/collectors/standardDeviation_running.js.html",
-    "src/collectors/standardDeviation_running.js",
-    "file"
+    &quot;src/collectors/standarddeviation_running.js&quot;,
+    &quot;file/src/collectors/standardDeviation_running.js.html&quot;,
+    &quot;src/collectors/standardDeviation_running.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/standarddeviation_stable.js",
-    "file/src/collectors/standardDeviation_stable.js.html",
-    "src/collectors/standardDeviation_stable.js",
-    "file"
+    &quot;src/collectors/standarddeviation_stable.js&quot;,
+    &quot;file/src/collectors/standardDeviation_stable.js.html&quot;,
+    &quot;src/collectors/standardDeviation_stable.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/sum.js",
-    "file/src/collectors/sum.js.html",
-    "src/collectors/sum.js",
-    "file"
+    &quot;src/collectors/sum.js&quot;,
+    &quot;file/src/collectors/sum.js.html&quot;,
+    &quot;src/collectors/sum.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/sumofsquareddeviations_stable.js",
-    "file/src/collectors/sumOfSquaredDeviations_stable.js.html",
-    "src/collectors/sumOfSquaredDeviations_stable.js",
-    "file"
+    &quot;src/collectors/sumofsquareddeviations_stable.js&quot;,
+    &quot;file/src/collectors/sumOfSquaredDeviations_stable.js.html&quot;,
+    &quot;src/collectors/sumOfSquaredDeviations_stable.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/values.js",
-    "file/src/collectors/values.js.html",
-    "src/collectors/values.js",
-    "file"
+    &quot;src/collectors/values.js&quot;,
+    &quot;file/src/collectors/values.js.html&quot;,
+    &quot;src/collectors/values.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/variance_running.js",
-    "file/src/collectors/variance_running.js.html",
-    "src/collectors/variance_running.js",
-    "file"
+    &quot;src/collectors/variance_running.js&quot;,
+    &quot;file/src/collectors/variance_running.js.html&quot;,
+    &quot;src/collectors/variance_running.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/collectors/variance_stable.js",
-    "file/src/collectors/variance_stable.js.html",
-    "src/collectors/variance_stable.js",
-    "file"
+    &quot;src/collectors/variance_stable.js&quot;,
+    &quot;file/src/collectors/variance_stable.js.html&quot;,
+    &quot;src/collectors/variance_stable.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/filters/even.js",
-    "file/src/filters/even.js.html",
-    "src/filters/even.js",
-    "file"
+    &quot;src/filters/even.js&quot;,
+    &quot;file/src/filters/even.js.html&quot;,
+    &quot;src/filters/even.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/filters/float.js",
-    "file/src/filters/float.js.html",
-    "src/filters/float.js",
-    "file"
+    &quot;src/filters/float.js&quot;,
+    &quot;file/src/filters/float.js.html&quot;,
+    &quot;src/filters/float.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/filters/integer.js",
-    "file/src/filters/integer.js.html",
-    "src/filters/integer.js",
-    "file"
+    &quot;src/filters/integer.js&quot;,
+    &quot;file/src/filters/integer.js.html&quot;,
+    &quot;src/filters/integer.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/filters/negative.js",
-    "file/src/filters/negative.js.html",
-    "src/filters/negative.js",
-    "file"
+    &quot;src/filters/negative.js&quot;,
+    &quot;file/src/filters/negative.js.html&quot;,
+    &quot;src/filters/negative.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/filters/nonzero.js",
-    "file/src/filters/nonZero.js.html",
-    "src/filters/nonZero.js",
-    "file"
+    &quot;src/filters/nonzero.js&quot;,
+    &quot;file/src/filters/nonZero.js.html&quot;,
+    &quot;src/filters/nonZero.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/filters/odd.js",
-    "file/src/filters/odd.js.html",
-    "src/filters/odd.js",
-    "file"
+    &quot;src/filters/odd.js&quot;,
+    &quot;file/src/filters/odd.js.html&quot;,
+    &quot;src/filters/odd.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/filters/positive.js",
-    "file/src/filters/positive.js.html",
-    "src/filters/positive.js",
-    "file"
+    &quot;src/filters/positive.js&quot;,
+    &quot;file/src/filters/positive.js.html&quot;,
+    &quot;src/filters/positive.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/filters/prime.js",
-    "file/src/filters/prime.js.html",
-    "src/filters/prime.js",
-    "file"
+    &quot;src/filters/prime.js&quot;,
+    &quot;file/src/filters/prime.js.html&quot;,
+    &quot;src/filters/prime.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/filters/zero.js",
-    "file/src/filters/zero.js.html",
-    "src/filters/zero.js",
-    "file"
+    &quot;src/filters/zero.js&quot;,
+    &quot;file/src/filters/zero.js.html&quot;,
+    &quot;src/filters/zero.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/helpers/collectors.js",
-    "file/src/helpers/collectors.js.html",
-    "src/helpers/collectors.js",
-    "file"
+    &quot;src/helpers/collectors.js&quot;,
+    &quot;file/src/helpers/collectors.js.html&quot;,
+    &quot;src/helpers/collectors.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/helpers/execmethod.js",
-    "file/src/helpers/execMethod.js.html",
-    "src/helpers/execMethod.js",
-    "file"
+    &quot;src/helpers/execmethod.js&quot;,
+    &quot;file/src/helpers/execMethod.js.html&quot;,
+    &quot;src/helpers/execMethod.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/helpers/filters.js",
-    "file/src/helpers/filters.js.html",
-    "src/helpers/filters.js",
-    "file"
+    &quot;src/helpers/filters.js&quot;,
+    &quot;file/src/helpers/filters.js.html&quot;,
+    &quot;src/helpers/filters.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/helpers/leastfactor.js",
-    "file/src/helpers/leastFactor.js.html",
-    "src/helpers/leastFactor.js",
-    "file"
+    &quot;src/helpers/leastfactor.js&quot;,
+    &quot;file/src/helpers/leastFactor.js.html&quot;,
+    &quot;src/helpers/leastFactor.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "src/index.js",
-    "file/src/index.js.html",
-    "src/index.js",
-    "file"
+    &quot;src/index.js&quot;,
+    &quot;file/src/index.js.html&quot;,
+    &quot;src/index.js&quot;,
+    &quot;file&quot;
   ]
 ]
