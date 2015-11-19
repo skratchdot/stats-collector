@@ -105,18 +105,50 @@ const collectors = lib.collectors; // some collector functions
 const filters = lib.filters; // some filter functions
 console.log(c1.get(), c2.get(), c3.get(), c4.get(), collectors, filters);</code>
 </code></pre>
+<h3 id="example-output">Example Output</h3>
+<p>The following table shows you the results of initializing a
+stats collector, then running the following statments:</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">statsCollector.update([1, 2, 3, 4, 5]);
+const results = statsCollector.get();</code>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Collector Type</th>
+<th>Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BaseStatsCollector</td>
+<td>{}</td>
+</tr>
+<tr>
+<td>BasicStatsCollector</td>
+<td>{<br>&#xA0;&quot;count&quot;: 5,<br>&#xA0;&quot;max&quot;: 5,<br>&#xA0;&quot;mean&quot;: 3,<br>&#xA0;&quot;min&quot;: 1,<br>&#xA0;&quot;sum&quot;: 15<br>}</td>
+</tr>
+<tr>
+<td>StatsCollector</td>
+<td>{<br>&#xA0;&quot;count&quot;: 5,<br>&#xA0;&quot;max&quot;: 5,<br>&#xA0;&quot;mean&quot;: 3,<br>&#xA0;&quot;min&quot;: 1,<br>&#xA0;&quot;powerSumAvg_running&quot;: 11,<br>&#xA0;&quot;standardDeviation_running&quot;: 1.5811388300841898,<br>&#xA0;&quot;sum&quot;: 15,<br>&#xA0;&quot;variance_running&quot;: 2.5<br>}</td>
+</tr>
+<tr>
+<td>AdvancedStatsCollector</td>
+<td>{<br>&#xA0;&quot;count&quot;: 5,<br>&#xA0;&quot;count_even&quot;: 2,<br>&#xA0;&quot;count_float&quot;: 0,<br>&#xA0;&quot;count_integer&quot;: 5,<br>&#xA0;&quot;count_negative&quot;: 0,<br>&#xA0;&quot;count_nonZero&quot;: 5,<br>&#xA0;&quot;count_odd&quot;: 3,<br>&#xA0;&quot;count_positive&quot;: 5,<br>&#xA0;&quot;count_prime&quot;: 3,<br>&#xA0;&quot;count_zero&quot;: 0,<br>&#xA0;&quot;max&quot;: 5,<br>&#xA0;&quot;mean&quot;: 3,<br>&#xA0;&quot;min&quot;: 1,<br>&#xA0;&quot;powerSumAvg_running&quot;: 11,<br>&#xA0;&quot;standardDeviation_running&quot;: 1.5811388300841898,<br>&#xA0;&quot;standardDeviation_stable&quot;: 1.5811388300841898,<br>&#xA0;&quot;sum&quot;: 15,<br>&#xA0;&quot;sumOfSquaredDeviations_stable&quot;: 10,<br>&#xA0;&quot;variance_running&quot;: 2.5,<br>&#xA0;&quot;variance_stable&quot;: 2.5<br>}</td>
+</tr>
+</tbody>
+</table>
 <h3 id="api-documentation">API Documentation</h3>
 <p>Read the <a href="http://projects.skratchdot.com/stats-collector/">API Docs</a>
-by using this link:</p>
+by visiting the project site here:</p>
 <ul>
 <li><a href="http://projects.skratchdot.com/stats-collector/">http://projects.skratchdot.com/stats-collector/</a></li>
 </ul>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="https://www.npmjs.com/package/stats-incremental">https://www.npmjs.com/package/stats-incremental</a></li>
-<li><a href="https://www.npmjs.com/package/stats-lite">https://www.npmjs.com/package/stats-lite</a></li>
-<li><a href="https://www.npmjs.com/package/stats-percentile">https://www.npmjs.com/package/stats-percentile</a></li>
-<li><a href="https://www.npmjs.com/package/stream-statistics">https://www.npmjs.com/package/stream-statistics</a></li>
+<li><a href="https://www.npmjs.com/package/stats-incremental">stats-incremental</a></li>
+<li><a href="https://www.npmjs.com/package/stats-lite">stats-lite</a></li>
+<li><a href="https://www.npmjs.com/package/stats-percentile">stats-percentile</a></li>
+<li><a href="https://www.npmjs.com/package/stream-statistics">stream-statistics</a></li>
 </ul>
 <h2 id="license">License</h2>
 <p>Copyright (c) 2015 <a href="http://skratchdot.com/">skratchdot</a><br>Licensed under the MIT license.</p>

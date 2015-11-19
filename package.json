@@ -1,6 +1,6 @@
 {
   "name": "stats-collector",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "collect stats about numbers",
   "main": "lib/index.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "url": "https://github.com/skratchdot/stats-collector/issues"
   },
   "license": "MIT",
+  "tonicExampleFilename": ".tonic.example.js",
   "devDependencies": {
     "babel-core": "^6.1.21",
     "babel-eslint": "^4.1.5",
