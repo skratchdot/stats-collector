@@ -57,20 +57,38 @@ const filters = lib.filters; // some filter functions
 console.log(c1.get(), c2.get(), c3.get(), c4.get(), collectors, filters);
 ```
 
+### Example Output
+
+The following table shows you the results of initializing a
+stats collector, then running the following statments:
+
+```javascript
+statsCollector.update([1, 2, 3, 4, 5]);
+const results = statsCollector.get();
+```
+
+|Collector Type|Results|
+|--------------|-------|
+|BaseStatsCollector|{}|
+|BasicStatsCollector|{<br />&nbsp;"count": 5,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"sum": 15<br />}|
+|StatsCollector|{<br />&nbsp;"count": 5,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvg_running": 11,<br />&nbsp;"standardDeviation_running": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"variance_running": 2.5<br />}|
+|AdvancedStatsCollector|{<br />&nbsp;"count": 5,<br />&nbsp;"count_even": 2,<br />&nbsp;"count_float": 0,<br />&nbsp;"count_integer": 5,<br />&nbsp;"count_negative": 0,<br />&nbsp;"count_nonZero": 5,<br />&nbsp;"count_odd": 3,<br />&nbsp;"count_positive": 5,<br />&nbsp;"count_prime": 3,<br />&nbsp;"count_zero": 0,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvg_running": 11,<br />&nbsp;"standardDeviation_running": 1.5811388300841898,<br />&nbsp;"standardDeviation_stable": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"sumOfSquaredDeviations_stable": 10,<br />&nbsp;"variance_running": 2.5,<br />&nbsp;"variance_stable": 2.5<br />}|
+
+
 ### API Documentation
 
 Read the [API Docs](http://projects.skratchdot.com/stats-collector/)
-by using this link:
+by visiting the project site here:
 
-- http://projects.skratchdot.com/stats-collector/
+- [http://projects.skratchdot.com/stats-collector/](http://projects.skratchdot.com/stats-collector/)
 
 
 ## See Also
 
-- https://www.npmjs.com/package/stats-incremental
-- https://www.npmjs.com/package/stats-lite
-- https://www.npmjs.com/package/stats-percentile
-- https://www.npmjs.com/package/stream-statistics
+- [stats-incremental](https://www.npmjs.com/package/stats-incremental)
+- [stats-lite](https://www.npmjs.com/package/stats-lite)
+- [stats-percentile](https://www.npmjs.com/package/stats-percentile)
+- [stream-statistics](https://www.npmjs.com/package/stream-statistics)
 
 
 ## License

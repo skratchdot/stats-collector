@@ -23,6 +23,17 @@ gulp.task('clean', function () {
     .pipe(rimraf());
 });
 
+gulp.task('readme', function (next) {
+  childProcess.exec([
+    'node',
+    './scripts/readme.examples.js'
+  ].join(' '), {}, function (err, stdout, stderr) {
+    console.log(stdout);
+    console.error(stderr);
+    next();
+  });
+});
+
 gulp.task('gh-pages', function (next) {
   childProcess.exec([
     './node_modules/.bin/esdoc',
