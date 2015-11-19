@@ -1,0 +1,4 @@
+- make CLI
+- prevent multiple calls to get() from changing state
+- update documentation
+- add tonic to documentation
