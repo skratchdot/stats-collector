@@ -120,6 +120,14 @@ const testCommon = function (numCollectors) {
         }});
       }).to.throw(Error);
     });
+    it('should allow multiple calls to get() without changing results', function () {
+      for (let i = -100; i < 100; i++) {
+        statsCollector.update(i);
+      }
+      const results1 = statsCollector.get();
+      const results2 = statsCollector.get();
+      expect(results1).to.deep.equal(results2);
+    });
   });
 };
 
