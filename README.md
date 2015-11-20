@@ -85,10 +85,18 @@ by visiting the project site here:
 
 ## See Also
 
+- [covariance](https://www.npmjs.com/package/covariance)
+- [diversity](https://www.npmjs.com/package/diversity)
+- [ezstats](https://www.npmjs.com/package/ezstats)
+- [gauss](https://www.npmjs.com/package/gauss)
+- [math-statistics](https://www.npmjs.com/package/math-statistics)
+- [stats-analysis](https://www.npmjs.com/package/stats-analysis)
 - [stats-incremental](https://www.npmjs.com/package/stats-incremental)
 - [stats-lite](https://www.npmjs.com/package/stats-lite)
 - [stats-percentile](https://www.npmjs.com/package/stats-percentile)
 - [stream-statistics](https://www.npmjs.com/package/stream-statistics)
+- [summary-statistics](https://www.npmjs.com/package/summary-statistics)
+- [very-simple-statistics](https://www.npmjs.com/package/very-simple-statistics)
 
 
 ## License
