@@ -33,6 +33,7 @@ h1, h2 {
   text-decoration: underline;
   text-decoration-color: #999;
   text-decoration-style: double;
+  text-shadow: 2px 2px 4px gray;
 }
 
 .layout-container > header a:first-child {
