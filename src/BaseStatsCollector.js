@@ -14,6 +14,7 @@ export default class BaseStatsCollector {
     this._reset = true;
     this._state = {};
     this._ignore = [];
+    this._filters = [];
   }
   /**
    * Add a collector function that can process data
@@ -61,6 +62,12 @@ export default class BaseStatsCollector {
     }
     this.reset();
   }
+  addFilter(filter) {
+    if (typeof filter !== 'function') {
+      throw new Error('Filter must be a function.');
+    }
+    this._filters.push(filter);
+  }
   addIgnore(name) {
     if (this._ignore.indexOf(name) === -1) {
       this._ignore.push(name);
@@ -92,6 +99,11 @@ export default class BaseStatsCollector {
         });
       } else {
         const v = parseFloat(value);
+        for (let i = 0; i < self._filters.length; i++) {
+          if (!self._filters[i](v)) {
+            return;
+          }
+        }
         if (Number.isFinite(v)) {
           execMethod(self, 'onUpdate', v);
         }

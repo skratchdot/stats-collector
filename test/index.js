@@ -120,6 +120,25 @@ const testCommon = function (numCollectors) {
         }});
       }).to.throw(Error);
     });
+    it('addFilter() only accepts functions', function () {
+      expect(function () {
+        statsCollector.addFilter();
+      }).to.throw(Error);
+      expect(function () {
+        statsCollector.addFilter(null);
+      }).to.throw(Error);
+      expect(function () {
+        statsCollector.addFilter({});
+      }).to.throw(Error);
+      expect(function () {
+        statsCollector.addFilter([]);
+      }).to.throw(Error);
+      expect(function () {
+        statsCollector.addFilter(function () {
+          return true;
+        });
+      }).to.not.throw(Error);
+    });
     it('should allow multiple calls to get() without changing results', function () {
       for (let i = -100; i < 100; i++) {
         statsCollector.update(i);

@@ -4,5 +4,5 @@
  * @return {Boolean} true if value is even, false otherwise
  */
 export default function (value) {
-  return value % 2 === 0;
+  return Math.abs(value) % 2 === 0;
 }

@@ -4,5 +4,5 @@
  * @return {Boolean} true if value is odd, false otherwise
  */
 export default function (value) {
-  return value % 2 === 1;
+  return Math.abs(value) % 2 === 1;
 }
