@@ -3,6 +3,9 @@
   "version": "0.0.4",
   "description": "collect stats about numbers",
   "main": "lib/index.js",
+  "bin": {
+    "stats-collector": "./scripts/cli.js"
+  },
   "scripts": {
     "prepublish": "gulp build",
     "test": "gulp test"
@@ -48,5 +51,8 @@
     "number",
     "numbers",
     "floats"
-  ]
+  ],
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
 }

@@ -13,6 +13,7 @@ const rimraf = require('gulp-rimraf');
 const sourcemaps = require('gulp-sourcemaps');
 const files = {
   build: ['./src/**/*.js'],
+  cover: ['./src/**/*.js', '!./src/cli.js'],
   clean: ['./lib'],
   lint: ['./src/**/*.js', './test/**/*.js', './gulpfile.js'],
   test: ['./test/**/*.js']
@@ -85,7 +86,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('test', function () {
-  return gulp.src(files.build)
+  return gulp.src(files.cover)
     .pipe(istanbul({
       instrumenter: isparta.Instrumenter,
       includeUntested: true
@@ -124,3 +125,8 @@ gulp.task('watch', function () {
 gulp.task('build', ['build-helpers', 'lint', 'transpile', 'test']);
 gulp.task('build-clean', ['clean', 'build']);
 gulp.task('default', ['build', 'watch']);
+
+// handle errors
+process.on('uncaughtException', function (e) {
+	console.error(e);
+});
