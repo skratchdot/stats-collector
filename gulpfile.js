@@ -94,7 +94,7 @@ gulp.task('test', function () {
     // Force `require` to return covered files
     .pipe(istanbul.hookRequire())
     .on('finish', function () {
-      gulp.src(files.test, {read: false})
+      return gulp.src(files.test, {read: false})
         // gulp-mocha needs filepaths so you can't have any plugins before it
         .pipe(mocha({
           reporter: 'spec'

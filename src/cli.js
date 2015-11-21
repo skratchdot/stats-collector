@@ -22,10 +22,11 @@ process.on('uncaughtException', function (e) {
 
 program
   .version(`${packageInfo.name} version ${packageInfo.version}`, '-v, --version')
-  .usage('[options] <values ...>')
+  .usage('[options] <values>')
   .option('-c, --collectors [collectors]', 'add collectors', convertToList, [])
   .option('-f, --filters [filters]', 'add filters', convertToList, [])
   .option('-t, --type [type]', 'type of stats [empty,basic,stats,advanced]', 'stats')
+  .option('-p, --pipe', 'whether or not to accept piped data from stdin')
   .parse(process.argv);
 
 // setup defaults and validate
@@ -57,4 +58,21 @@ values = program.args.join(' ').replace(/,/gi, ' ').split(' ')
   .filter(Number.isFinite);
 collector.update(values);
 
-console.log(JSON.stringify(collector.get(true), null, '  '));
+const onData = function (data) {
+  collector.update(convertToList(data.toString()));
+};
+
+const onFinish = function () {
+  console.log(JSON.stringify(collector.get(true), null, '  '));
+  process.exit(0);
+};
+
+if (program.pipe) {
+  process.stdin.resume();
+  process.stdin.setEncoding('utf8');
+  process.stdin.on('data', onData);
+  process.stdin.on('end', onFinish);
+  process.stdin.on('exit', onFinish);
+} else {
+  onFinish();
+}
