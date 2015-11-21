@@ -57,9 +57,4 @@ values = program.args.join(' ').replace(/,/gi, ' ').split(' ')
   .filter(Number.isFinite);
 collector.update(values);
 
-console.log(JSON.stringify(collector.get(), function (key, value) {
-  if (typeof value === 'undefined') {
-    return null;
-  }
-  return value;
-}, '  '));
+console.log(JSON.stringify(collector.get(true), null, '  '));

@@ -73,7 +73,7 @@ export default class BaseStatsCollector {
       this._ignore.push(name);
     }
   }
-  get() {
+  get(zeroForUndefined) {
     const self = this;
     const result = {};
     if (!this._reset) {
@@ -84,6 +84,8 @@ export default class BaseStatsCollector {
         let val = self._state[key];
         if (val) {
           val = JSON.parse(JSON.stringify(val));
+        } else if (typeof val === 'undefined' && zeroForUndefined) {
+          val = 0;
         }
         result[key] = val;
       }

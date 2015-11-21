@@ -147,6 +147,16 @@ const testCommon = function (numCollectors) {
       const results2 = statsCollector.get();
       expect(results1).to.deep.equal(results2);
     });
+    it('should work when passing get(false) or get(true)', function () {
+      if (numCollectors > 0) {
+        const r1 = statsCollector.get();
+        const r2 = statsCollector.get(true);
+        const r3 = statsCollector.get(false);
+        expect(r1).to.deep.equal(r3);
+        expect(r1.count).to.be.undefined;
+        expect(r2.count).to.equal(0);
+      }
+    });
   });
 };
 

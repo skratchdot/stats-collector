@@ -7,17 +7,17 @@ const packageInfo = require('../package.json');
 const testHelper = function (commands, expected, fn) {
   const args = commands.split(' ');
   args.unshift(`${__dirname}/../lib/cli.js`);
-  const result = childProcess.spawnSync('node', args);
+  const result = childProcess.spawnSync('node', args, {encoding: 'utf-8'});
   fn(result.stderr.toString(), result.stdout.toString());
 };
 const test = function (commands, expected) {
   testHelper(commands, expected, function (err, result) {
-    expect(result).to.include(expected);
+    expect(result).to.contain(expected);
   });
 };
 const testError = function (commands, expected) {
   testHelper(commands, expected, function (err) {
-    expect(err).to.include(expected);
+    expect(err).to.contain(expected);
   });
 };
 
@@ -39,7 +39,7 @@ describe('command line tool', function () {
   it('should accept a filter list', function () {
     test('-f odd 0,1,2,3,4,5', '"count": 3');
     test('-f odd,prime 0,1,2,3,4,5', '"count": 2');
-    test('-f odd,even 0,1,2,3,4,5', '"count": null');
+    test('-f odd,even 0,1,2,3,4,5', '"count": 0');
     test('-f zero 0,1,2,0,1,0', '"count": 3');
   });
   it('should accept a collector list', function () {
