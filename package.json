@@ -42,7 +42,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "isparta": "^4.0.0"
   },
-  "tonicExampleFilename": ".tonic.example.js",
+  "tonicExampleFilename": "./scripts/tonic.example.js",
   "keywords": [
     "stats",
     "statistics",
