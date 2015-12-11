@@ -1,0 +1,28 @@
+2015-12-11 00:56:12,"BaseStatsCollector benchmarks","empty",909.202092,352109778
+2015-12-11 00:56:12,"BaseStatsCollector benchmarks","check 10",567.998820,48198
+2015-12-11 00:56:12,"BaseStatsCollector benchmarks","check 1000",574.439824,546
+2015-12-11 00:56:12,"BaseStatsCollector benchmarks","constructor",838.997971,13606378
+2015-12-11 00:56:12,"BaseStatsCollector benchmarks","update(Math.random())",620.443241,298476
+2015-12-11 00:56:12,"BaseStatsCollector benchmarks","update(Math.random()) then get()",728.729456,174363
+2015-12-11 00:56:12,"BaseStatsCollector benchmarks","empty",574.553688,68797302
+2015-12-11 00:56:12,"BasicStatsCollector benchmarks","empty",610.484160,70287838
+2015-12-11 00:56:12,"BasicStatsCollector benchmarks","check 10",668.415896,7310
+2015-12-11 00:56:12,"BasicStatsCollector benchmarks","check 1000",766.667040,325
+2015-12-11 00:56:12,"BasicStatsCollector benchmarks","constructor",842.401470,21659
+2015-12-11 00:56:12,"BasicStatsCollector benchmarks","update(Math.random())",950.429501,21101
+2015-12-11 00:56:12,"BasicStatsCollector benchmarks","update(Math.random()) then get()",778.758713,12000
+2015-12-11 00:56:12,"BasicStatsCollector benchmarks","empty",515.110365,67779966
+2015-12-11 00:56:12,"StatsCollector benchmarks","empty",564.524305,75872458
+2015-12-11 00:56:12,"StatsCollector benchmarks","check 10",754.324549,5752
+2015-12-11 00:56:12,"StatsCollector benchmarks","check 1000",881.452435,225
+2015-12-11 00:56:12,"StatsCollector benchmarks","constructor",922.945004,17099
+2015-12-11 00:56:12,"StatsCollector benchmarks","update(Math.random())",792.589376,11276
+2015-12-11 00:56:12,"StatsCollector benchmarks","update(Math.random()) then get()",766.368651,8903
+2015-12-11 00:56:12,"StatsCollector benchmarks","empty",546.357149,72510526
+2015-12-11 00:56:12,"AdvancedStatsCollector benchmarks","empty",574.094874,74057247
+2015-12-11 00:56:12,"AdvancedStatsCollector benchmarks","check 10",505.231791,1010
+2015-12-11 00:56:12,"AdvancedStatsCollector benchmarks","check 1000",1481.080883,100
+2015-12-11 00:56:12,"AdvancedStatsCollector benchmarks","constructor",947.235439,3433
+2015-12-11 00:56:12,"AdvancedStatsCollector benchmarks","update(Math.random())",523.896541,1737
+2015-12-11 00:56:12,"AdvancedStatsCollector benchmarks","update(Math.random()) then get()",952.082356,2528
+2015-12-11 00:56:12,"AdvancedStatsCollector benchmarks","empty",546.317505,71847370

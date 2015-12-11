@@ -12,6 +12,7 @@ const mocha = require('gulp-mocha');
 const rimraf = require('gulp-rimraf');
 const sourcemaps = require('gulp-sourcemaps');
 const files = {
+  benchmark: ['./benchmark/**/*.js'],
   build: ['./src/**/*.js'],
   cover: ['./src/**/*.js', '!./src/cli.js'],
   clean: ['./lib'],
@@ -22,6 +23,45 @@ const files = {
 gulp.task('clean', function () {
   return gulp.src(files.clean)
     .pipe(rimraf());
+});
+
+gulp.task('benchmark', function (next) {
+  let hashBench = '';
+  let hashSrc = '';
+  childProcess.exec('find ./benchmark/benchmark.js -type f -print0 | sort -z | xargs -0 shasum | shasum', {
+    cwd: __dirname
+  }, function (err, stdout) {
+    hashBench = stdout.toString().split(' ')[0];
+    childProcess.exec('find ./src -type f -print0 | sort -z | xargs -0 shasum | shasum', {
+      cwd: __dirname
+    }, function (err, stdout) {
+      hashSrc = stdout.toString().split(' ')[0];
+      childProcess.exec([
+        './node_modules/.bin/matcha',
+        '-R',
+        'csv',
+        './benchmark/benchmark.js',
+        '>>',
+        `./benchmark/results/${hashBench}_${hashSrc}.csv`
+      ].join(' '), { cwd: __dirname }, function (err, stdout, stderr) {
+        if (stderr) {
+          console.error(stderr);
+        }
+        console.log('Benchmark Hash:', hashBench);
+        console.log('Source Code Hash:', hashSrc);
+        next();
+      });
+    });
+  });
+  /*
+*/
+  /*
+  return gulp.src(files.benchmark, { read: false })
+    .pipe(matcha({
+      reporter: 'csv'
+    }))
+    .pipe(gulp.dest('./benchmark/results.csv'));
+  */
 });
 
 gulp.task('readme', function (next) {
@@ -122,7 +162,7 @@ gulp.task('watch', function () {
   gulp.watch(watchFiles, ['build']);
 });
 
-gulp.task('build', ['build-helpers', 'lint', 'transpile', 'test']);
+gulp.task('build', ['build-helpers', 'lint', 'transpile', 'test', 'benchmark']);
 gulp.task('build-clean', ['clean', 'build']);
 gulp.task('default', ['build', 'watch']);
 
