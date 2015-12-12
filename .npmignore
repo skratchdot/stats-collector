@@ -1,6 +1,7 @@
 .git*
 _ignore/
 build/
+benchmark/
 coverage/
 test/
 .DS_Store
