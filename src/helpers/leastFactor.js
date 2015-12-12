@@ -8,6 +8,9 @@
  *   - returns 1 if n=1, n=-1, or n is not an integer
  */
 const leastFactor = function (n) {
+  if (!Number.isFinite(n)) {
+    return n;
+  }
   if (n === 0) {
     return 0;
   }

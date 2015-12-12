@@ -1,4 +1,4 @@
-import leastFactor from '../helpers/leastFactor';
+import leastFactor from '../../helpers/leastFactor';
 
 /**
  * Filter prime values

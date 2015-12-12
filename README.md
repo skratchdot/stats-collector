@@ -30,28 +30,31 @@ Install the module with: `npm install stats-collector`
 
 ```javascript
 import * as lib from 'stats-collector';
-const statsCollector = new lib.StatsCollector();
-statsCollector.update([1,2,3,4,5]);
-console.log(statsCollector.get());
+const stats = new lib.NumberStats();
+stats.processAll([1,2,3,4,5]);
+console.log(stats.get());
 ```
 
 #### Usage (Method 2)
 
 ```javascript
-import StatsCollector from 'stats-collector/lib/StatsCollector';
-const statsCollector = new StatsCollector();
-statsCollector.update([1,2,3,4,5]);
-console.log(statsCollector.get());
+import NumberStats from 'stats-collector/lib/NumberStats';
+const stats = new StatsCollector();
+stats.process(1);
+stats.process(2);
+stats.process(3);
+stats.processAll([4, 5]);
+console.log(stats.get());
 ```
 
 #### Usage (Different types of collectors)
 
 ```javascript
 import * as lib from 'stats-collector';
-const c1 = new lib.BaseStatsCollector();      // 0 default collectors
-const c2 = new lib.BasicStatsCollector();     // 5 default collectors
-const c3 = new lib.StatsCollector();          // 8 default collectors
-const c4 = new lib.AdvancedStatsCollector();  // 21 default collectors
+const c1 = new lib.BaseStats();            // 0 default collectors
+const c2 = new lib.BasicNumberStats();     // 5 default collectors
+const c3 = new lib.NumberStats();          // 8 default collectors
+const c4 = new lib.AdvancedNumberStats();  // 21 default collectors
 const collectors = lib.collectors; // some collector functions
 const filters = lib.filters; // some filter functions
 console.log(c1.get(), c2.get(), c3.get(), c4.get(), collectors, filters);
@@ -63,16 +66,16 @@ The following table shows you the results of initializing a
 stats collector, then running the following statments:
 
 ```javascript
-statsCollector.update([1, 2, 3, 4, 5]);
-const results = statsCollector.get();
+stats.processAll([1, 2, 3, 4, 5]);
+const results = stats.get();
 ```
 
 |Collector Type|Results|
 |--------------|-------|
-|BaseStatsCollector|{}|
-|BasicStatsCollector|{<br />&nbsp;"count": 5,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"sum": 15<br />}|
-|StatsCollector|{<br />&nbsp;"count": 5,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvg_running": 11,<br />&nbsp;"standardDeviation_running": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"variance_running": 2.5<br />}|
-|AdvancedStatsCollector|{<br />&nbsp;"count": 5,<br />&nbsp;"count_even": 2,<br />&nbsp;"count_float": 0,<br />&nbsp;"count_integer": 5,<br />&nbsp;"count_negative": 0,<br />&nbsp;"count_nonZero": 5,<br />&nbsp;"count_odd": 3,<br />&nbsp;"count_positive": 5,<br />&nbsp;"count_prime": 3,<br />&nbsp;"count_zero": 0,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvg_running": 11,<br />&nbsp;"standardDeviation_running": 1.5811388300841898,<br />&nbsp;"standardDeviation_stable": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"sumOfSquaredDeviations_stable": 10,<br />&nbsp;"variance_running": 2.5,<br />&nbsp;"variance_stable": 2.5<br />}|
+|BaseStats|{}|
+|BasicNumberStats|{<br />&nbsp;"count": 5,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"sum": 15<br />}|
+|NumberStats|{<br />&nbsp;"count": 5,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvgRunning": 11,<br />&nbsp;"standardDeviationRunning": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"varianceRunning": 2.5<br />}|
+|AdvancedNumberStats|{<br />&nbsp;"count": 5,<br />&nbsp;"count_even": 2,<br />&nbsp;"count_float": 0,<br />&nbsp;"count_integer": 5,<br />&nbsp;"count_negative": 0,<br />&nbsp;"count_nonZero": 5,<br />&nbsp;"count_odd": 3,<br />&nbsp;"count_positive": 5,<br />&nbsp;"count_prime": 3,<br />&nbsp;"count_zero": 0,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvgRunning": 11,<br />&nbsp;"standardDeviationRunning": 1.5811388300841898,<br />&nbsp;"standardDeviationStable": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"sumOfSquaredDeviationsStable": 10,<br />&nbsp;"values": [<br />&nbsp;&nbsp;1,<br />&nbsp;&nbsp;2,<br />&nbsp;&nbsp;3,<br />&nbsp;&nbsp;4,<br />&nbsp;&nbsp;5<br />&nbsp;],<br />&nbsp;"varianceRunning": 2.5,<br />&nbsp;"varianceStable": 2.5<br />}|
 
 
 ### API Documentation

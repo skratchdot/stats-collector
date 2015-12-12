@@ -6,10 +6,10 @@ const dataSmall = require('./data/data10.json');
 const dataBig = require('./data/data1000.json');
 
 [
-  'BaseStatsCollector',
-  'BasicStatsCollector',
-  'StatsCollector',
-  'AdvancedStatsCollector'
+  'BaseStats',
+  'BasicNumberStats',
+  'NumberStats',
+  'AdvancedNumberStats'
 ].forEach(function (type) {
   suite(`${type} benchmarks`, function () {
     set('iterations', 100);     // the number of times to run a given bench
@@ -18,11 +18,11 @@ const dataBig = require('./data/data1000.json');
     set('mintime', 500);        // when adaptive, the minimum time in ms a bench should run
     set('delay', 100);          // time in ms between each bench
     const doIt = function (arr) {
-      const statsCollector = new lib[type]();
+      const stats = new lib[type]();
       for (let i = 0; i < arr.length; i++) {
-        statsCollector.update(arr[i]);
+        stats.process(arr[i]);
       }
-      return statsCollector.get();
+      return stats.get();
     };
     bench('empty', function () {});
     bench('check 10', function () {
@@ -34,14 +34,14 @@ const dataBig = require('./data/data1000.json');
     bench('constructor', function () {
       new lib[type]();
     });
-    bench('update(Math.random())', function () {
-      const statsCollector = new lib[type]();
-      statsCollector.update(Math.random());
+    bench('process(Math.random())', function () {
+      const stats = new lib[type]();
+      stats.process(Math.random());
     });
-    bench('update(Math.random()) then get()', function () {
-      const statsCollector = new lib[type]();
-      statsCollector.update(Math.random());
-      statsCollector.get();
+    bench('process(Math.random()) then get()', function () {
+      const stats = new lib[type]();
+      stats.process(Math.random());
+      stats.get();
     });
     bench('empty', function () {});
   });

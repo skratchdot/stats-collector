@@ -53,15 +53,6 @@ gulp.task('benchmark', function (next) {
       });
     });
   });
-  /*
-*/
-  /*
-  return gulp.src(files.benchmark, { read: false })
-    .pipe(matcha({
-      reporter: 'csv'
-    }))
-    .pipe(gulp.dest('./benchmark/results.csv'));
-  */
 });
 
 gulp.task('readme', function (next) {
@@ -99,8 +90,8 @@ gulp.task('build-helpers', function (next) {
     contents = `${contents}\nexport {\n  ${names.join(',\n  ')}\n};\n`;
     fs.writeFileSync(destFilename, contents, 'utf-8');
   };
-  build('./src/collectors', '../collectors/', './src/helpers/collectors.js');
-  build('./src/filters', '../filters/', './src/helpers/filters.js');
+  build('./src/collectors/number', '../collectors/number/', './src/helpers/collectors.number.js');
+  build('./src/filters/number', '../filters/number/', './src/helpers/filters.number.js');
   return next;
 });
 
@@ -162,7 +153,7 @@ gulp.task('watch', function () {
   gulp.watch(watchFiles, ['build']);
 });
 
-gulp.task('build', ['build-helpers', 'lint', 'transpile', 'test', 'benchmark']);
+gulp.task('build', ['build-helpers', 'lint', 'transpile', 'test']);
 gulp.task('build-clean', ['clean', 'build']);
 gulp.task('default', ['build', 'watch']);
 

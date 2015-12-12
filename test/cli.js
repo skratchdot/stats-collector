@@ -36,8 +36,8 @@ describe('command line tool', function () {
     testError('-t fooo 1,2', 'Invalid');
     test('-t empty 1,2', '{}');
     test('-t basic 1,2', 'count');
-    test('-t stats 1,2', 'variance_running');
-    test('-t advanced 1,2', 'variance_stable');
+    test('-t stats 1,2', 'varianceRunning');
+    test('-t advanced 1,2', 'varianceStable');
   });
   it('should accept a filter list', function () {
     test('-f odd 0,1,2,3,4,5', '"count": 3');

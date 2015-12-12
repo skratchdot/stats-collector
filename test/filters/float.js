@@ -2,17 +2,17 @@
 'use strict';
 const expect = require('chai').expect;
 const lib = require('../../src/index');
-const collectorNames = ['BasicStatsCollector', 'StatsCollector', 'AdvancedStatsCollector'];
+const collectorNames = ['BasicNumberStats', 'NumberStats', 'AdvancedNumberStats'];
 const methodName = 'count';
 const filterName = 'float';
 let collector;
 
 const test = function (values, expected) {
-  const u = `update(${JSON.stringify(values)})`;
+  const u = `processAll(${JSON.stringify(values)})`;
   it(`with filter ${filterName}: ${methodName} should be ${expected} after calling ${u}`, function () {
-    collector.update(values);
+    collector.processAll(values);
     const result = collector.get();
-    expect(result[methodName]).to.equal(expected);
+    expect(result[methodName]).to.eql(expected);
   });
 };
 
@@ -22,10 +22,8 @@ describe(`${methodName}() method`, function () {
       describe(`${collectorName}:`, function () {
         beforeEach(function () {
           collector = new lib[collectorName]();
-          collector.addFilter(lib.filters[filterName]);
+          collector.addFilter(lib.filters.number[filterName]);
         });
-        test([], undefined);
-        test(['string'], undefined);
         test([-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5], undefined);
         test([-5.1, -4.1, -3, -2, -1, 0, 1.1, 2.1, 3, 4, 5], 4);
       });

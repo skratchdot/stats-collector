@@ -17,20 +17,20 @@ let newContent = `The following table shows you the results of initializing a
 stats collector, then running the following statments:
 
 \`\`\`javascript
-statsCollector.update([1, 2, 3, 4, 5]);
-const results = statsCollector.get();
+stats.processAll([1, 2, 3, 4, 5]);
+const results = stats.get();
 \`\`\`
 
 |Collector Type|Results|
 |--------------|-------|`;
 
 [
-  'BaseStatsCollector', 'BasicStatsCollector',
-  'StatsCollector', 'AdvancedStatsCollector'
+  'BaseStats', 'BasicNumberStats',
+  'NumberStats', 'AdvancedNumberStats'
 ].forEach(function (c) {
-  const statCollector = new lib[c]();
-  statCollector.update([1, 2, 3, 4, 5]);
-  const result = jsonMdTable(statCollector.get());
+  const stats = new lib[c]();
+  stats.processAll([1, 2, 3, 4, 5]);
+  const result = jsonMdTable(stats.get());
   newContent += `\n|${c}|${result}|`;
 });
 const re = RegExp(`${m1}(.|[\r\n])*${m2}`, 'g');

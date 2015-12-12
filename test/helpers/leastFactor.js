@@ -42,4 +42,12 @@ describe('leastFactor()', function () {
     // expect(leastFactor(341550071728321)).to.equal(10670053); // large
     done();
   });
+  it('doesn\'t hang on non-finite numbers', function () {
+    expect(leastFactor(NaN)).to.eql(NaN);
+    expect(leastFactor(-Infinity)).to.eql(-Infinity);
+    expect(leastFactor({})).to.eql({});
+    expect(leastFactor([])).to.eql([]);
+    expect(leastFactor(null)).to.eql(null);
+    expect(leastFactor(undefined)).to.eql(undefined);
+  });
 });

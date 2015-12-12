@@ -3,17 +3,28 @@
 import * as lib from './index';
 import program from 'commander';
 import packageInfo from '../package.json';
-const convertToList = function (val) {
-  return (val || '').replace(/,/gi, ' ').replace(/\s+/gi, ' ').split(' ');
+const convertToList = function (val, map, filter) {
+  let arr = (val || '').toString()
+    .replace(/,/gi, ' ')
+    .replace(/\s+/gi, ' ').split(' ');
+  if (typeof map === 'function') {
+    arr = arr.map(map);
+  }
+  if (typeof filter === 'function') {
+    arr = arr.filter(filter);
+  }
+  return arr;
+};
+const convertToNumberList = function (val) {
+  return convertToList(val, parseFloat, Number.isFinite);
 };
 const types = {
-  'empty': 'BaseStatsCollector',
-  'basic': 'BasicStatsCollector',
-  'stats': 'StatsCollector',
-  'advanced': 'AdvancedStatsCollector'
+  'empty': 'BaseStats',
+  'basic': 'BasicNumberStats',
+  'stats': 'NumberStats',
+  'advanced': 'AdvancedNumberStats'
 };
 let collector;
-let values = [];
 
 // handle errors
 process.on('uncaughtException', function (e) {
@@ -43,23 +54,28 @@ collector = new (lib[program.type])();
 // validate collectors and filters
 ['collectors', 'filters'].forEach(function (type) {
   program[type].forEach(function (curr) {
-    if (!lib[type].hasOwnProperty(curr)) {
+    // allow case-insensitivity on cli
+    curr = curr.toLowerCase();
+    const keys = Object.keys(lib[type].number);
+    const lcaseKeys = Object.keys(lib[type].number)
+      .map(function (k) {
+        return k.toLowerCase();
+      });
+    const keyIndex = lcaseKeys.indexOf(curr);
+    if (keyIndex === -1) {
       throw new Error(`Invalid ${type} passed`);
     } else if (type === 'collectors') {
-      collector.addCollector(lib[type][curr]());
+      collector.addCollector(new lib[type].number[keys[keyIndex]]());
     } else {
-      collector.addFilter(lib[type][curr]);
+      collector.addFilter(lib[type].number[keys[keyIndex]]);
     }
   });
 });
 
-values = program.args.join(' ').replace(/,/gi, ' ').split(' ')
-  .map(parseFloat)
-  .filter(Number.isFinite);
-collector.update(values);
+collector.processAll(convertToNumberList(program.args));
 
 const onData = function (data) {
-  collector.update(convertToList(data.toString()));
+  collector.processAll(convertToNumberList(data.toString()));
 };
 
 const onFinish = function () {

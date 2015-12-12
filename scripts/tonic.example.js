@@ -1,7 +1,7 @@
 const lib = require('stats-collector');
-// try: BaseStatsCollector, BasicStatsCollector, StatsCollector, AdvancedStatsCollector
-const statsCollector = new lib.AdvancedStatsCollector();
-statsCollector.update([1, 2]);
-statsCollector.update(3, 4);
-statsCollector.update(5);
-statsCollector.get();
+// try: BaseStats, BasicNumberStats, NumberStats, AdvancedNumberStats
+const stats = new lib.AdvancedNumberStats();
+stats.processAll([1, 2]);
+stats.processAll([3, 4]);
+stats.process(5);
+stats.get();
