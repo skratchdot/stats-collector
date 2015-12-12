@@ -1,6 +1,6 @@
 {
   "name": "stats-collector",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "collect stats about numbers",
   "main": "lib/index.js",
   "bin": {
@@ -23,6 +23,9 @@
     "url": "https://github.com/skratchdot/stats-collector/issues"
   },
   "license": "MIT",
+  "dependencies": {
+    "commander": "^2.9.0"
+  },
   "devDependencies": {
     "babel-core": "^6.1.21",
     "babel-eslint": "^4.1.5",
@@ -53,9 +56,20 @@
     "collection",
     "number",
     "numbers",
-    "floats"
-  ],
-  "dependencies": {
-    "commander": "^2.9.0"
-  }
+    "floats",
+    "count",
+    "max",
+    "maximum",
+    "min",
+    "minimum",
+    "mean",
+    "average",
+    "median",
+    "midrange",
+    "powersum",
+    "standard deviation",
+    "deviation",
+    "sum",
+    "variance"
+  ]
 }

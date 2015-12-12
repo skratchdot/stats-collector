@@ -5,6 +5,10 @@ import SumOfSquaredDeviationsStable from '../../collectors/number/SumOfSquaredDe
 import VarianceStable from '../../collectors/number/VarianceStable';
 import StandardDeviationStable from '../../collectors/number/StandardDeviationStable';
 import FilteredCount from '../../collectors/number/FilteredCount';
+import Range from '../../collectors/number/Range';
+import MidRange from '../../collectors/number/MidRange';
+import ValuesSorted from '../../collectors/number/ValuesSorted';
+import Median from '../../collectors/number/Median';
 
 /**
 * A stat collector that includes the following collector functions:
@@ -20,6 +24,9 @@ import FilteredCount from '../../collectors/number/FilteredCount';
  *   - variance_stable
  *   - standardDeviation_stable
  *   - count_* (a bunch of filtered counts)
+ *   - range
+ *   - midRange
+ *   - median
  * @example
  * const stats = new AdvancedNumberStats();
  * stats.processAll([1, 2, 3, 4, 5]);
@@ -37,6 +44,11 @@ export default class AdvancedNumberStats extends NumberStats {
       const filter = filters.number[filterName];
       self.addCollector(new FilteredCount(`count_${filterName}`, filter));
     });
+    this.addCollector(new Range());
+    this.addCollector(new MidRange());
+    this.addCollector(new ValuesSorted());
+    this.addCollector(new Median());
     this.addIgnore('values');
+    this.addIgnore('valuesSorted');
   }
 }

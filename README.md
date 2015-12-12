@@ -17,6 +17,11 @@ collectors, but allows you to add your own "stat collectors" by exposing an
 API that lets you pass in reducer-like functions that act on numbers passed
 to it.
 
+`stats-collector` comes in 2 formats: a
+[node.js library](#getting-started)
+and a
+[command line tool](#command-line-tool).
+
 For examples and api documentation, continue reading below.
 
 
@@ -75,7 +80,7 @@ const results = stats.get();
 |BaseStats|{}|
 |BasicNumberStats|{<br />&nbsp;"count": 5,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"sum": 15<br />}|
 |NumberStats|{<br />&nbsp;"count": 5,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvgRunning": 11,<br />&nbsp;"standardDeviationRunning": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"varianceRunning": 2.5<br />}|
-|AdvancedNumberStats|{<br />&nbsp;"count": 5,<br />&nbsp;"count_even": 2,<br />&nbsp;"count_float": 0,<br />&nbsp;"count_integer": 5,<br />&nbsp;"count_negative": 0,<br />&nbsp;"count_nonZero": 5,<br />&nbsp;"count_odd": 3,<br />&nbsp;"count_positive": 5,<br />&nbsp;"count_prime": 3,<br />&nbsp;"count_zero": 0,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvgRunning": 11,<br />&nbsp;"standardDeviationRunning": 1.5811388300841898,<br />&nbsp;"standardDeviationStable": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"sumOfSquaredDeviationsStable": 10,<br />&nbsp;"values": [<br />&nbsp;&nbsp;1,<br />&nbsp;&nbsp;2,<br />&nbsp;&nbsp;3,<br />&nbsp;&nbsp;4,<br />&nbsp;&nbsp;5<br />&nbsp;],<br />&nbsp;"varianceRunning": 2.5,<br />&nbsp;"varianceStable": 2.5<br />}|
+|AdvancedNumberStats|{<br />&nbsp;"count": 5,<br />&nbsp;"count_even": 2,<br />&nbsp;"count_float": 0,<br />&nbsp;"count_integer": 5,<br />&nbsp;"count_negative": 0,<br />&nbsp;"count_nonZero": 5,<br />&nbsp;"count_odd": 3,<br />&nbsp;"count_positive": 5,<br />&nbsp;"count_prime": 3,<br />&nbsp;"count_zero": 0,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"median": 3,<br />&nbsp;"midRange": 4,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvgRunning": 11,<br />&nbsp;"range": 4,<br />&nbsp;"standardDeviationRunning": 1.5811388300841898,<br />&nbsp;"standardDeviationStable": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"sumOfSquaredDeviationsStable": 10,<br />&nbsp;"varianceRunning": 2.5,<br />&nbsp;"varianceStable": 2.5<br />}|
 
 
 ### API Documentation
@@ -84,6 +89,83 @@ Read the [API Docs](http://projects.skratchdot.com/stats-collector/)
 by visiting the project site here:
 
 - [http://projects.skratchdot.com/stats-collector/](http://projects.skratchdot.com/stats-collector/)
+
+
+## Command Line Tool
+
+### Installation
+
+The command line utility can be install via `npm install -g stats-collector`.
+
+After doing so, you will have access to `stats-collector` from the command line.
+
+```bash
+$ stats-collector -h
+
+  Usage: stats-collector [options] <values>
+
+  Options:
+
+    -h, --help                     output usage information
+    -v, --version                  output the version number
+    -c, --collectors [collectors]  add collectors
+    -f, --filters [filters]        add filters
+    -t, --type [type]              type of stats [empty,basic,stats,advanced]
+    -p, --pipe                     whether or not to accept piped data from stdin
+```
+
+### Examples
+
+#### Default behavior
+
+Here is the default behavior when passing in 5 numbers.
+
+```bash
+$ stats-collector 1,2,3,4,5
+{
+  "count": 5,
+  "max": 5,
+  "mean": 3,
+  "min": 1,
+  "powerSumAvgRunning": 11,
+  "standardDeviationRunning": 1.5811388300841898,
+  "sum": 15,
+  "varianceRunning": 2.5
+}
+```
+
+#### Get "advanced" stats about 10 random numbers
+
+The example uses the `--pipe` functionality:
+
+```bash
+$ for i in {1..10}; do echo $RANDOM; done | stats-collector -t advanced --pipe
+{
+  "count": 10,
+  "count_even": 4,
+  "count_float": 0,
+  "count_integer": 10,
+  "count_negative": 0,
+  "count_nonZero": 10,
+  "count_odd": 6,
+  "count_positive": 10,
+  "count_prime": 1,
+  "count_zero": 0,
+  "max": 31476,
+  "mean": 17110,
+  "median": 28892,
+  "midRange": 28377,
+  "min": 3099,
+  "powerSumAvgRunning": 402365513.4,
+  "range": 28377,
+  "standardDeviationRunning": 11035.97216177875,
+  "standardDeviationStable": 11035.97216177875,
+  "sum": 171100,
+  "sumOfSquaredDeviationsStable": 1096134134,
+  "varianceRunning": 121792681.55555555,
+  "varianceStable": 121792681.55555555
+}
+```
 
 
 ## See Also

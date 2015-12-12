@@ -177,7 +177,7 @@ const testCommon = function (numCollectors) {
   ['BaseStats', 0],
   ['BasicNumberStats', 5],
   ['NumberStats', 8],
-  ['AdvancedNumberStats', 21]
+  ['AdvancedNumberStats', 25]
 ].forEach(function (data) {
   const collector = data[0];
   const numCollectors = data[1];

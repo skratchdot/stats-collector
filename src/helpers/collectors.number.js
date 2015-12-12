@@ -4,13 +4,17 @@ import Count from '../collectors/number/Count';
 import FilteredCount from '../collectors/number/FilteredCount';
 import Max from '../collectors/number/Max';
 import Mean from '../collectors/number/Mean';
+import Median from '../collectors/number/Median';
+import MidRange from '../collectors/number/MidRange';
 import Min from '../collectors/number/Min';
 import PowerSumAvgRunning from '../collectors/number/PowerSumAvgRunning';
+import Range from '../collectors/number/Range';
 import StandardDeviationRunning from '../collectors/number/StandardDeviationRunning';
 import StandardDeviationStable from '../collectors/number/StandardDeviationStable';
 import Sum from '../collectors/number/Sum';
 import SumOfSquaredDeviationsStable from '../collectors/number/SumOfSquaredDeviationsStable';
 import Values from '../collectors/number/Values';
+import ValuesSorted from '../collectors/number/ValuesSorted';
 import VarianceRunning from '../collectors/number/VarianceRunning';
 import VarianceStable from '../collectors/number/VarianceStable';
 export {
@@ -18,13 +22,17 @@ export {
   FilteredCount,
   Max,
   Mean,
+  Median,
+  MidRange,
   Min,
   PowerSumAvgRunning,
+  Range,
   StandardDeviationRunning,
   StandardDeviationStable,
   Sum,
   SumOfSquaredDeviationsStable,
   Values,
+  ValuesSorted,
   VarianceRunning,
   VarianceStable
 };

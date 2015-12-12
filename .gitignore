@@ -30,5 +30,8 @@ tags
 # Code Coverage
 coverage/
 
+# Benchmarks
+benchmark/
+
 # transpiled code
 lib/
