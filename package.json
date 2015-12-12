@@ -1,8 +1,11 @@
 {
   "name": "stats-collector",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "collect stats about numbers",
   "main": "lib/index.js",
+  "bin": {
+    "stats-collector": "./scripts/cli.js"
+  },
   "scripts": {
     "prepublish": "gulp build",
     "test": "gulp test"
@@ -37,16 +40,22 @@
     "gulp-mocha": "^2.2.0",
     "gulp-rimraf": "^0.2.0",
     "gulp-sourcemaps": "^1.6.0",
-    "isparta": "^4.0.0"
+    "isparta": "^4.0.0",
+    "matcha": "^0.6.0"
   },
-  "tonicExampleFilename": ".tonic.example.js",
+  "tonicExampleFilename": "./scripts/tonic.example.js",
   "keywords": [
     "stats",
     "statistics",
+    "aggregate",
+    "collect",
     "aggregation",
     "collection",
     "number",
     "numbers",
     "floats"
-  ]
+  ],
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
 }

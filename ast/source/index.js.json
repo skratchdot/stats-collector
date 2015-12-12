@@ -10,8 +10,8 @@
             "type": "Identifier",
             "name": "collectors",
             "range": [
-              230,
-              240
+              207,
+              217
             ],
             "loc": {
               "start": {
@@ -25,8 +25,8 @@
             }
           },
           "range": [
-            225,
-            240
+            202,
+            217
           ],
           "loc": {
             "start": {
@@ -45,8 +45,8 @@
         "value": "./helpers/collectors",
         "raw": "'./helpers/collectors'",
         "range": [
-          246,
-          268
+          223,
+          245
         ],
         "loc": {
           "start": {
@@ -60,8 +60,8 @@
         }
       },
       "range": [
-        218,
-        269
+        195,
+        246
       ],
       "loc": {
         "start": {
@@ -76,10 +76,10 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "*\n * Stats Collector library\n * @example\n * const lib = require('stats-collector');\n * const statsCollector = new lib.AdvancedStatsCollector();\n * statsCollector.update([1, 2, 3, 4, 5]);\n * statsCollector.get();\n ",
+          "value": "*\n * Stats Collector library\n * @example\n * const lib = require('stats-collector');\n * const stats = new lib.AdvancedStatsCollector();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
           "range": [
             0,
-            217
+            194
           ],
           "loc": {
             "start": {
@@ -103,8 +103,8 @@
             "type": "Identifier",
             "name": "filters",
             "range": [
-              282,
-              289
+              259,
+              266
             ],
             "loc": {
               "start": {
@@ -118,8 +118,8 @@
             }
           },
           "range": [
-            277,
-            289
+            254,
+            266
           ],
           "loc": {
             "start": {
@@ -138,8 +138,8 @@
         "value": "./helpers/filters",
         "raw": "'./helpers/filters'",
         "range": [
-          295,
-          314
+          272,
+          291
         ],
         "loc": {
           "start": {
@@ -153,8 +153,8 @@
         }
       },
       "range": [
-        270,
-        315
+        247,
+        292
       ],
       "loc": {
         "start": {
@@ -174,10 +174,10 @@
           "type": "ImportDefaultSpecifier",
           "local": {
             "type": "Identifier",
-            "name": "AdvancedStatsCollector",
+            "name": "BaseStats",
             "range": [
-              323,
-              345
+              300,
+              309
             ],
             "loc": {
               "start": {
@@ -186,59 +186,79 @@
               },
               "end": {
                 "line": 11,
-                "column": 29
+                "column": 16
               }
             }
           },
           "range": [
-            323,
+            300,
+            309
+          ],
+          "loc": {
+            "start": {
+              "line": 11,
+              "column": 7
+            },
+            "end": {
+              "line": 11,
+              "column": 16
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./stats/BaseStats",
+        "raw": "'./stats/BaseStats'",
+        "range": [
+          315,
+          334
+        ],
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 22
+          },
+          "end": {
+            "line": 11,
+            "column": 41
+          }
+        }
+      },
+      "range": [
+        293,
+        335
+      ],
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 0
+        },
+        "end": {
+          "line": 11,
+          "column": 42
+        }
+      },
+      "trailingComments": [
+        {
+          "type": "Line",
+          "value": " number",
+          "range": [
+            336,
             345
           ],
           "loc": {
             "start": {
-              "line": 11,
-              "column": 7
+              "line": 12,
+              "column": 0
             },
             "end": {
-              "line": 11,
-              "column": 29
+              "line": 12,
+              "column": 9
             }
           }
         }
-      ],
-      "source": {
-        "type": "Literal",
-        "value": "./AdvancedStatsCollector",
-        "raw": "'./AdvancedStatsCollector'",
-        "range": [
-          351,
-          377
-        ],
-        "loc": {
-          "start": {
-            "line": 11,
-            "column": 35
-          },
-          "end": {
-            "line": 11,
-            "column": 61
-          }
-        }
-      },
-      "range": [
-        316,
-        378
-      ],
-      "loc": {
-        "start": {
-          "line": 11,
-          "column": 0
-        },
-        "end": {
-          "line": 11,
-          "column": 62
-        }
-      }
+      ]
     },
     {
       "type": "ImportDeclaration",
@@ -247,69 +267,162 @@
           "type": "ImportDefaultSpecifier",
           "local": {
             "type": "Identifier",
-            "name": "BaseStatsCollector",
+            "name": "BasicNumberStats",
             "range": [
-              386,
-              404
+              353,
+              369
             ],
             "loc": {
               "start": {
-                "line": 12,
+                "line": 13,
                 "column": 7
               },
               "end": {
-                "line": 12,
-                "column": 25
+                "line": 13,
+                "column": 23
               }
             }
           },
           "range": [
-            386,
-            404
+            353,
+            369
           ],
           "loc": {
             "start": {
-              "line": 12,
+              "line": 13,
               "column": 7
             },
             "end": {
-              "line": 12,
-              "column": 25
+              "line": 13,
+              "column": 23
             }
           }
         }
       ],
       "source": {
         "type": "Literal",
-        "value": "./BaseStatsCollector",
-        "raw": "'./BaseStatsCollector'",
+        "value": "./stats/number/BasicNumberStats",
+        "raw": "'./stats/number/BasicNumberStats'",
         "range": [
-          410,
-          432
+          375,
+          408
         ],
         "loc": {
           "start": {
-            "line": 12,
-            "column": 31
+            "line": 13,
+            "column": 29
           },
           "end": {
-            "line": 12,
-            "column": 53
+            "line": 13,
+            "column": 62
           }
         }
       },
       "range": [
-        379,
-        433
+        346,
+        409
       ],
       "loc": {
         "start": {
-          "line": 12,
+          "line": 13,
           "column": 0
         },
         "end": {
-          "line": 12,
-          "column": 54
+          "line": 13,
+          "column": 63
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Line",
+          "value": " number",
+          "range": [
+            336,
+            345
+          ],
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 0
+            },
+            "end": {
+              "line": 12,
+              "column": 9
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "NumberStats",
+            "range": [
+              417,
+              428
+            ],
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 7
+              },
+              "end": {
+                "line": 14,
+                "column": 18
+              }
+            }
+          },
+          "range": [
+            417,
+            428
+          ],
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 7
+            },
+            "end": {
+              "line": 14,
+              "column": 18
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./stats/number/NumberStats",
+        "raw": "'./stats/number/NumberStats'",
+        "range": [
+          434,
+          462
+        ],
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 24
+          },
+          "end": {
+            "line": 14,
+            "column": 52
+          }
+        }
+      },
+      "range": [
+        410,
+        463
+      ],
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 0
+        },
+        "end": {
+          "line": 14,
+          "column": 53
         }
       }
     },
@@ -320,33 +433,33 @@
           "type": "ImportDefaultSpecifier",
           "local": {
             "type": "Identifier",
-            "name": "BasicStatsCollector",
+            "name": "AdvancedNumberStats",
             "range": [
-              441,
-              460
+              471,
+              490
             ],
             "loc": {
               "start": {
-                "line": 13,
+                "line": 15,
                 "column": 7
               },
               "end": {
-                "line": 13,
+                "line": 15,
                 "column": 26
               }
             }
           },
           "range": [
-            441,
-            460
+            471,
+            490
           ],
           "loc": {
             "start": {
-              "line": 13,
+              "line": 15,
               "column": 7
             },
             "end": {
-              "line": 13,
+              "line": 15,
               "column": 26
             }
           }
@@ -354,108 +467,35 @@
       ],
       "source": {
         "type": "Literal",
-        "value": "./BasicStatsCollector",
-        "raw": "'./BasicStatsCollector'",
+        "value": "./stats/number/AdvancedNumberStats",
+        "raw": "'./stats/number/AdvancedNumberStats'",
         "range": [
-          466,
-          489
+          496,
+          532
         ],
         "loc": {
           "start": {
-            "line": 13,
+            "line": 15,
             "column": 32
           },
           "end": {
-            "line": 13,
-            "column": 55
+            "line": 15,
+            "column": 68
           }
         }
       },
       "range": [
-        434,
-        490
+        464,
+        533
       ],
       "loc": {
         "start": {
-          "line": 13,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 13,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": "ImportDeclaration",
-      "specifiers": [
-        {
-          "type": "ImportDefaultSpecifier",
-          "local": {
-            "type": "Identifier",
-            "name": "StatsCollector",
-            "range": [
-              498,
-              512
-            ],
-            "loc": {
-              "start": {
-                "line": 14,
-                "column": 7
-              },
-              "end": {
-                "line": 14,
-                "column": 21
-              }
-            }
-          },
-          "range": [
-            498,
-            512
-          ],
-          "loc": {
-            "start": {
-              "line": 14,
-              "column": 7
-            },
-            "end": {
-              "line": 14,
-              "column": 21
-            }
-          }
-        }
-      ],
-      "source": {
-        "type": "Literal",
-        "value": "./StatsCollector",
-        "raw": "'./StatsCollector'",
-        "range": [
-          518,
-          536
-        ],
-        "loc": {
-          "start": {
-            "line": 14,
-            "column": 27
-          },
-          "end": {
-            "line": 14,
-            "column": 45
-          }
-        }
-      },
-      "range": [
-        491,
-        537
-      ],
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 0
-        },
-        "end": {
-          "line": 14,
-          "column": 46
+          "line": 15,
+          "column": 69
         }
       }
     },
@@ -469,16 +509,16 @@
             "type": "Identifier",
             "name": "collectors",
             "range": [
-              550,
-              560
+              546,
+              556
             ],
             "loc": {
               "start": {
-                "line": 17,
+                "line": 18,
                 "column": 2
               },
               "end": {
-                "line": 17,
+                "line": 18,
                 "column": 12
               }
             }
@@ -487,31 +527,31 @@
             "type": "Identifier",
             "name": "collectors",
             "range": [
-              550,
-              560
+              546,
+              556
             ],
             "loc": {
               "start": {
-                "line": 17,
+                "line": 18,
                 "column": 2
               },
               "end": {
-                "line": 17,
+                "line": 18,
                 "column": 12
               }
             }
           },
           "range": [
-            550,
-            560
+            546,
+            556
           ],
           "loc": {
             "start": {
-              "line": 17,
+              "line": 18,
               "column": 2
             },
             "end": {
-              "line": 17,
+              "line": 18,
               "column": 12
             }
           }
@@ -522,16 +562,16 @@
             "type": "Identifier",
             "name": "filters",
             "range": [
-              564,
-              571
+              560,
+              567
             ],
             "loc": {
               "start": {
-                "line": 18,
+                "line": 19,
                 "column": 2
               },
               "end": {
-                "line": 18,
+                "line": 19,
                 "column": 9
               }
             }
@@ -540,31 +580,31 @@
             "type": "Identifier",
             "name": "filters",
             "range": [
-              564,
-              571
+              560,
+              567
             ],
             "loc": {
               "start": {
-                "line": 18,
+                "line": 19,
                 "column": 2
               },
               "end": {
-                "line": 18,
+                "line": 19,
                 "column": 9
               }
             }
           },
           "range": [
-            564,
-            571
+            560,
+            567
           ],
           "loc": {
             "start": {
-              "line": 18,
+              "line": 19,
               "column": 2
             },
             "end": {
-              "line": 18,
+              "line": 19,
               "column": 9
             }
           }
@@ -573,96 +613,43 @@
           "type": "ExportSpecifier",
           "exported": {
             "type": "Identifier",
-            "name": "AdvancedStatsCollector",
+            "name": "BaseStats",
             "range": [
-              575,
-              597
+              571,
+              580
             ],
             "loc": {
               "start": {
-                "line": 19,
+                "line": 20,
                 "column": 2
               },
               "end": {
-                "line": 19,
-                "column": 24
+                "line": 20,
+                "column": 11
               }
             }
           },
           "local": {
             "type": "Identifier",
-            "name": "AdvancedStatsCollector",
+            "name": "BaseStats",
             "range": [
-              575,
-              597
+              571,
+              580
             ],
             "loc": {
               "start": {
-                "line": 19,
+                "line": 20,
                 "column": 2
               },
               "end": {
-                "line": 19,
-                "column": 24
+                "line": 20,
+                "column": 11
               }
             }
           },
           "range": [
-            575,
-            597
-          ],
-          "loc": {
-            "start": {
-              "line": 19,
-              "column": 2
-            },
-            "end": {
-              "line": 19,
-              "column": 24
-            }
-          }
-        },
-        {
-          "type": "ExportSpecifier",
-          "exported": {
-            "type": "Identifier",
-            "name": "BaseStatsCollector",
-            "range": [
-              601,
-              619
-            ],
-            "loc": {
-              "start": {
-                "line": 20,
-                "column": 2
-              },
-              "end": {
-                "line": 20,
-                "column": 20
-              }
-            }
-          },
-          "local": {
-            "type": "Identifier",
-            "name": "BaseStatsCollector",
-            "range": [
-              601,
-              619
-            ],
-            "loc": {
-              "start": {
-                "line": 20,
-                "column": 2
-              },
-              "end": {
-                "line": 20,
-                "column": 20
-              }
-            }
-          },
-          "range": [
-            601,
-            619
+            571,
+            580
           ],
           "loc": {
             "start": {
@@ -671,7 +658,7 @@
             },
             "end": {
               "line": 20,
-              "column": 20
+              "column": 11
             }
           }
         },
@@ -679,10 +666,10 @@
           "type": "ExportSpecifier",
           "exported": {
             "type": "Identifier",
-            "name": "BasicStatsCollector",
+            "name": "BasicNumberStats",
             "range": [
-              623,
-              642
+              584,
+              600
             ],
             "loc": {
               "start": {
@@ -691,16 +678,16 @@
               },
               "end": {
                 "line": 21,
-                "column": 21
+                "column": 18
               }
             }
           },
           "local": {
             "type": "Identifier",
-            "name": "BasicStatsCollector",
+            "name": "BasicNumberStats",
             "range": [
-              623,
-              642
+              584,
+              600
             ],
             "loc": {
               "start": {
@@ -709,13 +696,13 @@
               },
               "end": {
                 "line": 21,
-                "column": 21
+                "column": 18
               }
             }
           },
           "range": [
-            623,
-            642
+            584,
+            600
           ],
           "loc": {
             "start": {
@@ -724,76 +711,129 @@
             },
             "end": {
               "line": 21,
+              "column": 18
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "NumberStats",
+            "range": [
+              604,
+              615
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 2
+              },
+              "end": {
+                "line": 22,
+                "column": 13
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "NumberStats",
+            "range": [
+              604,
+              615
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 2
+              },
+              "end": {
+                "line": 22,
+                "column": 13
+              }
+            }
+          },
+          "range": [
+            604,
+            615
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 2
+            },
+            "end": {
+              "line": 22,
+              "column": 13
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "AdvancedNumberStats",
+            "range": [
+              619,
+              638
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 2
+              },
+              "end": {
+                "line": 23,
+                "column": 21
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "AdvancedNumberStats",
+            "range": [
+              619,
+              638
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 2
+              },
+              "end": {
+                "line": 23,
+                "column": 21
+              }
+            }
+          },
+          "range": [
+            619,
+            638
+          ],
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 2
+            },
+            "end": {
+              "line": 23,
               "column": 21
-            }
-          }
-        },
-        {
-          "type": "ExportSpecifier",
-          "exported": {
-            "type": "Identifier",
-            "name": "StatsCollector",
-            "range": [
-              646,
-              660
-            ],
-            "loc": {
-              "start": {
-                "line": 22,
-                "column": 2
-              },
-              "end": {
-                "line": 22,
-                "column": 16
-              }
-            }
-          },
-          "local": {
-            "type": "Identifier",
-            "name": "StatsCollector",
-            "range": [
-              646,
-              660
-            ],
-            "loc": {
-              "start": {
-                "line": 22,
-                "column": 2
-              },
-              "end": {
-                "line": 22,
-                "column": 16
-              }
-            }
-          },
-          "range": [
-            646,
-            660
-          ],
-          "loc": {
-            "start": {
-              "line": 22,
-              "column": 2
-            },
-            "end": {
-              "line": 22,
-              "column": 16
             }
           }
         }
       ],
       "source": null,
       "range": [
-        539,
-        663
+        535,
+        641
       ],
       "loc": {
         "start": {
-          "line": 16,
+          "line": 17,
           "column": 0
         },
         "end": {
-          "line": 23,
+          "line": 24,
           "column": 2
         }
       }
@@ -801,8 +841,8 @@
   ],
   "sourceType": "module",
   "range": [
-    218,
-    663
+    195,
+    641
   ],
   "loc": {
     "start": {
@@ -810,17 +850,17 @@
       "column": 0
     },
     "end": {
-      "line": 23,
+      "line": 24,
       "column": 2
     }
   },
   "comments": [
     {
       "type": "Block",
-      "value": "*\n * Stats Collector library\n * @example\n * const lib = require('stats-collector');\n * const statsCollector = new lib.AdvancedStatsCollector();\n * statsCollector.update([1, 2, 3, 4, 5]);\n * statsCollector.get();\n ",
+      "value": "*\n * Stats Collector library\n * @example\n * const lib = require('stats-collector');\n * const stats = new lib.AdvancedStatsCollector();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
       "range": [
         0,
-        217
+        194
       ],
       "loc": {
         "start": {
@@ -830,6 +870,24 @@
         "end": {
           "line": 8,
           "column": 3
+        }
+      }
+    },
+    {
+      "type": "Line",
+      "value": " number",
+      "range": [
+        336,
+        345
+      ],
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 0
+        },
+        "end": {
+          "line": 12,
+          "column": 9
         }
       }
     }

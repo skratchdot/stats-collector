@@ -4,163 +4,227 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/AdvancedStatsCollector.js",
+    "name": "src/cli.js",
     "memberof": null,
-    "longname": "src/AdvancedStatsCollector.js",
+    "longname": "src/cli.js",
     "access": null,
     "description": null,
-    "lineNumber": 1,
-    "content": "import * as collectors from './helpers/collectors';\nimport * as filters from './helpers/filters';\nimport StatsCollector from './StatsCollector';\n\n/**\n* A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n *   - powerSumAvg_running\n *   - variance_running\n *   - standardDeviation_running\n *   - sumOfSquaredDeviations_stable\n *   - variance_stable\n *   - standardDeviation_stable\n *   - count_* (a bunch of filtered counts)\n * @example\n * const statsCollector = new AdvancedStatsCollector();\n * statsCollector.update([1, 2, 3, 4, 5]);\n * statsCollector.get();\n */\nexport default class AdvancedStatsCollector extends StatsCollector {\n  constructor() {\n    super();\n    this.addCollector(collectors.values());\n    this.addCollector(collectors.sumOfSquaredDeviations_stable());\n    this.addCollector(collectors.variance_stable());\n    this.addCollector(collectors.standardDeviation_stable());\n    const self = this;\n    Object.keys(filters).forEach(function (filterName) {\n      const filter = filters[filterName];\n      self.addCollector(collectors.filteredCount(`count_${filterName}`, filter));\n    });\n    this.addIgnore('values');\n  }\n}\n"
+    "lineNumber": 2,
+    "content": "/*eslint strict:0, no-console:0 */\n'use strict';\nimport * as lib from './index';\nimport program from 'commander';\nimport packageInfo from '../package.json';\nconst convertToList = function (val, map, filter) {\n  let arr = (val || '').toString()\n    .replace(/,/gi, ' ')\n    .replace(/\\s+/gi, ' ').split(' ');\n  if (typeof map === 'function') {\n    arr = arr.map(map);\n  }\n  if (typeof filter === 'function') {\n    arr = arr.filter(filter);\n  }\n  return arr;\n};\nconst convertToNumberList = function (val) {\n  return convertToList(val, parseFloat, Number.isFinite);\n};\nconst types = {\n  'empty': 'BaseStats',\n  'basic': 'BasicNumberStats',\n  'stats': 'NumberStats',\n  'advanced': 'AdvancedNumberStats'\n};\nlet collector;\n\n// handle errors\nprocess.on('uncaughtException', function (e) {\n  console.error(e.toString());\n});\n\nprogram\n  .version(`${packageInfo.name} version ${packageInfo.version}`, '-v, --version')\n  .usage('[options] <values>')\n  .option('-c, --collectors [collectors]', 'add collectors', convertToList, [])\n  .option('-f, --filters [filters]', 'add filters', convertToList, [])\n  .option('-t, --type [type]', 'type of stats [empty,basic,stats,advanced]', 'stats')\n  .option('-p, --pipe', 'whether or not to accept piped data from stdin')\n  .parse(process.argv);\n\n// setup defaults and validate\nprogram.collectors = program.collectors || [];\nprogram.filters = program.filters || [];\nprogram.type = program.type || '';\nprogram.type = program.type.toLowerCase();\nif (!types.hasOwnProperty(program.type)) {\n  throw new Error('Invalid type passed');\n}\nprogram.type = types[program.type];\ncollector = new (lib[program.type])();\n\n// validate collectors and filters\n['collectors', 'filters'].forEach(function (type) {\n  program[type].forEach(function (curr) {\n    // allow case-insensitivity on cli\n    curr = curr.toLowerCase();\n    const keys = Object.keys(lib[type].number);\n    const lcaseKeys = Object.keys(lib[type].number)\n      .map(function (k) {\n        return k.toLowerCase();\n      });\n    const keyIndex = lcaseKeys.indexOf(curr);\n    if (keyIndex === -1) {\n      throw new Error(`Invalid ${type} passed`);\n    } else if (type === 'collectors') {\n      collector.addCollector(new lib[type].number[keys[keyIndex]]());\n    } else {\n      collector.addFilter(lib[type].number[keys[keyIndex]]);\n    }\n  });\n});\n\ncollector.processAll(convertToNumberList(program.args));\n\nconst onData = function (data) {\n  collector.processAll(convertToNumberList(data.toString()));\n};\n\nconst onFinish = function () {\n  console.log(JSON.stringify(collector.get(true), null, '  '));\n  process.exit(0);\n};\n\nif (program.pipe) {\n  process.stdin.resume();\n  process.stdin.setEncoding('utf8');\n  process.stdin.on('data', onData);\n  process.stdin.on('end', onFinish);\n  process.stdin.on('exit', onFinish);\n} else {\n  onFinish();\n}\n"
   },
   {
     "__docId__": 1,
-    "kind": "class",
+    "kind": "function",
     "static": true,
     "variation": null,
-    "name": "AdvancedStatsCollector",
-    "memberof": "src/AdvancedStatsCollector.js",
-    "longname": "src/AdvancedStatsCollector.js~AdvancedStatsCollector",
+    "name": "convertToList",
+    "memberof": "src/cli.js",
+    "longname": "src/cli.js~convertToList",
     "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/AdvancedStatsCollector",
-    "importStyle": "AdvancedStatsCollector",
-    "description": "A stat collector that includes the following collector functions:\n  - count\n  - sum\n  - min\n  - max\n  - mean\n  - powerSumAvg_running\n  - variance_running\n  - standardDeviation_running\n  - sumOfSquaredDeviations_stable\n  - variance_stable\n  - standardDeviation_stable\n  - count_* (a bunch of filtered counts)",
-    "examples": [
-      "const statsCollector = new AdvancedStatsCollector();\nstatsCollector.update([1, 2, 3, 4, 5]);\nstatsCollector.get();"
+    "export": false,
+    "importPath": "stats-collector/lib/cli",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "val",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "map",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "filter",
+        "types": [
+          "*"
+        ]
+      }
     ],
-    "lineNumber": 24,
-    "interface": false,
-    "extends": [
-      "src/StatsCollector~StatsCollector"
-    ]
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
   },
   {
     "__docId__": 2,
-    "kind": "constructor",
-    "static": false,
+    "kind": "function",
+    "static": true,
     "variation": null,
-    "name": "constructor",
-    "memberof": "src/AdvancedStatsCollector.js~AdvancedStatsCollector",
-    "longname": "src/AdvancedStatsCollector.js~AdvancedStatsCollector#constructor",
+    "name": "convertToNumberList",
+    "memberof": "src/cli.js",
+    "longname": "src/cli.js~convertToNumberList",
     "access": null,
+    "export": false,
+    "importPath": "stats-collector/lib/cli",
+    "importStyle": null,
     "description": null,
-    "lineNumber": 25,
+    "lineNumber": 18,
     "undocument": true,
-    "params": [],
+    "params": [
+      {
+        "name": "val",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
     "generator": false
   },
   {
     "__docId__": 3,
-    "kind": "file",
+    "kind": "variable",
     "static": true,
     "variation": null,
-    "name": "src/BaseStatsCollector.js",
-    "memberof": null,
-    "longname": "src/BaseStatsCollector.js",
+    "name": "types",
+    "memberof": "src/cli.js",
+    "longname": "src/cli.js~types",
     "access": null,
+    "export": false,
+    "importPath": "stats-collector/lib/cli",
+    "importStyle": null,
     "description": null,
-    "lineNumber": 1,
-    "content": "import execMethod from './helpers/execMethod';\n\n/**\n * A stat collector that initially includes no collector functions.\n * @example\n * const statsCollector = new BaseStatsCollector();\n * statsCollector.addCollector({name: 'custom', onUpdate: fn});\n * statsCollector.update([1, 2, 3, 4, 5]);\n * statsCollector.get();\n */\nexport default class BaseStatsCollector {\n  constructor() {\n    this._collectors = [];\n    this._reset = true;\n    this._state = {};\n    this._ignore = [];\n  }\n  /**\n   * Add a collector function that can process data\n   * when update() or get() is called.\n   * @param {Object} collector An object with the following properties:\n   *   - **name** - [String] The name of the collector\n   *   - **initialValue** - [any] The initial value if update() has never been called\n   *   - **requirements** - [Array] An array of collector names that must be added before this collector\n   *   - **onUpdate** - [Function]\n   *   - **onGet** - [Function]\n   * @example\n   * const statCollector = new BaseStatsCollector();\n   * statCollector.addCollector({\n   *   name: 'test-sum',\n   *   initialValue: 0,\n   *   onUpdate: function (prev, state, val) { return prev + val; }\n   * });\n   * @return {undefined}\n   */\n  addCollector(collector) {\n    if (!this._reset) {\n      throw new Error('Cannot add a new collector unless you call reset() first');\n    }\n    if (typeof collector === 'object' && typeof collector.name === 'string') {\n      let reqIndex;\n      let requirements = collector.requirements;\n      if (!Array.isArray(requirements)) {\n        requirements = [];\n      }\n      this._collectors.forEach(function (currentCollector) {\n        if (currentCollector.name === collector.name) {\n          throw new Error('A collector with that name has already been added.');\n        }\n        reqIndex = requirements.indexOf(currentCollector.name);\n        if (reqIndex >= 0) {\n          requirements.splice(reqIndex, 1);\n        }\n      });\n      if (requirements.length) {\n        throw new Error(`Did not meet the requirements: ${requirements}`);\n      }\n      this._collectors.push(collector);\n    } else {\n      throw new Error('Collector must be an object with a name');\n    }\n    this.reset();\n  }\n  addIgnore(name) {\n    if (this._ignore.indexOf(name) === -1) {\n      this._ignore.push(name);\n    }\n  }\n  get() {\n    const self = this;\n    const result = {};\n    if (!this._reset) {\n      execMethod(this, 'onGet');\n    }\n    Object.keys(this._state).sort().forEach(function (key) {\n      if (self._ignore.indexOf(key) === -1) {\n        let val = self._state[key];\n        if (val) {\n          val = JSON.parse(JSON.stringify(val));\n        }\n        result[key] = val;\n      }\n    });\n    return result;\n  }\n  update(...values) {\n    const self = this;\n    values.forEach(function (value) {\n      if (Array.isArray(value)) {\n        value.forEach(function (v) {\n          self.update(v);\n        });\n      } else {\n        const v = parseFloat(value);\n        if (Number.isFinite(v)) {\n          execMethod(self, 'onUpdate', v);\n        }\n      }\n    });\n  }\n  reset() {\n    const self = this;\n    this._state = {};\n    this._collectors.forEach(function (collector) {\n      self._state[collector.name] = undefined;\n    });\n    this._reset = true;\n  }\n}\n"
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
   },
   {
     "__docId__": 4,
-    "kind": "class",
+    "kind": "function",
     "static": true,
     "variation": null,
-    "name": "BaseStatsCollector",
-    "memberof": "src/BaseStatsCollector.js",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector",
+    "name": "onData",
+    "memberof": "src/cli.js",
+    "longname": "src/cli.js~onData",
     "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/BaseStatsCollector",
-    "importStyle": "BaseStatsCollector",
-    "description": "A stat collector that initially includes no collector functions.",
-    "examples": [
-      "const statsCollector = new BaseStatsCollector();\nstatsCollector.addCollector({name: 'custom', onUpdate: fn});\nstatsCollector.update([1, 2, 3, 4, 5]);\nstatsCollector.get();"
+    "export": false,
+    "importPath": "stats-collector/lib/cli",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 77,
+    "undocument": true,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
     ],
-    "lineNumber": 11,
-    "interface": false
+    "generator": false
   },
   {
     "__docId__": 5,
-    "kind": "constructor",
-    "static": false,
+    "kind": "function",
+    "static": true,
     "variation": null,
-    "name": "constructor",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#constructor",
+    "name": "onFinish",
+    "memberof": "src/cli.js",
+    "longname": "src/cli.js~onFinish",
     "access": null,
+    "export": false,
+    "importPath": "stats-collector/lib/cli",
+    "importStyle": null,
     "description": null,
-    "lineNumber": 12,
+    "lineNumber": 81,
     "undocument": true,
     "params": [],
     "generator": false
   },
   {
     "__docId__": 6,
-    "kind": "member",
-    "static": false,
+    "kind": "file",
+    "static": true,
     "variation": null,
-    "name": "_collectors",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#_collectors",
+    "name": "src/collectors/Collector.js",
+    "memberof": null,
+    "longname": "src/collectors/Collector.js",
     "access": null,
     "description": null,
-    "lineNumber": 13,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
+    "lineNumber": 6,
+    "content": "/**\n * A base Collector class. You can add the following methods when you extend it:\n *   - handleProcess(state, prev, val)\n *   - handleGet(state)\n */\nexport default class Collector {\n  constructor(name, initialValue, requirements = []) {\n    this.name = name;\n    this.initialValue = initialValue;\n    this.requirements = requirements;\n  }\n}\n"
   },
   {
     "__docId__": 7,
-    "kind": "member",
-    "static": false,
+    "kind": "class",
+    "static": true,
     "variation": null,
-    "name": "_reset",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#_reset",
+    "name": "Collector",
+    "memberof": "src/collectors/Collector.js",
+    "longname": "src/collectors/Collector.js~Collector",
     "access": null,
-    "description": null,
-    "lineNumber": 14,
-    "undocument": true,
-    "type": {
-      "types": [
-        "boolean"
-      ]
-    }
+    "export": true,
+    "importPath": "stats-collector/lib/collectors/Collector",
+    "importStyle": "Collector",
+    "description": "A base Collector class. You can add the following methods when you extend it:\n  - handleProcess(state, prev, val)\n  - handleGet(state)",
+    "lineNumber": 6,
+    "interface": false
   },
   {
     "__docId__": 8,
-    "kind": "member",
+    "kind": "constructor",
     "static": false,
     "variation": null,
-    "name": "_state",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#_state",
+    "name": "constructor",
+    "memberof": "src/collectors/Collector.js~Collector",
+    "longname": "src/collectors/Collector.js~Collector#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 15,
+    "lineNumber": 7,
     "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
+    "params": [
+      {
+        "name": "name",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "initialValue",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "requirements",
+        "optional": true,
+        "types": [
+          "*[]"
+        ],
+        "defaultRaw": [],
+        "defaultValue": "[]"
+      }
+    ],
+    "generator": false
   },
   {
     "__docId__": 9,
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "_ignore",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#_ignore",
+    "name": "name",
+    "memberof": "src/collectors/Collector.js~Collector",
+    "longname": "src/collectors/Collector.js~Collector#name",
     "access": null,
     "description": null,
-    "lineNumber": 16,
+    "lineNumber": 8,
     "undocument": true,
     "type": {
       "types": [
@@ -170,55 +234,173 @@
   },
   {
     "__docId__": 10,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "initialValue",
+    "memberof": "src/collectors/Collector.js~Collector",
+    "longname": "src/collectors/Collector.js~Collector#initialValue",
+    "access": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 11,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "requirements",
+    "memberof": "src/collectors/Collector.js~Collector",
+    "longname": "src/collectors/Collector.js~Collector#requirements",
+    "access": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 12,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/collectors/number/Count.js",
+    "memberof": null,
+    "longname": "src/collectors/number/Count.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `count`\n */\nexport default class Count extends Collector {\n  constructor() {\n    super('count', 0);\n  }\n  handleProcess(state, prev) {\n    return prev + 1;\n  }\n}\n"
+  },
+  {
+    "__docId__": 13,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Count",
+    "memberof": "src/collectors/number/Count.js",
+    "longname": "src/collectors/number/Count.js~Count",
+    "access": null,
+    "export": true,
+    "importPath": "stats-collector/lib/collectors/number/Count",
+    "importStyle": "Count",
+    "description": "A collector that captures `count`",
+    "lineNumber": 6,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
+  },
+  {
+    "__docId__": 14,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/collectors/number/Count.js~Count",
+    "longname": "src/collectors/number/Count.js~Count#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 15,
     "kind": "method",
     "static": false,
     "variation": null,
-    "name": "addCollector",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#addCollector",
+    "name": "handleProcess",
+    "memberof": "src/collectors/number/Count.js~Count",
+    "longname": "src/collectors/number/Count.js~Count#handleProcess",
     "access": null,
-    "description": "Add a collector function that can process data\nwhen update() or get() is called.",
-    "examples": [
-      "const statCollector = new BaseStatsCollector();\nstatCollector.addCollector({\n  name: 'test-sum',\n  initialValue: 0,\n  onUpdate: function (prev, state, val) { return prev + val; }\n});"
-    ],
-    "lineNumber": 36,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
     "params": [
       {
-        "nullable": null,
+        "name": "state",
         "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "collector",
-        "description": "An object with the following properties:\n  - **name** - [String] The name of the collector\n  - **initialValue** - [any] The initial value if update() has never been called\n  - **requirements** - [Array] An array of collector names that must be added before this collector\n  - **onUpdate** - [Function]\n  - **onGet** - [Function]"
+          "*"
+        ]
+      },
+      {
+        "name": "prev",
+        "types": [
+          "*"
+        ]
       }
     ],
     "return": {
-      "nullable": null,
       "types": [
-        "undefined"
-      ],
-      "spread": false,
-      "description": ""
+        "*"
+      ]
     },
     "generator": false
   },
   {
-    "__docId__": 11,
-    "kind": "method",
-    "static": false,
+    "__docId__": 16,
+    "kind": "file",
+    "static": true,
     "variation": null,
-    "name": "addIgnore",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#addIgnore",
+    "name": "src/collectors/number/FilteredCount.js",
+    "memberof": null,
+    "longname": "src/collectors/number/FilteredCount.js",
     "access": null,
     "description": null,
-    "lineNumber": 64,
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures a named `count` after a filter is applied\n */\nexport default class FilteredCount extends Collector {\n  constructor(name, filter) {\n    super(name, 0);\n    this._filter = filter;\n  }\n  handleProcess(state, prev, val) {\n    return this._filter(val) ? prev + 1 : prev;\n  }\n}\n"
+  },
+  {
+    "__docId__": 17,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "FilteredCount",
+    "memberof": "src/collectors/number/FilteredCount.js",
+    "longname": "src/collectors/number/FilteredCount.js~FilteredCount",
+    "access": null,
+    "export": true,
+    "importPath": "stats-collector/lib/collectors/number/FilteredCount",
+    "importStyle": "FilteredCount",
+    "description": "A collector that captures a named `count` after a filter is applied",
+    "lineNumber": 6,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
+  },
+  {
+    "__docId__": 18,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/collectors/number/FilteredCount.js~FilteredCount",
+    "longname": "src/collectors/number/FilteredCount.js~FilteredCount#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 7,
     "undocument": true,
     "params": [
       {
         "name": "name",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "filter",
         "types": [
           "*"
         ]
@@ -227,18 +409,55 @@
     "generator": false
   },
   {
-    "__docId__": 12,
+    "__docId__": 19,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_filter",
+    "memberof": "src/collectors/number/FilteredCount.js~FilteredCount",
+    "longname": "src/collectors/number/FilteredCount.js~FilteredCount#_filter",
+    "access": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 20,
     "kind": "method",
     "static": false,
     "variation": null,
-    "name": "get",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#get",
+    "name": "handleProcess",
+    "memberof": "src/collectors/number/FilteredCount.js~FilteredCount",
+    "longname": "src/collectors/number/FilteredCount.js~FilteredCount#handleProcess",
     "access": null,
     "description": null,
-    "lineNumber": 69,
+    "lineNumber": 11,
     "undocument": true,
-    "params": [],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "prev",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "val",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "return": {
       "types": [
         "*"
@@ -247,214 +466,88 @@
     "generator": false
   },
   {
-    "__docId__": 13,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "update",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#update",
-    "access": null,
-    "description": null,
-    "lineNumber": 86,
-    "undocument": true,
-    "params": [
-      {
-        "name": "values",
-        "types": [
-          "...*"
-        ],
-        "spread": true
-      }
-    ],
-    "generator": false
-  },
-  {
-    "__docId__": 14,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "reset",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#reset",
-    "access": null,
-    "description": null,
-    "lineNumber": 101,
-    "undocument": true,
-    "params": [],
-    "generator": false
-  },
-  {
-    "__docId__": 15,
-    "kind": "member",
-    "static": false,
-    "variation": null,
-    "name": "_state",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#_state",
-    "access": null,
-    "description": null,
-    "lineNumber": 103,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 16,
-    "kind": "member",
-    "static": false,
-    "variation": null,
-    "name": "_reset",
-    "memberof": "src/BaseStatsCollector.js~BaseStatsCollector",
-    "longname": "src/BaseStatsCollector.js~BaseStatsCollector#_reset",
-    "access": null,
-    "description": null,
-    "lineNumber": 107,
-    "undocument": true,
-    "type": {
-      "types": [
-        "boolean"
-      ]
-    }
-  },
-  {
-    "__docId__": 17,
-    "kind": "file",
-    "static": true,
-    "variation": null,
-    "name": "src/BasicStatsCollector.js",
-    "memberof": null,
-    "longname": "src/BasicStatsCollector.js",
-    "access": null,
-    "description": null,
-    "lineNumber": 1,
-    "content": "import * as collectors from './helpers/collectors';\nimport BaseStatsCollector from './BaseStatsCollector';\n\n/**\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n * @example\n * const statsCollector = new BasicStatsCollector();\n * statsCollector.update([1, 2, 3, 4, 5]);\n * statsCollector.get();\n */\nexport default class BasicStatsCollector extends BaseStatsCollector {\n  constructor() {\n    super();\n    this.addCollector(collectors.count());\n    this.addCollector(collectors.sum());\n    this.addCollector(collectors.min());\n    this.addCollector(collectors.max());\n    this.addCollector(collectors.mean());\n  }\n}\n"
-  },
-  {
-    "__docId__": 18,
-    "kind": "class",
-    "static": true,
-    "variation": null,
-    "name": "BasicStatsCollector",
-    "memberof": "src/BasicStatsCollector.js",
-    "longname": "src/BasicStatsCollector.js~BasicStatsCollector",
-    "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/BasicStatsCollector",
-    "importStyle": "BasicStatsCollector",
-    "description": "A stat collector that includes the following collector functions:\n  - count\n  - sum\n  - min\n  - max\n  - mean",
-    "examples": [
-      "const statsCollector = new BasicStatsCollector();\nstatsCollector.update([1, 2, 3, 4, 5]);\nstatsCollector.get();"
-    ],
-    "lineNumber": 16,
-    "interface": false,
-    "extends": [
-      "src/BaseStatsCollector~BaseStatsCollector"
-    ]
-  },
-  {
-    "__docId__": 19,
-    "kind": "constructor",
-    "static": false,
-    "variation": null,
-    "name": "constructor",
-    "memberof": "src/BasicStatsCollector.js~BasicStatsCollector",
-    "longname": "src/BasicStatsCollector.js~BasicStatsCollector#constructor",
-    "access": null,
-    "description": null,
-    "lineNumber": 17,
-    "undocument": true,
-    "params": [],
-    "generator": false
-  },
-  {
-    "__docId__": 20,
-    "kind": "file",
-    "static": true,
-    "variation": null,
-    "name": "src/StatsCollector.js",
-    "memberof": null,
-    "longname": "src/StatsCollector.js",
-    "access": null,
-    "description": null,
-    "lineNumber": 1,
-    "content": "import * as collectors from './helpers/collectors';\nimport BasicStatsCollector from './BasicStatsCollector';\n\n/**\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n *   - powerSumAvg_running\n *   - variance_running\n *   - standardDeviation_running\n * @example\n * const statsCollector = new StatsCollector();\n * statsCollector.update([1, 2, 3, 4, 5]);\n * statsCollector.get();\n */\nexport default class StatsCollector extends BasicStatsCollector {\n  constructor() {\n    super();\n    this.addCollector(collectors.powerSumAvg_running());\n    this.addCollector(collectors.variance_running());\n    this.addCollector(collectors.standardDeviation_running());\n  }\n}\n"
-  },
-  {
     "__docId__": 21,
-    "kind": "class",
+    "kind": "file",
     "static": true,
     "variation": null,
-    "name": "StatsCollector",
-    "memberof": "src/StatsCollector.js",
-    "longname": "src/StatsCollector.js~StatsCollector",
+    "name": "src/collectors/number/Max.js",
+    "memberof": null,
+    "longname": "src/collectors/number/Max.js",
     "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/StatsCollector",
-    "importStyle": "StatsCollector",
-    "description": "A stat collector that includes the following collector functions:\n  - count\n  - sum\n  - min\n  - max\n  - mean\n  - powerSumAvg_running\n  - variance_running\n  - standardDeviation_running",
-    "examples": [
-      "const statsCollector = new StatsCollector();\nstatsCollector.update([1, 2, 3, 4, 5]);\nstatsCollector.get();"
-    ],
-    "lineNumber": 19,
-    "interface": false,
-    "extends": [
-      "src/BasicStatsCollector~BasicStatsCollector"
-    ]
+    "description": null,
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `max`\n */\nexport default class Max extends Collector {\n  constructor() {\n    super('max', Number.MIN_VALUE);\n  }\n  handleProcess(state, prev, val) {\n    return Math.max(prev, val);\n  }\n}\n"
   },
   {
     "__docId__": 22,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Max",
+    "memberof": "src/collectors/number/Max.js",
+    "longname": "src/collectors/number/Max.js~Max",
+    "access": null,
+    "export": true,
+    "importPath": "stats-collector/lib/collectors/number/Max",
+    "importStyle": "Max",
+    "description": "A collector that captures `max`",
+    "lineNumber": 6,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
+  },
+  {
+    "__docId__": 23,
     "kind": "constructor",
     "static": false,
     "variation": null,
     "name": "constructor",
-    "memberof": "src/StatsCollector.js~StatsCollector",
-    "longname": "src/StatsCollector.js~StatsCollector#constructor",
+    "memberof": "src/collectors/number/Max.js~Max",
+    "longname": "src/collectors/number/Max.js~Max#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 20,
+    "lineNumber": 7,
     "undocument": true,
     "params": [],
     "generator": false
   },
   {
-    "__docId__": 23,
-    "kind": "file",
-    "static": true,
+    "__docId__": 24,
+    "kind": "method",
+    "static": false,
     "variation": null,
-    "name": "src/collectors/count.js",
-    "memberof": null,
-    "longname": "src/collectors/count.js",
+    "name": "handleProcess",
+    "memberof": "src/collectors/number/Max.js~Max",
+    "longname": "src/collectors/number/Max.js~Max#handleProcess",
     "access": null,
     "description": null,
-    "lineNumber": 5,
-    "content": "/**\n * Returns the definition of a collector that captures `count`\n * @return {Object} A `count` collector object\n */\nexport default function () {\n  return {\n    name: 'count',\n    initialValue: 0,\n    onUpdate: function (prev) {\n      return prev + 1;\n    }\n  };\n}\n"
-  },
-  {
-    "__docId__": 24,
-    "kind": "function",
-    "static": true,
-    "variation": null,
-    "name": "count",
-    "memberof": "src/collectors/count.js",
-    "longname": "src/collectors/count.js~count",
-    "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/collectors/count",
-    "importStyle": "count",
-    "description": "Returns the definition of a collector that captures `count`",
-    "lineNumber": 5,
-    "params": [],
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "prev",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "val",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "return": {
-      "nullable": null,
       "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `count` collector object"
+        "*"
+      ]
     },
     "generator": false
   },
@@ -463,95 +556,72 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/collectors/filteredCount.js",
+    "name": "src/collectors/number/Mean.js",
     "memberof": null,
-    "longname": "src/collectors/filteredCount.js",
+    "longname": "src/collectors/number/Mean.js",
     "access": null,
     "description": null,
-    "lineNumber": 8,
-    "content": "/**\n * Returns the definition of a collector that captures a filtered\n * count based off of the passed in filter.\n * @param  {String} name The name of the collector\n * @param  {Function} filter A function that is takes a value and returns true or false\n * @return {Object} A `filtered count` collector object\n */\nexport default function (name, filter) {\n  return {\n    name: name,\n    initialValue: 0,\n    onUpdate: function (prev, state, val) {\n      return filter(val) ? prev + 1 : prev;\n    }\n  };\n}\n"
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `mean`\n */\nexport default class Mean extends Collector {\n  constructor() {\n    super('mean', 0, ['count', 'sum']);\n  }\n  handleGet(state) {\n    return state.sum / state.count;\n  }\n}\n"
   },
   {
     "__docId__": 26,
-    "kind": "function",
+    "kind": "class",
     "static": true,
     "variation": null,
-    "name": "filteredCount",
-    "memberof": "src/collectors/filteredCount.js",
-    "longname": "src/collectors/filteredCount.js~filteredCount",
+    "name": "Mean",
+    "memberof": "src/collectors/number/Mean.js",
+    "longname": "src/collectors/number/Mean.js~Mean",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/collectors/filteredCount",
-    "importStyle": "filteredCount",
-    "description": "Returns the definition of a collector that captures a filtered\ncount based off of the passed in filter.",
-    "lineNumber": 8,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "String"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "name",
-        "description": "The name of the collector"
-      },
-      {
-        "nullable": null,
-        "types": [
-          "Function"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "filter",
-        "description": "A function that is takes a value and returns true or false"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `filtered count` collector object"
-    },
-    "generator": false
+    "importPath": "stats-collector/lib/collectors/number/Mean",
+    "importStyle": "Mean",
+    "description": "A collector that captures `mean`",
+    "lineNumber": 6,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
   },
   {
     "__docId__": 27,
-    "kind": "file",
-    "static": true,
+    "kind": "constructor",
+    "static": false,
     "variation": null,
-    "name": "src/collectors/max.js",
-    "memberof": null,
-    "longname": "src/collectors/max.js",
+    "name": "constructor",
+    "memberof": "src/collectors/number/Mean.js~Mean",
+    "longname": "src/collectors/number/Mean.js~Mean#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 5,
-    "content": "/**\n * Returns the definition of a collector that captures `max`\n * @return {Object} A `max` collector object\n */\nexport default function () {\n  return {\n    name: 'max',\n    initialValue: Number.MIN_VALUE,\n    onUpdate: function (prev, state, val) {\n      return Math.max(prev, val);\n    }\n  };\n}\n"
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [],
+    "generator": false
   },
   {
     "__docId__": 28,
-    "kind": "function",
-    "static": true,
+    "kind": "method",
+    "static": false,
     "variation": null,
-    "name": "max",
-    "memberof": "src/collectors/max.js",
-    "longname": "src/collectors/max.js~max",
+    "name": "handleGet",
+    "memberof": "src/collectors/number/Mean.js~Mean",
+    "longname": "src/collectors/number/Mean.js~Mean#handleGet",
     "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/collectors/max",
-    "importStyle": "max",
-    "description": "Returns the definition of a collector that captures `max`",
-    "lineNumber": 5,
-    "params": [],
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "return": {
-      "nullable": null,
       "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `max` collector object"
+        "*"
+      ]
     },
     "generator": false
   },
@@ -560,74 +630,84 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/collectors/mean.js",
+    "name": "src/collectors/number/Min.js",
     "memberof": null,
-    "longname": "src/collectors/mean.js",
+    "longname": "src/collectors/number/Min.js",
     "access": null,
     "description": null,
-    "lineNumber": 5,
-    "content": "/**\n * Returns the definition of a collector that captures `mean`\n * @return {Object} A `mean` collector object\n */\nexport default function () {\n  return {\n    name: 'mean',\n    initialValue: 0,\n    requirements: ['count'],\n    onUpdate: function (prev, state, val) {\n      return prev + (val - prev) / state.count;\n    }\n  };\n}\n"
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `min`\n */\nexport default class Min extends Collector {\n  constructor() {\n    super('min', Number.MAX_VALUE);\n  }\n  handleProcess(state, prev, val) {\n    return Math.min(prev, val);\n  }\n}\n"
   },
   {
     "__docId__": 30,
-    "kind": "function",
+    "kind": "class",
     "static": true,
     "variation": null,
-    "name": "mean",
-    "memberof": "src/collectors/mean.js",
-    "longname": "src/collectors/mean.js~mean",
+    "name": "Min",
+    "memberof": "src/collectors/number/Min.js",
+    "longname": "src/collectors/number/Min.js~Min",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/collectors/mean",
-    "importStyle": "mean",
-    "description": "Returns the definition of a collector that captures `mean`",
-    "lineNumber": 5,
-    "params": [],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `mean` collector object"
-    },
-    "generator": false
+    "importPath": "stats-collector/lib/collectors/number/Min",
+    "importStyle": "Min",
+    "description": "A collector that captures `min`",
+    "lineNumber": 6,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
   },
   {
     "__docId__": 31,
-    "kind": "file",
-    "static": true,
+    "kind": "constructor",
+    "static": false,
     "variation": null,
-    "name": "src/collectors/min.js",
-    "memberof": null,
-    "longname": "src/collectors/min.js",
+    "name": "constructor",
+    "memberof": "src/collectors/number/Min.js~Min",
+    "longname": "src/collectors/number/Min.js~Min#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 5,
-    "content": "/**\n * Returns the definition of a collector that captures `min`\n * @return {Object} A `min` collector object\n */\nexport default function () {\n  return {\n    name: 'min',\n    initialValue: Number.MAX_VALUE,\n    onUpdate: function (prev, state, val) {\n      return Math.min(prev, val);\n    }\n  };\n}\n"
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [],
+    "generator": false
   },
   {
     "__docId__": 32,
-    "kind": "function",
-    "static": true,
+    "kind": "method",
+    "static": false,
     "variation": null,
-    "name": "min",
-    "memberof": "src/collectors/min.js",
-    "longname": "src/collectors/min.js~min",
+    "name": "handleProcess",
+    "memberof": "src/collectors/number/Min.js~Min",
+    "longname": "src/collectors/number/Min.js~Min#handleProcess",
     "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/collectors/min",
-    "importStyle": "min",
-    "description": "Returns the definition of a collector that captures `min`",
-    "lineNumber": 5,
-    "params": [],
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "prev",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "val",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "return": {
-      "nullable": null,
       "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `min` collector object"
+        "*"
+      ]
     },
     "generator": false
   },
@@ -636,74 +716,84 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/collectors/powerSumAvg_running.js",
+    "name": "src/collectors/number/PowerSumAvgRunning.js",
     "memberof": null,
-    "longname": "src/collectors/powerSumAvg_running.js",
+    "longname": "src/collectors/number/PowerSumAvgRunning.js",
     "access": null,
     "description": null,
-    "lineNumber": 7,
-    "content": " /**\n  * Returns the definition of a collector that captures `powerSumAvg_running`\n  *   - Modified from the following source:\n  *     https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/\n  * @return {Object} A `powerSumAvg_running` collector object\n  */\nexport default function () {\n  return {\n    name: 'powerSumAvg_running',\n    initialValue: 0,\n    requirements: ['count'],\n    onUpdate: function (prev, state, val) {\n      let newValue = prev;\n      newValue += (val * val - prev) / state.count;\n      return newValue;\n    }\n  };\n}\n"
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `powerSumAvgRunning`\n *   - Modified from the following source:\n *     https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/\n */\nexport default class PowerSumAvgRunning extends Collector {\n  constructor() {\n    super('powerSumAvgRunning', 0, ['count']);\n  }\n  handleProcess(state, prev, val) {\n    let newValue = prev;\n    newValue += (val * val - prev) / state.count;\n    return newValue;\n  }\n}\n"
   },
   {
     "__docId__": 34,
-    "kind": "function",
+    "kind": "class",
     "static": true,
     "variation": null,
-    "name": "powerSumAvg_running",
-    "memberof": "src/collectors/powerSumAvg_running.js",
-    "longname": "src/collectors/powerSumAvg_running.js~powerSumAvg_running",
+    "name": "PowerSumAvgRunning",
+    "memberof": "src/collectors/number/PowerSumAvgRunning.js",
+    "longname": "src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/collectors/powerSumAvg_running",
-    "importStyle": "powerSumAvg_running",
-    "description": "Returns the definition of a collector that captures `powerSumAvg_running`\n  - Modified from the following source:\n    https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/",
-    "lineNumber": 7,
-    "params": [],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `powerSumAvg_running` collector object"
-    },
-    "generator": false
+    "importPath": "stats-collector/lib/collectors/number/PowerSumAvgRunning",
+    "importStyle": "PowerSumAvgRunning",
+    "description": "A collector that captures `powerSumAvgRunning`\n  - Modified from the following source:\n    https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/",
+    "lineNumber": 8,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
   },
   {
     "__docId__": 35,
-    "kind": "file",
-    "static": true,
+    "kind": "constructor",
+    "static": false,
     "variation": null,
-    "name": "src/collectors/standardDeviation_running.js",
-    "memberof": null,
-    "longname": "src/collectors/standardDeviation_running.js",
+    "name": "constructor",
+    "memberof": "src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning",
+    "longname": "src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 7,
-    "content": " /**\n  * Returns the definition of a collector that captures `standardDeviation_running`\n  *   - Modified from the following source:\n  *     https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/\n  * @return {Object} A `standardDeviation_running` collector object\n  */\nexport default function () {\n  return {\n    name: 'standardDeviation_running',\n    initialValue: 0,\n    requirements: ['variance_running'],\n    onGet: function (prev, state) {\n      return Math.sqrt(state.variance_running);\n    }\n  };\n}\n"
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [],
+    "generator": false
   },
   {
     "__docId__": 36,
-    "kind": "function",
-    "static": true,
+    "kind": "method",
+    "static": false,
     "variation": null,
-    "name": "standardDeviation_running",
-    "memberof": "src/collectors/standardDeviation_running.js",
-    "longname": "src/collectors/standardDeviation_running.js~standardDeviation_running",
+    "name": "handleProcess",
+    "memberof": "src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning",
+    "longname": "src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning#handleProcess",
     "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/collectors/standardDeviation_running",
-    "importStyle": "standardDeviation_running",
-    "description": "Returns the definition of a collector that captures `standardDeviation_running`\n  - Modified from the following source:\n    https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/",
-    "lineNumber": 7,
-    "params": [],
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "prev",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "val",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "return": {
-      "nullable": null,
       "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `standardDeviation_running` collector object"
+        "*"
+      ]
     },
     "generator": false
   },
@@ -712,74 +802,72 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/collectors/standardDeviation_stable.js",
+    "name": "src/collectors/number/StandardDeviationRunning.js",
     "memberof": null,
-    "longname": "src/collectors/standardDeviation_stable.js",
+    "longname": "src/collectors/number/StandardDeviationRunning.js",
     "access": null,
     "description": null,
-    "lineNumber": 5,
-    "content": "/**\n * Returns the definition of a collector that captures `standardDeviation_stable`\n * @return {Object} A `standardDeviation_stable` collector object\n */\nexport default function () {\n  return {\n    name: 'standardDeviation_stable',\n    initialValue: 0,\n    requirements: ['variance_stable'],\n    onGet: function (prev, state) {\n      return Math.sqrt(state.variance_stable);\n    }\n  };\n}\n"
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `standardDeviationRunning`\n *   - Modified from the following source:\n *     https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/\n */\nexport default class StandardDeviationRunning extends Collector {\n  constructor() {\n    super('standardDeviationRunning', 0, ['varianceRunning']);\n  }\n  handleGet(state) {\n    return Math.sqrt(state.varianceRunning);\n  }\n}\n"
   },
   {
     "__docId__": 38,
-    "kind": "function",
+    "kind": "class",
     "static": true,
     "variation": null,
-    "name": "standardDeviation_stable",
-    "memberof": "src/collectors/standardDeviation_stable.js",
-    "longname": "src/collectors/standardDeviation_stable.js~standardDeviation_stable",
+    "name": "StandardDeviationRunning",
+    "memberof": "src/collectors/number/StandardDeviationRunning.js",
+    "longname": "src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/collectors/standardDeviation_stable",
-    "importStyle": "standardDeviation_stable",
-    "description": "Returns the definition of a collector that captures `standardDeviation_stable`",
-    "lineNumber": 5,
-    "params": [],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `standardDeviation_stable` collector object"
-    },
-    "generator": false
+    "importPath": "stats-collector/lib/collectors/number/StandardDeviationRunning",
+    "importStyle": "StandardDeviationRunning",
+    "description": "A collector that captures `standardDeviationRunning`\n  - Modified from the following source:\n    https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/",
+    "lineNumber": 8,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
   },
   {
     "__docId__": 39,
-    "kind": "file",
-    "static": true,
+    "kind": "constructor",
+    "static": false,
     "variation": null,
-    "name": "src/collectors/sum.js",
-    "memberof": null,
-    "longname": "src/collectors/sum.js",
+    "name": "constructor",
+    "memberof": "src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning",
+    "longname": "src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 5,
-    "content": "/**\n * Returns the definition of a collector that captures `sum`\n * @return {Object} A `sum` collector object\n */\nexport default function () {\n  return {\n    name: 'sum',\n    initialValue: 0,\n    onUpdate: function (prev, state, val) {\n      return prev + val;\n    }\n  };\n}\n"
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [],
+    "generator": false
   },
   {
     "__docId__": 40,
-    "kind": "function",
-    "static": true,
+    "kind": "method",
+    "static": false,
     "variation": null,
-    "name": "sum",
-    "memberof": "src/collectors/sum.js",
-    "longname": "src/collectors/sum.js~sum",
+    "name": "handleGet",
+    "memberof": "src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning",
+    "longname": "src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning#handleGet",
     "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/collectors/sum",
-    "importStyle": "sum",
-    "description": "Returns the definition of a collector that captures `sum`",
-    "lineNumber": 5,
-    "params": [],
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "return": {
-      "nullable": null,
       "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `sum` collector object"
+        "*"
+      ]
     },
     "generator": false
   },
@@ -788,74 +876,72 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/collectors/sumOfSquaredDeviations_stable.js",
+    "name": "src/collectors/number/StandardDeviationStable.js",
     "memberof": null,
-    "longname": "src/collectors/sumOfSquaredDeviations_stable.js",
+    "longname": "src/collectors/number/StandardDeviationStable.js",
     "access": null,
     "description": null,
-    "lineNumber": 5,
-    "content": "/**\n * Returns the definition of a collector that captures `sumOfSquaredDeviations_stable`\n * @return {Object} A `sumOfSquaredDeviations_stable` collector object\n */\nexport default function () {\n  return {\n    name: 'sumOfSquaredDeviations_stable',\n    initialValue: 0,\n    requirements: ['values', 'mean'],\n    onGet: function (prev, state) {\n      const len = state.values.length;\n      let sum = 0;\n      let current = 0;\n      for (let i = 0; i < len; i++) {\n        current = state.values[i];\n        sum += Math.pow(current - state.mean, 2);\n      }\n      return sum;\n    }\n  };\n}\n"
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `standardDeviationStable`\n */\nexport default class StandardDeviationStable extends Collector {\n  constructor() {\n    super('standardDeviationStable', 0, ['varianceStable']);\n  }\n  handleGet(state) {\n    return Math.sqrt(state.varianceStable);\n  }\n}\n"
   },
   {
     "__docId__": 42,
-    "kind": "function",
+    "kind": "class",
     "static": true,
     "variation": null,
-    "name": "sumOfSquaredDeviations_stable",
-    "memberof": "src/collectors/sumOfSquaredDeviations_stable.js",
-    "longname": "src/collectors/sumOfSquaredDeviations_stable.js~sumOfSquaredDeviations_stable",
+    "name": "StandardDeviationStable",
+    "memberof": "src/collectors/number/StandardDeviationStable.js",
+    "longname": "src/collectors/number/StandardDeviationStable.js~StandardDeviationStable",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/collectors/sumOfSquaredDeviations_stable",
-    "importStyle": "sumOfSquaredDeviations_stable",
-    "description": "Returns the definition of a collector that captures `sumOfSquaredDeviations_stable`",
-    "lineNumber": 5,
-    "params": [],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `sumOfSquaredDeviations_stable` collector object"
-    },
-    "generator": false
+    "importPath": "stats-collector/lib/collectors/number/StandardDeviationStable",
+    "importStyle": "StandardDeviationStable",
+    "description": "A collector that captures `standardDeviationStable`",
+    "lineNumber": 6,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
   },
   {
     "__docId__": 43,
-    "kind": "file",
-    "static": true,
+    "kind": "constructor",
+    "static": false,
     "variation": null,
-    "name": "src/collectors/values.js",
-    "memberof": null,
-    "longname": "src/collectors/values.js",
+    "name": "constructor",
+    "memberof": "src/collectors/number/StandardDeviationStable.js~StandardDeviationStable",
+    "longname": "src/collectors/number/StandardDeviationStable.js~StandardDeviationStable#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 5,
-    "content": "/**\n * Returns the definition of a collector that captures `values`\n * @return {Object} A `values` collector object\n */\nexport default function () {\n  return {\n    name: 'values',\n    initialValue: [],\n    onUpdate: function (prev, state, val) {\n      const result = prev.slice(0);\n      result.push(val);\n      return result;\n    }\n  };\n}\n"
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [],
+    "generator": false
   },
   {
     "__docId__": 44,
-    "kind": "function",
-    "static": true,
+    "kind": "method",
+    "static": false,
     "variation": null,
-    "name": "values",
-    "memberof": "src/collectors/values.js",
-    "longname": "src/collectors/values.js~values",
+    "name": "handleGet",
+    "memberof": "src/collectors/number/StandardDeviationStable.js~StandardDeviationStable",
+    "longname": "src/collectors/number/StandardDeviationStable.js~StandardDeviationStable#handleGet",
     "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/collectors/values",
-    "importStyle": "values",
-    "description": "Returns the definition of a collector that captures `values`",
-    "lineNumber": 5,
-    "params": [],
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "return": {
-      "nullable": null,
       "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `values` collector object"
+        "*"
+      ]
     },
     "generator": false
   },
@@ -864,74 +950,84 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/collectors/variance_running.js",
+    "name": "src/collectors/number/Sum.js",
     "memberof": null,
-    "longname": "src/collectors/variance_running.js",
+    "longname": "src/collectors/number/Sum.js",
     "access": null,
     "description": null,
-    "lineNumber": 7,
-    "content": " /**\n  * Returns the definition of a collector that captures `variance_running`\n  *   - Modified from the following source:\n  *     https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/\n  * @return {Object} A `variance_running` collector object\n  */\nexport default function () {\n  return {\n    name: 'variance_running',\n    initialValue: 0,\n    requirements: ['count', 'mean', 'powerSumAvg_running'],\n    onGet: function (prev, state) {\n      return (state.powerSumAvg_running * state.count -\n        state.count * state.mean * state.mean) / (\n        state.count - 1);\n    }\n  };\n}\n"
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `sum`\n */\nexport default class Sum extends Collector {\n  constructor() {\n    super('sum', 0);\n  }\n  handleProcess(state, prev, val) {\n    return prev + val;\n  }\n}\n"
   },
   {
     "__docId__": 46,
-    "kind": "function",
+    "kind": "class",
     "static": true,
     "variation": null,
-    "name": "variance_running",
-    "memberof": "src/collectors/variance_running.js",
-    "longname": "src/collectors/variance_running.js~variance_running",
+    "name": "Sum",
+    "memberof": "src/collectors/number/Sum.js",
+    "longname": "src/collectors/number/Sum.js~Sum",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/collectors/variance_running",
-    "importStyle": "variance_running",
-    "description": "Returns the definition of a collector that captures `variance_running`\n  - Modified from the following source:\n    https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/",
-    "lineNumber": 7,
-    "params": [],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `variance_running` collector object"
-    },
-    "generator": false
+    "importPath": "stats-collector/lib/collectors/number/Sum",
+    "importStyle": "Sum",
+    "description": "A collector that captures `sum`",
+    "lineNumber": 6,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
   },
   {
     "__docId__": 47,
-    "kind": "file",
-    "static": true,
+    "kind": "constructor",
+    "static": false,
     "variation": null,
-    "name": "src/collectors/variance_stable.js",
-    "memberof": null,
-    "longname": "src/collectors/variance_stable.js",
+    "name": "constructor",
+    "memberof": "src/collectors/number/Sum.js~Sum",
+    "longname": "src/collectors/number/Sum.js~Sum#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 5,
-    "content": "/**\n * Returns the definition of a collector that captures `variance_stable`\n * @return {Object} A `variance_stable` collector object\n */\nexport default function () {\n  return {\n    name: 'variance_stable',\n    initialValue: 0,\n    requirements: ['values', 'sumOfSquaredDeviations_stable'],\n    onGet: function (prev, state) {\n      const len = Math.max(1, state.values.length - 1);\n      return state.sumOfSquaredDeviations_stable / len;\n    }\n  };\n}\n"
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [],
+    "generator": false
   },
   {
     "__docId__": 48,
-    "kind": "function",
-    "static": true,
+    "kind": "method",
+    "static": false,
     "variation": null,
-    "name": "variance_stable",
-    "memberof": "src/collectors/variance_stable.js",
-    "longname": "src/collectors/variance_stable.js~variance_stable",
+    "name": "handleProcess",
+    "memberof": "src/collectors/number/Sum.js~Sum",
+    "longname": "src/collectors/number/Sum.js~Sum#handleProcess",
     "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/collectors/variance_stable",
-    "importStyle": "variance_stable",
-    "description": "Returns the definition of a collector that captures `variance_stable`",
-    "lineNumber": 5,
-    "params": [],
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "prev",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "val",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "return": {
-      "nullable": null,
       "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": "A `variance_stable` collector object"
+        "*"
+      ]
     },
     "generator": false
   },
@@ -940,25 +1036,333 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/filters/even.js",
+    "name": "src/collectors/number/SumOfSquaredDeviationsStable.js",
     "memberof": null,
-    "longname": "src/filters/even.js",
+    "longname": "src/collectors/number/SumOfSquaredDeviationsStable.js",
     "access": null,
     "description": null,
-    "lineNumber": 6,
-    "content": "/**\n * Filter even values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is even, false otherwise\n */\nexport default function (value) {\n  return value % 2 === 0;\n}\n"
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `sumOfSquaredDeviationsStable`\n */\nexport default class SumOfSquaredDeviationsStable extends Collector {\n  constructor() {\n    super('sumOfSquaredDeviationsStable', 0, ['values', 'mean']);\n  }\n  handleGet(state) {\n    const len = state.values.length;\n    let sum = 0;\n    let current = 0;\n    for (let i = 0; i < len; i++) {\n      current = state.values[i];\n      sum += Math.pow(current - state.mean, 2);\n    }\n    return sum;\n  }\n}\n"
   },
   {
     "__docId__": 50,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "SumOfSquaredDeviationsStable",
+    "memberof": "src/collectors/number/SumOfSquaredDeviationsStable.js",
+    "longname": "src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable",
+    "access": null,
+    "export": true,
+    "importPath": "stats-collector/lib/collectors/number/SumOfSquaredDeviationsStable",
+    "importStyle": "SumOfSquaredDeviationsStable",
+    "description": "A collector that captures `sumOfSquaredDeviationsStable`",
+    "lineNumber": 6,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
+  },
+  {
+    "__docId__": 51,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable",
+    "longname": "src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 52,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "handleGet",
+    "memberof": "src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable",
+    "longname": "src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable#handleGet",
+    "access": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 53,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/collectors/number/Values.js",
+    "memberof": null,
+    "longname": "src/collectors/number/Values.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `values`\n */\nexport default class Values extends Collector {\n  constructor() {\n    super('values', []);\n  }\n  handleProcess(state, prev, val) {\n    const result = prev.slice(0);\n    result.push(val);\n    return result;\n  }\n}\n"
+  },
+  {
+    "__docId__": 54,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Values",
+    "memberof": "src/collectors/number/Values.js",
+    "longname": "src/collectors/number/Values.js~Values",
+    "access": null,
+    "export": true,
+    "importPath": "stats-collector/lib/collectors/number/Values",
+    "importStyle": "Values",
+    "description": "A collector that captures `values`",
+    "lineNumber": 6,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
+  },
+  {
+    "__docId__": 55,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/collectors/number/Values.js~Values",
+    "longname": "src/collectors/number/Values.js~Values#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 56,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "handleProcess",
+    "memberof": "src/collectors/number/Values.js~Values",
+    "longname": "src/collectors/number/Values.js~Values#handleProcess",
+    "access": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "prev",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "val",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 57,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/collectors/number/VarianceRunning.js",
+    "memberof": null,
+    "longname": "src/collectors/number/VarianceRunning.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `varianceRunning`\n *   - Modified from the following source:\n *     https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/\n */\nexport default class VarianceRunning extends Collector {\n  constructor() {\n    super('varianceRunning', 0, ['count', 'mean', 'powerSumAvgRunning']);\n  }\n  handleGet(state) {\n    return (state.powerSumAvgRunning * state.count -\n      state.count * state.mean * state.mean) / (\n      state.count - 1);\n  }\n}\n"
+  },
+  {
+    "__docId__": 58,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "VarianceRunning",
+    "memberof": "src/collectors/number/VarianceRunning.js",
+    "longname": "src/collectors/number/VarianceRunning.js~VarianceRunning",
+    "access": null,
+    "export": true,
+    "importPath": "stats-collector/lib/collectors/number/VarianceRunning",
+    "importStyle": "VarianceRunning",
+    "description": "A collector that captures `varianceRunning`\n  - Modified from the following source:\n    https://subluminal.wordpress.com/2008/07/31/running-standard-deviations/",
+    "lineNumber": 8,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
+  },
+  {
+    "__docId__": 59,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/collectors/number/VarianceRunning.js~VarianceRunning",
+    "longname": "src/collectors/number/VarianceRunning.js~VarianceRunning#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 60,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "handleGet",
+    "memberof": "src/collectors/number/VarianceRunning.js~VarianceRunning",
+    "longname": "src/collectors/number/VarianceRunning.js~VarianceRunning#handleGet",
+    "access": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 61,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/collectors/number/VarianceStable.js",
+    "memberof": null,
+    "longname": "src/collectors/number/VarianceStable.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import Collector from '../Collector';\n\n/**\n * A collector that captures `varianceStable`\n */\nexport default class VarianceStable extends Collector {\n  constructor() {\n    super('varianceStable', 0, ['values', 'sumOfSquaredDeviationsStable']);\n  }\n  handleGet(state) {\n    const len = Math.max(1, state.values.length - 1);\n    return state.sumOfSquaredDeviationsStable / len;\n  }\n}\n"
+  },
+  {
+    "__docId__": 62,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "VarianceStable",
+    "memberof": "src/collectors/number/VarianceStable.js",
+    "longname": "src/collectors/number/VarianceStable.js~VarianceStable",
+    "access": null,
+    "export": true,
+    "importPath": "stats-collector/lib/collectors/number/VarianceStable",
+    "importStyle": "VarianceStable",
+    "description": "A collector that captures `varianceStable`",
+    "lineNumber": 6,
+    "interface": false,
+    "extends": [
+      "src/collectors/Collector~Collector"
+    ]
+  },
+  {
+    "__docId__": 63,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/collectors/number/VarianceStable.js~VarianceStable",
+    "longname": "src/collectors/number/VarianceStable.js~VarianceStable#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 64,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "handleGet",
+    "memberof": "src/collectors/number/VarianceStable.js~VarianceStable",
+    "longname": "src/collectors/number/VarianceStable.js~VarianceStable#handleGet",
+    "access": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 65,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/filters/number/even.js",
+    "memberof": null,
+    "longname": "src/filters/number/even.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 6,
+    "content": "/**\n * Filter even values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is even, false otherwise\n */\nexport default function (value) {\n  return Math.abs(value) % 2 === 0;\n}\n"
+  },
+  {
+    "__docId__": 66,
     "kind": "function",
     "static": true,
     "variation": null,
     "name": "even",
-    "memberof": "src/filters/even.js",
-    "longname": "src/filters/even.js~even",
+    "memberof": "src/filters/number/even.js",
+    "longname": "src/filters/number/even.js~even",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/filters/even",
+    "importPath": "stats-collector/lib/filters/number/even",
     "importStyle": "even",
     "description": "Filter even values",
     "lineNumber": 6,
@@ -985,29 +1389,29 @@
     "generator": false
   },
   {
-    "__docId__": 51,
+    "__docId__": 67,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/filters/float.js",
+    "name": "src/filters/number/float.js",
     "memberof": null,
-    "longname": "src/filters/float.js",
+    "longname": "src/filters/number/float.js",
     "access": null,
     "description": null,
     "lineNumber": 6,
     "content": "/**\n * Filter float values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is a float, false otherwise\n */\nexport default function (value) {\n  return value % 1 !== 0;\n}\n"
   },
   {
-    "__docId__": 52,
+    "__docId__": 68,
     "kind": "function",
     "static": true,
     "variation": null,
     "name": "float",
-    "memberof": "src/filters/float.js",
-    "longname": "src/filters/float.js~float",
+    "memberof": "src/filters/number/float.js",
+    "longname": "src/filters/number/float.js~float",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/filters/float",
+    "importPath": "stats-collector/lib/filters/number/float",
     "importStyle": "float",
     "description": "Filter float values",
     "lineNumber": 6,
@@ -1034,29 +1438,29 @@
     "generator": false
   },
   {
-    "__docId__": 53,
+    "__docId__": 69,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/filters/integer.js",
+    "name": "src/filters/number/integer.js",
     "memberof": null,
-    "longname": "src/filters/integer.js",
+    "longname": "src/filters/number/integer.js",
     "access": null,
     "description": null,
     "lineNumber": 6,
     "content": "/**\n * Filter integer values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is an integer, false otherwise\n */\nexport default function (value) {\n  return value % 1 === 0;\n}\n"
   },
   {
-    "__docId__": 54,
+    "__docId__": 70,
     "kind": "function",
     "static": true,
     "variation": null,
     "name": "integer",
-    "memberof": "src/filters/integer.js",
-    "longname": "src/filters/integer.js~integer",
+    "memberof": "src/filters/number/integer.js",
+    "longname": "src/filters/number/integer.js~integer",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/filters/integer",
+    "importPath": "stats-collector/lib/filters/number/integer",
     "importStyle": "integer",
     "description": "Filter integer values",
     "lineNumber": 6,
@@ -1083,29 +1487,29 @@
     "generator": false
   },
   {
-    "__docId__": 55,
+    "__docId__": 71,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/filters/negative.js",
+    "name": "src/filters/number/negative.js",
     "memberof": null,
-    "longname": "src/filters/negative.js",
+    "longname": "src/filters/number/negative.js",
     "access": null,
     "description": null,
     "lineNumber": 6,
     "content": "/**\n * Filter negative values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is negative, false otherwise\n */\nexport default function (value) {\n  return value < 0;\n}\n"
   },
   {
-    "__docId__": 56,
+    "__docId__": 72,
     "kind": "function",
     "static": true,
     "variation": null,
     "name": "negative",
-    "memberof": "src/filters/negative.js",
-    "longname": "src/filters/negative.js~negative",
+    "memberof": "src/filters/number/negative.js",
+    "longname": "src/filters/number/negative.js~negative",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/filters/negative",
+    "importPath": "stats-collector/lib/filters/number/negative",
     "importStyle": "negative",
     "description": "Filter negative values",
     "lineNumber": 6,
@@ -1132,29 +1536,29 @@
     "generator": false
   },
   {
-    "__docId__": 57,
+    "__docId__": 73,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/filters/nonZero.js",
+    "name": "src/filters/number/nonZero.js",
     "memberof": null,
-    "longname": "src/filters/nonZero.js",
+    "longname": "src/filters/number/nonZero.js",
     "access": null,
     "description": null,
     "lineNumber": 6,
     "content": "/**\n * Filter nonZero values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is nonZero, false otherwise\n */\nexport default function (value) {\n  return value !== 0;\n}\n"
   },
   {
-    "__docId__": 58,
+    "__docId__": 74,
     "kind": "function",
     "static": true,
     "variation": null,
     "name": "nonZero",
-    "memberof": "src/filters/nonZero.js",
-    "longname": "src/filters/nonZero.js~nonZero",
+    "memberof": "src/filters/number/nonZero.js",
+    "longname": "src/filters/number/nonZero.js~nonZero",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/filters/nonZero",
+    "importPath": "stats-collector/lib/filters/number/nonZero",
     "importStyle": "nonZero",
     "description": "Filter nonZero values",
     "lineNumber": 6,
@@ -1181,29 +1585,29 @@
     "generator": false
   },
   {
-    "__docId__": 59,
+    "__docId__": 75,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/filters/odd.js",
+    "name": "src/filters/number/odd.js",
     "memberof": null,
-    "longname": "src/filters/odd.js",
+    "longname": "src/filters/number/odd.js",
     "access": null,
     "description": null,
     "lineNumber": 6,
-    "content": "/**\n * Filter odd values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is odd, false otherwise\n */\nexport default function (value) {\n  return value % 2 === 1;\n}\n"
+    "content": "/**\n * Filter odd values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is odd, false otherwise\n */\nexport default function (value) {\n  return Math.abs(value) % 2 === 1;\n}\n"
   },
   {
-    "__docId__": 60,
+    "__docId__": 76,
     "kind": "function",
     "static": true,
     "variation": null,
     "name": "odd",
-    "memberof": "src/filters/odd.js",
-    "longname": "src/filters/odd.js~odd",
+    "memberof": "src/filters/number/odd.js",
+    "longname": "src/filters/number/odd.js~odd",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/filters/odd",
+    "importPath": "stats-collector/lib/filters/number/odd",
     "importStyle": "odd",
     "description": "Filter odd values",
     "lineNumber": 6,
@@ -1230,29 +1634,29 @@
     "generator": false
   },
   {
-    "__docId__": 61,
+    "__docId__": 77,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/filters/positive.js",
+    "name": "src/filters/number/positive.js",
     "memberof": null,
-    "longname": "src/filters/positive.js",
+    "longname": "src/filters/number/positive.js",
     "access": null,
     "description": null,
     "lineNumber": 6,
     "content": "/**\n * Filter positive values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is positive, false otherwise\n */\nexport default function (value) {\n  return value > 0;\n}\n"
   },
   {
-    "__docId__": 62,
+    "__docId__": 78,
     "kind": "function",
     "static": true,
     "variation": null,
     "name": "positive",
-    "memberof": "src/filters/positive.js",
-    "longname": "src/filters/positive.js~positive",
+    "memberof": "src/filters/number/positive.js",
+    "longname": "src/filters/number/positive.js~positive",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/filters/positive",
+    "importPath": "stats-collector/lib/filters/number/positive",
     "importStyle": "positive",
     "description": "Filter positive values",
     "lineNumber": 6,
@@ -1279,29 +1683,29 @@
     "generator": false
   },
   {
-    "__docId__": 63,
+    "__docId__": 79,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/filters/prime.js",
+    "name": "src/filters/number/prime.js",
     "memberof": null,
-    "longname": "src/filters/prime.js",
+    "longname": "src/filters/number/prime.js",
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import leastFactor from '../helpers/leastFactor';\n\n/**\n * Filter prime values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is prime, false otherwise\n */\nexport default function (value) {\n  if (value % 1 || value < 2) {\n    return false;\n  }\n  if (value == leastFactor(value)) {\n    return true;\n  }\n  return false;\n}\n"
+    "content": "import leastFactor from '../../helpers/leastFactor';\n\n/**\n * Filter prime values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is prime, false otherwise\n */\nexport default function (value) {\n  if (value % 1 || value < 2) {\n    return false;\n  }\n  if (value == leastFactor(value)) {\n    return true;\n  }\n  return false;\n}\n"
   },
   {
-    "__docId__": 64,
+    "__docId__": 80,
     "kind": "function",
     "static": true,
     "variation": null,
     "name": "prime",
-    "memberof": "src/filters/prime.js",
-    "longname": "src/filters/prime.js~prime",
+    "memberof": "src/filters/number/prime.js",
+    "longname": "src/filters/number/prime.js~prime",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/filters/prime",
+    "importPath": "stats-collector/lib/filters/number/prime",
     "importStyle": "prime",
     "description": "Filter prime values",
     "lineNumber": 8,
@@ -1328,29 +1732,29 @@
     "generator": false
   },
   {
-    "__docId__": 65,
+    "__docId__": 81,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/filters/zero.js",
+    "name": "src/filters/number/zero.js",
     "memberof": null,
-    "longname": "src/filters/zero.js",
+    "longname": "src/filters/number/zero.js",
     "access": null,
     "description": null,
     "lineNumber": 6,
     "content": "/**\n * Filter zero values\n * @param  {Number} value The value to Filter\n * @return {Boolean} true if value is zero, false otherwise\n */\nexport default function (value) {\n  return value === 0;\n}\n"
   },
   {
-    "__docId__": 66,
+    "__docId__": 82,
     "kind": "function",
     "static": true,
     "variation": null,
     "name": "zero",
-    "memberof": "src/filters/zero.js",
-    "longname": "src/filters/zero.js~zero",
+    "memberof": "src/filters/number/zero.js",
+    "longname": "src/filters/number/zero.js~zero",
     "access": null,
     "export": true,
-    "importPath": "stats-collector/lib/filters/zero",
+    "importPath": "stats-collector/lib/filters/number/zero",
     "importStyle": "zero",
     "description": "Filter zero values",
     "lineNumber": 6,
@@ -1377,7 +1781,7 @@
     "generator": false
   },
   {
-    "__docId__": 67,
+    "__docId__": 83,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1386,61 +1790,24 @@
     "longname": "src/helpers/collectors.js",
     "access": null,
     "description": null,
-    "lineNumber": 3,
-    "content": "/* generated by gulpfile.js */\n/*eslint camelcase: 0 */\nimport count from '../collectors/count';\nimport filteredCount from '../collectors/filteredCount';\nimport max from '../collectors/max';\nimport mean from '../collectors/mean';\nimport min from '../collectors/min';\nimport powerSumAvg_running from '../collectors/powerSumAvg_running';\nimport standardDeviation_running from '../collectors/standardDeviation_running';\nimport standardDeviation_stable from '../collectors/standardDeviation_stable';\nimport sum from '../collectors/sum';\nimport sumOfSquaredDeviations_stable from '../collectors/sumOfSquaredDeviations_stable';\nimport values from '../collectors/values';\nimport variance_running from '../collectors/variance_running';\nimport variance_stable from '../collectors/variance_stable';\nexport {\n  count,\n  filteredCount,\n  max,\n  mean,\n  min,\n  powerSumAvg_running,\n  standardDeviation_running,\n  standardDeviation_stable,\n  sum,\n  sumOfSquaredDeviations_stable,\n  values,\n  variance_running,\n  variance_stable\n};\n"
+    "lineNumber": 1,
+    "content": "import Collector from '../collectors/Collector';\nimport * as number from './collectors.number';\nexport {\n  Collector,\n  number\n};\n"
   },
   {
-    "__docId__": 68,
+    "__docId__": 84,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/helpers/execMethod.js",
+    "name": "src/helpers/collectors.number.js",
     "memberof": null,
-    "longname": "src/helpers/execMethod.js",
+    "longname": "src/helpers/collectors.number.js",
     "access": null,
     "description": null,
-    "lineNumber": 1,
-    "content": "const execMethod = function (obj, methodName, value) {\n  obj._reset = false;\n  obj._collectors.forEach(function (collector) {\n    if (typeof collector[methodName] === 'function') {\n      obj._state[collector.name] = collector[methodName].call(\n        null,\n        obj._state[collector.name] || collector.initialValue,\n        obj._state,\n        value\n      );\n    }\n  });\n};\n\nexport default execMethod;\n"
+    "lineNumber": 3,
+    "content": "/* generated by gulpfile.js */\n/*eslint camelcase: 0 */\nimport Count from '../collectors/number/Count';\nimport FilteredCount from '../collectors/number/FilteredCount';\nimport Max from '../collectors/number/Max';\nimport Mean from '../collectors/number/Mean';\nimport Min from '../collectors/number/Min';\nimport PowerSumAvgRunning from '../collectors/number/PowerSumAvgRunning';\nimport StandardDeviationRunning from '../collectors/number/StandardDeviationRunning';\nimport StandardDeviationStable from '../collectors/number/StandardDeviationStable';\nimport Sum from '../collectors/number/Sum';\nimport SumOfSquaredDeviationsStable from '../collectors/number/SumOfSquaredDeviationsStable';\nimport Values from '../collectors/number/Values';\nimport VarianceRunning from '../collectors/number/VarianceRunning';\nimport VarianceStable from '../collectors/number/VarianceStable';\nexport {\n  Count,\n  FilteredCount,\n  Max,\n  Mean,\n  Min,\n  PowerSumAvgRunning,\n  StandardDeviationRunning,\n  StandardDeviationStable,\n  Sum,\n  SumOfSquaredDeviationsStable,\n  Values,\n  VarianceRunning,\n  VarianceStable\n};\n"
   },
   {
-    "__docId__": 69,
-    "kind": "function",
-    "static": true,
-    "variation": null,
-    "name": "execMethod",
-    "memberof": "src/helpers/execMethod.js",
-    "longname": "src/helpers/execMethod.js~execMethod",
-    "access": null,
-    "export": true,
-    "importPath": "stats-collector/lib/helpers/execMethod",
-    "importStyle": "execMethod",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
-    "params": [
-      {
-        "name": "obj",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "methodName",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "value",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "generator": false
-  },
-  {
-    "__docId__": 70,
+    "__docId__": 85,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1449,11 +1816,24 @@
     "longname": "src/helpers/filters.js",
     "access": null,
     "description": null,
-    "lineNumber": 3,
-    "content": "/* generated by gulpfile.js */\n/*eslint camelcase: 0 */\nimport even from '../filters/even';\nimport float from '../filters/float';\nimport integer from '../filters/integer';\nimport negative from '../filters/negative';\nimport nonZero from '../filters/nonZero';\nimport odd from '../filters/odd';\nimport positive from '../filters/positive';\nimport prime from '../filters/prime';\nimport zero from '../filters/zero';\nexport {\n  even,\n  float,\n  integer,\n  negative,\n  nonZero,\n  odd,\n  positive,\n  prime,\n  zero\n};\n"
+    "lineNumber": 1,
+    "content": "import * as number from './filters.number';\nexport {\n  number\n};\n"
   },
   {
-    "__docId__": 71,
+    "__docId__": 86,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/helpers/filters.number.js",
+    "memberof": null,
+    "longname": "src/helpers/filters.number.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 3,
+    "content": "/* generated by gulpfile.js */\n/*eslint camelcase: 0 */\nimport even from '../filters/number/even';\nimport float from '../filters/number/float';\nimport integer from '../filters/number/integer';\nimport negative from '../filters/number/negative';\nimport nonZero from '../filters/number/nonZero';\nimport odd from '../filters/number/odd';\nimport positive from '../filters/number/positive';\nimport prime from '../filters/number/prime';\nimport zero from '../filters/number/zero';\nexport {\n  even,\n  float,\n  integer,\n  negative,\n  nonZero,\n  odd,\n  positive,\n  prime,\n  zero\n};\n"
+  },
+  {
+    "__docId__": 87,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1463,10 +1843,10 @@
     "access": null,
     "description": null,
     "lineNumber": 10,
-    "content": "/**\n * Returns the smallest prime that divides n\n *\n * Original Source: http://www.javascripter.net/faq/numberisprime.htm\n * @param  {Number} n The input number\n * @return {Number} returns the smallest prime that divides n\n *   - returns 0 if n=0\n *   - returns 1 if n=1, n=-1, or n is not an integer\n */\nconst leastFactor = function (n) {\n  if (n === 0) {\n    return 0;\n  }\n  if (n % 1 || n * n < 2) {\n    return 1;\n  }\n  if (n % 2 === 0) {\n    return 2;\n  }\n  if (n % 3 === 0) {\n    return 3;\n  }\n  if (n % 5 === 0) {\n    return 5;\n  }\n  const m = Math.sqrt(n);\n  for (let i = 7; i <= m; i += 30) {\n    if (n % i === 0) {\n      return i;\n    }\n    if (n % (i + 4) === 0) {\n      return i + 4;\n    }\n    if (n % (i + 6) === 0) {\n      return i + 6;\n    }\n    if (n % (i + 10) === 0) {\n      return i + 10;\n    }\n    if (n % (i + 12) === 0) {\n      return i + 12;\n    }\n    if (n % (i + 16) === 0) {\n      return i + 16;\n    }\n    if (n % (i + 22) === 0) {\n      return i + 22;\n    }\n    if (n % (i + 24) === 0) {\n      return i + 24;\n    }\n  }\n  return n;\n};\n\nexport default leastFactor;\n"
+    "content": "/**\n * Returns the smallest prime that divides n\n *\n * Original Source: http://www.javascripter.net/faq/numberisprime.htm\n * @param  {Number} n The input number\n * @return {Number} returns the smallest prime that divides n\n *   - returns 0 if n=0\n *   - returns 1 if n=1, n=-1, or n is not an integer\n */\nconst leastFactor = function (n) {\n  if (!Number.isFinite(n)) {\n    return n;\n  }\n  if (n === 0) {\n    return 0;\n  }\n  if (n % 1 || n * n < 2) {\n    return 1;\n  }\n  if (n % 2 === 0) {\n    return 2;\n  }\n  if (n % 3 === 0) {\n    return 3;\n  }\n  if (n % 5 === 0) {\n    return 5;\n  }\n  const m = Math.sqrt(n);\n  for (let i = 7; i <= m; i += 30) {\n    if (n % i === 0) {\n      return i;\n    }\n    if (n % (i + 4) === 0) {\n      return i + 4;\n    }\n    if (n % (i + 6) === 0) {\n      return i + 6;\n    }\n    if (n % (i + 10) === 0) {\n      return i + 10;\n    }\n    if (n % (i + 12) === 0) {\n      return i + 12;\n    }\n    if (n % (i + 16) === 0) {\n      return i + 16;\n    }\n    if (n % (i + 22) === 0) {\n      return i + 22;\n    }\n    if (n % (i + 24) === 0) {\n      return i + 24;\n    }\n  }\n  return n;\n};\n\nexport default leastFactor;\n"
   },
   {
-    "__docId__": 72,
+    "__docId__": 88,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -1502,7 +1882,7 @@
     "generator": false
   },
   {
-    "__docId__": 73,
+    "__docId__": 89,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1512,10 +1892,589 @@
     "access": null,
     "description": null,
     "lineNumber": 9,
-    "content": "/**\n * Stats Collector library\n * @example\n * const lib = require('stats-collector');\n * const statsCollector = new lib.AdvancedStatsCollector();\n * statsCollector.update([1, 2, 3, 4, 5]);\n * statsCollector.get();\n */\nimport * as collectors from './helpers/collectors';\nimport * as filters from './helpers/filters';\nimport AdvancedStatsCollector from './AdvancedStatsCollector';\nimport BaseStatsCollector from './BaseStatsCollector';\nimport BasicStatsCollector from './BasicStatsCollector';\nimport StatsCollector from './StatsCollector';\n\nexport {\n  collectors,\n  filters,\n  AdvancedStatsCollector,\n  BaseStatsCollector,\n  BasicStatsCollector,\n  StatsCollector\n};\n"
+    "content": "/**\n * Stats Collector library\n * @example\n * const lib = require('stats-collector');\n * const stats = new lib.AdvancedStatsCollector();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n */\nimport * as collectors from './helpers/collectors';\nimport * as filters from './helpers/filters';\nimport BaseStats from './stats/BaseStats';\n// number\nimport BasicNumberStats from './stats/number/BasicNumberStats';\nimport NumberStats from './stats/number/NumberStats';\nimport AdvancedNumberStats from './stats/number/AdvancedNumberStats';\n\nexport {\n  collectors,\n  filters,\n  BaseStats,\n  BasicNumberStats,\n  NumberStats,\n  AdvancedNumberStats\n};\n"
   },
   {
-    "__docId__": 75,
+    "__docId__": 90,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/stats/BaseStats.js",
+    "memberof": null,
+    "longname": "src/stats/BaseStats.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 10,
+    "content": "\n/**\n * A stat collector that initially includes no collector functions.\n * @example\n * const stats = new BaseStats();\n * stats.addCollector({name: 'custom', initialValue: 0, requirements: [], handleUpdate: fn});\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n */\nexport default class BaseStats {\n  constructor() {\n    this._collectors = {};\n    this._collectorNames = [];\n    this._processCount = 0;\n    this._processFilteredCount = 0;\n    this._state = {};\n    this._ignore = [];\n    this._filters = [];\n    this._handleProcessList = [];\n    this._handleGetList = [];\n  }\n  /**\n   * Add a collector function that can process data\n   * when process() or get() is called.\n   * @param {Object} collector An object with the following properties:\n   *   - **name** - [String] The name of the collector\n   *   - **initialValue** - [any] The initial value if update() has never been called\n   *   - **requirements** - [Array] An array of collector names that must be added before this collector\n   *   - **handleProcess** - [Function]\n   *   - **handleGet** - [Function]\n   * @example\n   * const stats = new BaseStats();\n   * stats.addCollector({\n   *   name: 'test-sum',\n   *   initialValue: 0,\n   *   requirements: [],\n   *   handleUpdate: function (prev, state, val) { return prev + val; }\n   * });\n   * @return {undefined}\n   */\n  addCollector(collector) {\n    const self = this;\n    if (self._processCount > 0) {\n      throw new Error('Cannot add a new collector unless you call reset() first');\n    }\n    if (collector.hasOwnProperty('name') &&\n      collector.hasOwnProperty('initialValue') &&\n      collector.hasOwnProperty('requirements')) {\n      let reqIndex;\n      let requirements = collector.requirements;\n      if (!Array.isArray(requirements)) {\n        throw new Error('The collector\\'s requirements need to be an array.');\n      }\n      // make a copy\n      requirements = requirements.slice(0);\n      // check requirements\n      self._collectorNames.forEach(function (collectorName) {\n        const currentCollector = self._collectors[collectorName];\n        if (currentCollector.name === collector.name) {\n          throw new Error('A collector with that name has already been added.');\n        }\n        reqIndex = requirements.indexOf(currentCollector.name);\n        if (reqIndex >= 0) {\n          requirements.splice(reqIndex, 1);\n        }\n      });\n      if (requirements.length) {\n        throw new Error(`Did not meet the requirements: ${requirements}`);\n      }\n      // add our collector\n      self._collectorNames.push(collector.name);\n      self._collectors[collector.name] = collector;\n      if (typeof collector.handleProcess === 'function') {\n        self._handleProcessList.push(collector.name);\n      }\n      if (typeof collector.handleGet === 'function') {\n        self._handleGetList.push(collector.name);\n      }\n    } else {\n      throw new Error('Collectors have names, initialValues, and requirements');\n    }\n    self.reset();\n  }\n  addFilter(filter) {\n    if (typeof filter !== 'function') {\n      throw new Error('Filter must be a function.');\n    }\n    this._filters.push(filter);\n  }\n  addIgnore(name) {\n    if (this._ignore.indexOf(name) === -1) {\n      this._ignore.push(name);\n    }\n  }\n  get(zeroForUndefined) {\n    const self = this;\n    const result = {};\n    // run handleGet()\n    if (this._processCount > 0) {\n      for (let i = 0; i < this._handleGetList.length; i++) {\n        const collectorName = this._handleGetList[i];\n        const collector = this._collectors[collectorName];\n        this._state[collectorName] = collector.handleGet(\n          this._state\n        );\n      }\n    }\n    // sort, ignore, deep-copy, and use zeroForUndefined if neeeded\n    Object.keys(this._state).sort().forEach(function (key) {\n      if (self._ignore.indexOf(key) === -1) {\n        let val = self._state[key];\n        if (val) {\n          val = JSON.parse(JSON.stringify(val));\n        } else if (typeof val === 'undefined' && zeroForUndefined) {\n          val = 0;\n        }\n        result[key] = val;\n      }\n    });\n    return result;\n  }\n  processAll(arr) {\n    for (let i = 0; i < arr.length; i++) {\n      this.process(arr[i]);\n    }\n  }\n  process(value) {\n    // run filters\n    for (let i = 0; i < this._filters.length; i++) {\n      if (!this._filters[i](value)) {\n        this._processFilteredCount++;\n        return;\n      }\n    }\n    this._processCount++;\n    // run handleProcess()\n    for (let i = 0; i < this._handleProcessList.length; i++) {\n      const collectorName = this._handleProcessList[i];\n      const collector = this._collectors[collectorName];\n      this._state[collectorName] = collector.handleProcess(\n        this._state,\n        this._state[collectorName] || collector.initialValue,\n        value\n      );\n    }\n  }\n  reset() {\n    const self = this;\n    this._state = {};\n    this._collectorNames.forEach(function (collectorName) {\n      self._state[collectorName] = undefined;\n    });\n    this._processCount = 0;\n    this._processFilteredCount = 0;\n  }\n}\n"
+  },
+  {
+    "__docId__": 91,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "BaseStats",
+    "memberof": "src/stats/BaseStats.js",
+    "longname": "src/stats/BaseStats.js~BaseStats",
+    "access": null,
+    "export": true,
+    "importPath": "stats-collector/lib/stats/BaseStats",
+    "importStyle": "BaseStats",
+    "description": "A stat collector that initially includes no collector functions.",
+    "examples": [
+      "const stats = new BaseStats();\nstats.addCollector({name: 'custom', initialValue: 0, requirements: [], handleUpdate: fn});\nstats.processAll([1, 2, 3, 4, 5]);\nstats.get();"
+    ],
+    "lineNumber": 10,
+    "interface": false
+  },
+  {
+    "__docId__": 92,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 93,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_collectors",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_collectors",
+    "access": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_collectorNames",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_collectorNames",
+    "access": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_processCount",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_processCount",
+    "access": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_processFilteredCount",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_processFilteredCount",
+    "access": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 97,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_state",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_state",
+    "access": null,
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 98,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_ignore",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_ignore",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_filters",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_filters",
+    "access": null,
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_handleProcessList",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_handleProcessList",
+    "access": null,
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 101,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_handleGetList",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_handleGetList",
+    "access": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 102,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "addCollector",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#addCollector",
+    "access": null,
+    "description": "Add a collector function that can process data\nwhen process() or get() is called.",
+    "examples": [
+      "const stats = new BaseStats();\nstats.addCollector({\n  name: 'test-sum',\n  initialValue: 0,\n  requirements: [],\n  handleUpdate: function (prev, state, val) { return prev + val; }\n});"
+    ],
+    "lineNumber": 41,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "collector",
+        "description": "An object with the following properties:\n  - **name** - [String] The name of the collector\n  - **initialValue** - [any] The initial value if update() has never been called\n  - **requirements** - [Array] An array of collector names that must be added before this collector\n  - **handleProcess** - [Function]\n  - **handleGet** - [Function]"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "undefined"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 103,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "addFilter",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#addFilter",
+    "access": null,
+    "description": null,
+    "lineNumber": 84,
+    "undocument": true,
+    "params": [
+      {
+        "name": "filter",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 104,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "addIgnore",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#addIgnore",
+    "access": null,
+    "description": null,
+    "lineNumber": 90,
+    "undocument": true,
+    "params": [
+      {
+        "name": "name",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 105,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "get",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#get",
+    "access": null,
+    "description": null,
+    "lineNumber": 95,
+    "undocument": true,
+    "params": [
+      {
+        "name": "zeroForUndefined",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 106,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "processAll",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#processAll",
+    "access": null,
+    "description": null,
+    "lineNumber": 122,
+    "undocument": true,
+    "params": [
+      {
+        "name": "arr",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 107,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "process",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#process",
+    "access": null,
+    "description": null,
+    "lineNumber": 127,
+    "undocument": true,
+    "params": [
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 108,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "reset",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#reset",
+    "access": null,
+    "description": null,
+    "lineNumber": 147,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 109,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_state",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_state",
+    "access": null,
+    "description": null,
+    "lineNumber": 149,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 110,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_processCount",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_processCount",
+    "access": null,
+    "description": null,
+    "lineNumber": 153,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 111,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_processFilteredCount",
+    "memberof": "src/stats/BaseStats.js~BaseStats",
+    "longname": "src/stats/BaseStats.js~BaseStats#_processFilteredCount",
+    "access": null,
+    "description": null,
+    "lineNumber": 154,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 112,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/stats/number/AdvancedNumberStats.js",
+    "memberof": null,
+    "longname": "src/stats/number/AdvancedNumberStats.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import * as filters from '../../helpers/filters';\nimport NumberStats from './NumberStats';\nimport Values from '../../collectors/number/Values';\nimport SumOfSquaredDeviationsStable from '../../collectors/number/SumOfSquaredDeviationsStable';\nimport VarianceStable from '../../collectors/number/VarianceStable';\nimport StandardDeviationStable from '../../collectors/number/StandardDeviationStable';\nimport FilteredCount from '../../collectors/number/FilteredCount';\n\n/**\n* A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n *   - powerSumAvg_running\n *   - variance_running\n *   - standardDeviation_running\n *   - sumOfSquaredDeviations_stable\n *   - variance_stable\n *   - standardDeviation_stable\n *   - count_* (a bunch of filtered counts)\n * @example\n * const stats = new AdvancedNumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n */\nexport default class AdvancedNumberStats extends NumberStats {\n  constructor() {\n    super();\n    this.addCollector(new Values());\n    this.addCollector(new SumOfSquaredDeviationsStable());\n    this.addCollector(new VarianceStable());\n    this.addCollector(new StandardDeviationStable());\n    const self = this;\n    Object.keys(filters.number).forEach(function (filterName) {\n      const filter = filters.number[filterName];\n      self.addCollector(new FilteredCount(`count_${filterName}`, filter));\n    });\n    this.addIgnore('values');\n  }\n}\n"
+  },
+  {
+    "__docId__": 113,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "AdvancedNumberStats",
+    "memberof": "src/stats/number/AdvancedNumberStats.js",
+    "longname": "src/stats/number/AdvancedNumberStats.js~AdvancedNumberStats",
+    "access": null,
+    "export": true,
+    "importPath": "stats-collector/lib/stats/number/AdvancedNumberStats",
+    "importStyle": "AdvancedNumberStats",
+    "description": "A stat collector that includes the following collector functions:\n  - count\n  - sum\n  - min\n  - max\n  - mean\n  - powerSumAvg_running\n  - variance_running\n  - standardDeviation_running\n  - sumOfSquaredDeviations_stable\n  - variance_stable\n  - standardDeviation_stable\n  - count_* (a bunch of filtered counts)",
+    "examples": [
+      "const stats = new AdvancedNumberStats();\nstats.processAll([1, 2, 3, 4, 5]);\nstats.get();"
+    ],
+    "lineNumber": 28,
+    "interface": false,
+    "extends": [
+      "src/stats/number/NumberStats~NumberStats"
+    ]
+  },
+  {
+    "__docId__": 114,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/stats/number/AdvancedNumberStats.js~AdvancedNumberStats",
+    "longname": "src/stats/number/AdvancedNumberStats.js~AdvancedNumberStats#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 29,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 115,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/stats/number/BasicNumberStats.js",
+    "memberof": null,
+    "longname": "src/stats/number/BasicNumberStats.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import BaseStats from '../BaseStats';\nimport Count from '../../collectors/number/Count';\nimport Sum from '../../collectors/number/Sum';\nimport Min from '../../collectors/number/Min';\nimport Max from '../../collectors/number/Max';\nimport Mean from '../../collectors/number/Mean';\n\n/**\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n * @example\n * const stats = new BasicNumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n */\nexport default class BasicNumberStats extends BaseStats {\n  constructor() {\n    super();\n    this.addCollector(new Count());\n    this.addCollector(new Sum());\n    this.addCollector(new Min());\n    this.addCollector(new Max());\n    this.addCollector(new Mean());\n  }\n}\n"
+  },
+  {
+    "__docId__": 116,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "BasicNumberStats",
+    "memberof": "src/stats/number/BasicNumberStats.js",
+    "longname": "src/stats/number/BasicNumberStats.js~BasicNumberStats",
+    "access": null,
+    "export": true,
+    "importPath": "stats-collector/lib/stats/number/BasicNumberStats",
+    "importStyle": "BasicNumberStats",
+    "description": "A stat collector that includes the following collector functions:\n  - count\n  - sum\n  - min\n  - max\n  - mean",
+    "examples": [
+      "const stats = new BasicNumberStats();\nstats.processAll([1, 2, 3, 4, 5]);\nstats.get();"
+    ],
+    "lineNumber": 20,
+    "interface": false,
+    "extends": [
+      "src/stats/BaseStats~BaseStats"
+    ]
+  },
+  {
+    "__docId__": 117,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/stats/number/BasicNumberStats.js~BasicNumberStats",
+    "longname": "src/stats/number/BasicNumberStats.js~BasicNumberStats#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 118,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/stats/number/NumberStats.js",
+    "memberof": null,
+    "longname": "src/stats/number/NumberStats.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import BasicNumberStats from './BasicNumberStats';\nimport PowerSumAvgRunning from '../../collectors/number/PowerSumAvgRunning';\nimport VarianceRunning from '../../collectors/number/VarianceRunning';\nimport StandardDeviationRunning from '../../collectors/number/StandardDeviationRunning';\n\n/**\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n *   - powerSumAvg_running\n *   - variance_running\n *   - standardDeviation_running\n * @example\n * const stats = new NumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n */\nexport default class NumberStats extends BasicNumberStats {\n  constructor() {\n    super();\n    this.addCollector(new PowerSumAvgRunning());\n    this.addCollector(new VarianceRunning());\n    this.addCollector(new StandardDeviationRunning());\n  }\n}\n"
+  },
+  {
+    "__docId__": 119,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "NumberStats",
+    "memberof": "src/stats/number/NumberStats.js",
+    "longname": "src/stats/number/NumberStats.js~NumberStats",
+    "access": null,
+    "export": true,
+    "importPath": "stats-collector/lib/stats/number/NumberStats",
+    "importStyle": "NumberStats",
+    "description": "A stat collector that includes the following collector functions:\n  - count\n  - sum\n  - min\n  - max\n  - mean\n  - powerSumAvg_running\n  - variance_running\n  - standardDeviation_running",
+    "examples": [
+      "const stats = new NumberStats();\nstats.processAll([1, 2, 3, 4, 5]);\nstats.get();"
+    ],
+    "lineNumber": 21,
+    "interface": false,
+    "extends": [
+      "src/stats/number/BasicNumberStats~BasicNumberStats"
+    ]
+  },
+  {
+    "__docId__": 120,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/stats/number/NumberStats.js~NumberStats",
+    "longname": "src/stats/number/NumberStats.js~NumberStats#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 122,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1528,7 +2487,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 76,
+    "__docId__": 123,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1541,7 +2500,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 77,
+    "__docId__": 124,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1554,7 +2513,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 78,
+    "__docId__": 125,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1567,7 +2526,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 79,
+    "__docId__": 126,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1580,7 +2539,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 80,
+    "__docId__": 127,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1593,7 +2552,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 81,
+    "__docId__": 128,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1606,7 +2565,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 82,
+    "__docId__": 129,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1619,7 +2578,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 83,
+    "__docId__": 130,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1632,7 +2591,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 84,
+    "__docId__": 131,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1645,7 +2604,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 85,
+    "__docId__": 132,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1658,7 +2617,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 86,
+    "__docId__": 133,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1671,7 +2630,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 87,
+    "__docId__": 134,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1684,7 +2643,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 88,
+    "__docId__": 135,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1697,7 +2656,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 89,
+    "__docId__": 136,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1710,7 +2669,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 90,
+    "__docId__": 137,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1723,7 +2682,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 91,
+    "__docId__": 138,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1736,7 +2695,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 92,
+    "__docId__": 139,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1749,7 +2708,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 93,
+    "__docId__": 140,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1762,7 +2721,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 94,
+    "__docId__": 141,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1775,7 +2734,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 95,
+    "__docId__": 142,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1788,7 +2747,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 96,
+    "__docId__": 143,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1801,7 +2760,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 97,
+    "__docId__": 144,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1814,7 +2773,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 98,
+    "__docId__": 145,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1827,7 +2786,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 99,
+    "__docId__": 146,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1840,7 +2799,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 100,
+    "__docId__": 147,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1853,7 +2812,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 101,
+    "__docId__": 148,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1866,7 +2825,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 102,
+    "__docId__": 149,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1879,7 +2838,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 103,
+    "__docId__": 150,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1892,7 +2851,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 104,
+    "__docId__": 151,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1905,7 +2864,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 105,
+    "__docId__": 152,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1918,7 +2877,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 106,
+    "__docId__": 153,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1931,7 +2890,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 107,
+    "__docId__": 154,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1944,7 +2903,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 108,
+    "__docId__": 155,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1957,7 +2916,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 109,
+    "__docId__": 156,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1970,7 +2929,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 110,
+    "__docId__": 157,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1983,7 +2942,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 111,
+    "__docId__": 158,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1996,7 +2955,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 112,
+    "__docId__": 159,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2009,7 +2968,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 113,
+    "__docId__": 160,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2022,7 +2981,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 114,
+    "__docId__": 161,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2035,7 +2994,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 115,
+    "__docId__": 162,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2048,7 +3007,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 116,
+    "__docId__": 163,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2061,7 +3020,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 117,
+    "__docId__": 164,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2074,7 +3033,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 118,
+    "__docId__": 165,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2087,7 +3046,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 119,
+    "__docId__": 166,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2100,7 +3059,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 120,
+    "__docId__": 167,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2113,7 +3072,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 121,
+    "__docId__": 168,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2126,7 +3085,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 123,
+    "__docId__": 170,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2139,7 +3098,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 124,
+    "__docId__": 171,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2152,7 +3111,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 125,
+    "__docId__": 172,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2165,7 +3124,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 126,
+    "__docId__": 173,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2178,7 +3137,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 127,
+    "__docId__": 174,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2191,7 +3150,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 128,
+    "__docId__": 175,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2204,7 +3163,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 129,
+    "__docId__": 176,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2217,7 +3176,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 130,
+    "__docId__": 177,
     "kind": "external",
     "static": true,
     "variation": null,

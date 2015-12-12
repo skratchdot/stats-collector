@@ -1,62 +1,128 @@
 window.esdocSearchIndex = [
   [
-    &quot;stats-collector/lib/advancedstatscollector~advancedstatscollector&quot;,
-    &quot;class/src/AdvancedStatsCollector.js~AdvancedStatsCollector.html&quot;,
-    &quot;<span>AdvancedStatsCollector</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/AdvancedStatsCollector</span>&quot;,
+    &quot;stats-collector/lib/stats/number/advancednumberstats~advancednumberstats&quot;,
+    &quot;class/src/stats/number/AdvancedNumberStats.js~AdvancedNumberStats.html&quot;,
+    &quot;<span>AdvancedNumberStats</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/stats/number/AdvancedNumberStats</span>&quot;,
     &quot;class&quot;
   ],
   [
-    &quot;stats-collector/lib/basestatscollector~basestatscollector&quot;,
-    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html&quot;,
-    &quot;<span>BaseStatsCollector</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/BaseStatsCollector</span>&quot;,
+    &quot;stats-collector/lib/stats/basestats~basestats&quot;,
+    &quot;class/src/stats/BaseStats.js~BaseStats.html&quot;,
+    &quot;<span>BaseStats</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/stats/BaseStats</span>&quot;,
     &quot;class&quot;
   ],
   [
-    &quot;stats-collector/lib/basicstatscollector~basicstatscollector&quot;,
-    &quot;class/src/BasicStatsCollector.js~BasicStatsCollector.html&quot;,
-    &quot;<span>BasicStatsCollector</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/BasicStatsCollector</span>&quot;,
+    &quot;stats-collector/lib/stats/number/basicnumberstats~basicnumberstats&quot;,
+    &quot;class/src/stats/number/BasicNumberStats.js~BasicNumberStats.html&quot;,
+    &quot;<span>BasicNumberStats</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/stats/number/BasicNumberStats</span>&quot;,
     &quot;class&quot;
   ],
   [
-    &quot;stats-collector/lib/statscollector~statscollector&quot;,
-    &quot;class/src/StatsCollector.js~StatsCollector.html&quot;,
-    &quot;<span>StatsCollector</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/StatsCollector</span>&quot;,
+    &quot;stats-collector/lib/collectors/collector~collector&quot;,
+    &quot;class/src/collectors/Collector.js~Collector.html&quot;,
+    &quot;<span>Collector</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/Collector</span>&quot;,
     &quot;class&quot;
   ],
   [
-    &quot;stats-collector/lib/collectors/count~count&quot;,
-    &quot;function/index.html#static-function-count&quot;,
-    &quot;<span>count</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/count</span>&quot;,
-    &quot;function&quot;
+    &quot;stats-collector/lib/collectors/number/count~count&quot;,
+    &quot;class/src/collectors/number/Count.js~Count.html&quot;,
+    &quot;<span>Count</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Count</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    &quot;stats-collector/lib/filters/even~even&quot;,
+    &quot;stats-collector/lib/collectors/number/filteredcount~filteredcount&quot;,
+    &quot;class/src/collectors/number/FilteredCount.js~FilteredCount.html&quot;,
+    &quot;<span>FilteredCount</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/FilteredCount</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/max~max&quot;,
+    &quot;class/src/collectors/number/Max.js~Max.html&quot;,
+    &quot;<span>Max</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Max</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/mean~mean&quot;,
+    &quot;class/src/collectors/number/Mean.js~Mean.html&quot;,
+    &quot;<span>Mean</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Mean</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/min~min&quot;,
+    &quot;class/src/collectors/number/Min.js~Min.html&quot;,
+    &quot;<span>Min</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Min</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/stats/number/numberstats~numberstats&quot;,
+    &quot;class/src/stats/number/NumberStats.js~NumberStats.html&quot;,
+    &quot;<span>NumberStats</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/stats/number/NumberStats</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/powersumavgrunning~powersumavgrunning&quot;,
+    &quot;class/src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning.html&quot;,
+    &quot;<span>PowerSumAvgRunning</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/PowerSumAvgRunning</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/standarddeviationrunning~standarddeviationrunning&quot;,
+    &quot;class/src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning.html&quot;,
+    &quot;<span>StandardDeviationRunning</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/StandardDeviationRunning</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/standarddeviationstable~standarddeviationstable&quot;,
+    &quot;class/src/collectors/number/StandardDeviationStable.js~StandardDeviationStable.html&quot;,
+    &quot;<span>StandardDeviationStable</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/StandardDeviationStable</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/sum~sum&quot;,
+    &quot;class/src/collectors/number/Sum.js~Sum.html&quot;,
+    &quot;<span>Sum</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Sum</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/sumofsquareddeviationsstable~sumofsquareddeviationsstable&quot;,
+    &quot;class/src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable.html&quot;,
+    &quot;<span>SumOfSquaredDeviationsStable</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/SumOfSquaredDeviationsStable</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/values~values&quot;,
+    &quot;class/src/collectors/number/Values.js~Values.html&quot;,
+    &quot;<span>Values</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Values</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/variancerunning~variancerunning&quot;,
+    &quot;class/src/collectors/number/VarianceRunning.js~VarianceRunning.html&quot;,
+    &quot;<span>VarianceRunning</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/VarianceRunning</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/variancestable~variancestable&quot;,
+    &quot;class/src/collectors/number/VarianceStable.js~VarianceStable.html&quot;,
+    &quot;<span>VarianceStable</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/VarianceStable</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/filters/number/even~even&quot;,
     &quot;function/index.html#static-function-even&quot;,
-    &quot;<span>even</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/even</span>&quot;,
+    &quot;<span>even</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/number/even</span>&quot;,
     &quot;function&quot;
   ],
   [
-    &quot;stats-collector/lib/helpers/execmethod~execmethod&quot;,
-    &quot;function/index.html#static-function-execMethod&quot;,
-    &quot;<span>execMethod</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/helpers/execMethod</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/collectors/filteredcount~filteredcount&quot;,
-    &quot;function/index.html#static-function-filteredCount&quot;,
-    &quot;<span>filteredCount</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/filteredCount</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/filters/float~float&quot;,
+    &quot;stats-collector/lib/filters/number/float~float&quot;,
     &quot;function/index.html#static-function-float&quot;,
-    &quot;<span>float</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/float</span>&quot;,
+    &quot;<span>float</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/number/float</span>&quot;,
     &quot;function&quot;
   ],
   [
-    &quot;stats-collector/lib/filters/integer~integer&quot;,
+    &quot;stats-collector/lib/filters/number/integer~integer&quot;,
     &quot;function/index.html#static-function-integer&quot;,
-    &quot;<span>integer</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/integer</span>&quot;,
+    &quot;<span>integer</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/number/integer</span>&quot;,
     &quot;function&quot;
   ],
   [
@@ -66,105 +132,39 @@ window.esdocSearchIndex = [
     &quot;function&quot;
   ],
   [
-    &quot;stats-collector/lib/collectors/max~max&quot;,
-    &quot;function/index.html#static-function-max&quot;,
-    &quot;<span>max</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/max</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/collectors/mean~mean&quot;,
-    &quot;function/index.html#static-function-mean&quot;,
-    &quot;<span>mean</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/mean</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/collectors/min~min&quot;,
-    &quot;function/index.html#static-function-min&quot;,
-    &quot;<span>min</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/min</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/filters/negative~negative&quot;,
+    &quot;stats-collector/lib/filters/number/negative~negative&quot;,
     &quot;function/index.html#static-function-negative&quot;,
-    &quot;<span>negative</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/negative</span>&quot;,
+    &quot;<span>negative</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/number/negative</span>&quot;,
     &quot;function&quot;
   ],
   [
-    &quot;stats-collector/lib/filters/nonzero~nonzero&quot;,
+    &quot;stats-collector/lib/filters/number/nonzero~nonzero&quot;,
     &quot;function/index.html#static-function-nonZero&quot;,
-    &quot;<span>nonZero</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/nonZero</span>&quot;,
+    &quot;<span>nonZero</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/number/nonZero</span>&quot;,
     &quot;function&quot;
   ],
   [
-    &quot;stats-collector/lib/filters/odd~odd&quot;,
+    &quot;stats-collector/lib/filters/number/odd~odd&quot;,
     &quot;function/index.html#static-function-odd&quot;,
-    &quot;<span>odd</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/odd</span>&quot;,
+    &quot;<span>odd</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/number/odd</span>&quot;,
     &quot;function&quot;
   ],
   [
-    &quot;stats-collector/lib/filters/positive~positive&quot;,
+    &quot;stats-collector/lib/filters/number/positive~positive&quot;,
     &quot;function/index.html#static-function-positive&quot;,
-    &quot;<span>positive</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/positive</span>&quot;,
+    &quot;<span>positive</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/number/positive</span>&quot;,
     &quot;function&quot;
   ],
   [
-    &quot;stats-collector/lib/collectors/powersumavg_running~powersumavg_running&quot;,
-    &quot;function/index.html#static-function-powerSumAvg_running&quot;,
-    &quot;<span>powerSumAvg_running</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/powerSumAvg_running</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/filters/prime~prime&quot;,
+    &quot;stats-collector/lib/filters/number/prime~prime&quot;,
     &quot;function/index.html#static-function-prime&quot;,
-    &quot;<span>prime</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/prime</span>&quot;,
+    &quot;<span>prime</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/number/prime</span>&quot;,
     &quot;function&quot;
   ],
   [
-    &quot;stats-collector/lib/collectors/standarddeviation_running~standarddeviation_running&quot;,
-    &quot;function/index.html#static-function-standardDeviation_running&quot;,
-    &quot;<span>standardDeviation_running</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/standardDeviation_running</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/collectors/standarddeviation_stable~standarddeviation_stable&quot;,
-    &quot;function/index.html#static-function-standardDeviation_stable&quot;,
-    &quot;<span>standardDeviation_stable</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/standardDeviation_stable</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/collectors/sum~sum&quot;,
-    &quot;function/index.html#static-function-sum&quot;,
-    &quot;<span>sum</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/sum</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/collectors/sumofsquareddeviations_stable~sumofsquareddeviations_stable&quot;,
-    &quot;function/index.html#static-function-sumOfSquaredDeviations_stable&quot;,
-    &quot;<span>sumOfSquaredDeviations_stable</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/sumOfSquaredDeviations_stable</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/collectors/values~values&quot;,
-    &quot;function/index.html#static-function-values&quot;,
-    &quot;<span>values</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/values</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/collectors/variance_running~variance_running&quot;,
-    &quot;function/index.html#static-function-variance_running&quot;,
-    &quot;<span>variance_running</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/variance_running</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/collectors/variance_stable~variance_stable&quot;,
-    &quot;function/index.html#static-function-variance_stable&quot;,
-    &quot;<span>variance_stable</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/variance_stable</span>&quot;,
-    &quot;function&quot;
-  ],
-  [
-    &quot;stats-collector/lib/filters/zero~zero&quot;,
+    &quot;stats-collector/lib/filters/number/zero~zero&quot;,
     &quot;function/index.html#static-function-zero&quot;,
-    &quot;<span>zero</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/zero</span>&quot;,
+    &quot;<span>zero</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/filters/number/zero</span>&quot;,
     &quot;function&quot;
   ],
   [
@@ -498,213 +498,327 @@ window.esdocSearchIndex = [
     &quot;external&quot;
   ],
   [
-    &quot;src/advancedstatscollector.js&quot;,
-    &quot;file/src/AdvancedStatsCollector.js.html&quot;,
-    &quot;src/AdvancedStatsCollector.js&quot;,
+    &quot;src/cli.js&quot;,
+    &quot;file/src/cli.js.html&quot;,
+    &quot;src/cli.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/advancedstatscollector.js~advancedstatscollector#constructor&quot;,
-    &quot;class/src/AdvancedStatsCollector.js~AdvancedStatsCollector.html#instance-constructor-constructor&quot;,
-    &quot;src/AdvancedStatsCollector.js~AdvancedStatsCollector#constructor&quot;,
+    &quot;src/collectors/collector.js&quot;,
+    &quot;file/src/collectors/Collector.js.html&quot;,
+    &quot;src/collectors/Collector.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/collector.js~collector#constructor&quot;,
+    &quot;class/src/collectors/Collector.js~Collector.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/Collector.js~Collector#constructor&quot;,
     &quot;method&quot;
   ],
   [
-    &quot;src/basestatscollector.js&quot;,
-    &quot;file/src/BaseStatsCollector.js.html&quot;,
-    &quot;src/BaseStatsCollector.js&quot;,
+    &quot;src/collectors/collector.js~collector#initialvalue&quot;,
+    &quot;class/src/collectors/Collector.js~Collector.html#instance-member-initialValue&quot;,
+    &quot;src/collectors/Collector.js~Collector#initialValue&quot;,
+    &quot;member&quot;
+  ],
+  [
+    &quot;src/collectors/collector.js~collector#name&quot;,
+    &quot;class/src/collectors/Collector.js~Collector.html#instance-member-name&quot;,
+    &quot;src/collectors/Collector.js~Collector#name&quot;,
+    &quot;member&quot;
+  ],
+  [
+    &quot;src/collectors/collector.js~collector#requirements&quot;,
+    &quot;class/src/collectors/Collector.js~Collector.html#instance-member-requirements&quot;,
+    &quot;src/collectors/Collector.js~Collector#requirements&quot;,
+    &quot;member&quot;
+  ],
+  [
+    &quot;src/collectors/number/count.js&quot;,
+    &quot;file/src/collectors/number/Count.js.html&quot;,
+    &quot;src/collectors/number/Count.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/basestatscollector.js~basestatscollector#addcollector&quot;,
-    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-addCollector&quot;,
-    &quot;src/BaseStatsCollector.js~BaseStatsCollector#addCollector&quot;,
+    &quot;src/collectors/number/count.js~count#constructor&quot;,
+    &quot;class/src/collectors/number/Count.js~Count.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/Count.js~Count#constructor&quot;,
     &quot;method&quot;
   ],
   [
-    &quot;src/basestatscollector.js~basestatscollector#addignore&quot;,
-    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-addIgnore&quot;,
-    &quot;src/BaseStatsCollector.js~BaseStatsCollector#addIgnore&quot;,
+    &quot;src/collectors/number/count.js~count#handleprocess&quot;,
+    &quot;class/src/collectors/number/Count.js~Count.html#instance-method-handleProcess&quot;,
+    &quot;src/collectors/number/Count.js~Count#handleProcess&quot;,
     &quot;method&quot;
   ],
   [
-    &quot;src/basestatscollector.js~basestatscollector#constructor&quot;,
-    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-constructor-constructor&quot;,
-    &quot;src/BaseStatsCollector.js~BaseStatsCollector#constructor&quot;,
+    &quot;src/collectors/number/filteredcount.js&quot;,
+    &quot;file/src/collectors/number/FilteredCount.js.html&quot;,
+    &quot;src/collectors/number/FilteredCount.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/number/filteredcount.js~filteredcount#constructor&quot;,
+    &quot;class/src/collectors/number/FilteredCount.js~FilteredCount.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/FilteredCount.js~FilteredCount#constructor&quot;,
     &quot;method&quot;
   ],
   [
-    &quot;src/basestatscollector.js~basestatscollector#get&quot;,
-    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-get&quot;,
-    &quot;src/BaseStatsCollector.js~BaseStatsCollector#get&quot;,
+    &quot;src/collectors/number/filteredcount.js~filteredcount#handleprocess&quot;,
+    &quot;class/src/collectors/number/FilteredCount.js~FilteredCount.html#instance-method-handleProcess&quot;,
+    &quot;src/collectors/number/FilteredCount.js~FilteredCount#handleProcess&quot;,
     &quot;method&quot;
   ],
   [
-    &quot;src/basestatscollector.js~basestatscollector#reset&quot;,
-    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-reset&quot;,
-    &quot;src/BaseStatsCollector.js~BaseStatsCollector#reset&quot;,
+    &quot;src/collectors/number/max.js&quot;,
+    &quot;file/src/collectors/number/Max.js.html&quot;,
+    &quot;src/collectors/number/Max.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/number/max.js~max#constructor&quot;,
+    &quot;class/src/collectors/number/Max.js~Max.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/Max.js~Max#constructor&quot;,
     &quot;method&quot;
   ],
   [
-    &quot;src/basestatscollector.js~basestatscollector#update&quot;,
-    &quot;class/src/BaseStatsCollector.js~BaseStatsCollector.html#instance-method-update&quot;,
-    &quot;src/BaseStatsCollector.js~BaseStatsCollector#update&quot;,
+    &quot;src/collectors/number/max.js~max#handleprocess&quot;,
+    &quot;class/src/collectors/number/Max.js~Max.html#instance-method-handleProcess&quot;,
+    &quot;src/collectors/number/Max.js~Max#handleProcess&quot;,
     &quot;method&quot;
   ],
   [
-    &quot;src/basicstatscollector.js&quot;,
-    &quot;file/src/BasicStatsCollector.js.html&quot;,
-    &quot;src/BasicStatsCollector.js&quot;,
+    &quot;src/collectors/number/mean.js&quot;,
+    &quot;file/src/collectors/number/Mean.js.html&quot;,
+    &quot;src/collectors/number/Mean.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/basicstatscollector.js~basicstatscollector#constructor&quot;,
-    &quot;class/src/BasicStatsCollector.js~BasicStatsCollector.html#instance-constructor-constructor&quot;,
-    &quot;src/BasicStatsCollector.js~BasicStatsCollector#constructor&quot;,
+    &quot;src/collectors/number/mean.js~mean#constructor&quot;,
+    &quot;class/src/collectors/number/Mean.js~Mean.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/Mean.js~Mean#constructor&quot;,
     &quot;method&quot;
   ],
   [
-    &quot;src/statscollector.js&quot;,
-    &quot;file/src/StatsCollector.js.html&quot;,
-    &quot;src/StatsCollector.js&quot;,
-    &quot;file&quot;
-  ],
-  [
-    &quot;src/statscollector.js~statscollector#constructor&quot;,
-    &quot;class/src/StatsCollector.js~StatsCollector.html#instance-constructor-constructor&quot;,
-    &quot;src/StatsCollector.js~StatsCollector#constructor&quot;,
+    &quot;src/collectors/number/mean.js~mean#handleget&quot;,
+    &quot;class/src/collectors/number/Mean.js~Mean.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/Mean.js~Mean#handleGet&quot;,
     &quot;method&quot;
   ],
   [
-    &quot;src/collectors/count.js&quot;,
-    &quot;file/src/collectors/count.js.html&quot;,
-    &quot;src/collectors/count.js&quot;,
+    &quot;src/collectors/number/min.js&quot;,
+    &quot;file/src/collectors/number/Min.js.html&quot;,
+    &quot;src/collectors/number/Min.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/filteredcount.js&quot;,
-    &quot;file/src/collectors/filteredCount.js.html&quot;,
-    &quot;src/collectors/filteredCount.js&quot;,
+    &quot;src/collectors/number/min.js~min#constructor&quot;,
+    &quot;class/src/collectors/number/Min.js~Min.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/Min.js~Min#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/min.js~min#handleprocess&quot;,
+    &quot;class/src/collectors/number/Min.js~Min.html#instance-method-handleProcess&quot;,
+    &quot;src/collectors/number/Min.js~Min#handleProcess&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/powersumavgrunning.js&quot;,
+    &quot;file/src/collectors/number/PowerSumAvgRunning.js.html&quot;,
+    &quot;src/collectors/number/PowerSumAvgRunning.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/max.js&quot;,
-    &quot;file/src/collectors/max.js.html&quot;,
-    &quot;src/collectors/max.js&quot;,
+    &quot;src/collectors/number/powersumavgrunning.js~powersumavgrunning#constructor&quot;,
+    &quot;class/src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/powersumavgrunning.js~powersumavgrunning#handleprocess&quot;,
+    &quot;class/src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning.html#instance-method-handleProcess&quot;,
+    &quot;src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning#handleProcess&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/standarddeviationrunning.js&quot;,
+    &quot;file/src/collectors/number/StandardDeviationRunning.js.html&quot;,
+    &quot;src/collectors/number/StandardDeviationRunning.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/mean.js&quot;,
-    &quot;file/src/collectors/mean.js.html&quot;,
-    &quot;src/collectors/mean.js&quot;,
+    &quot;src/collectors/number/standarddeviationrunning.js~standarddeviationrunning#constructor&quot;,
+    &quot;class/src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/standarddeviationrunning.js~standarddeviationrunning#handleget&quot;,
+    &quot;class/src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning#handleGet&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/standarddeviationstable.js&quot;,
+    &quot;file/src/collectors/number/StandardDeviationStable.js.html&quot;,
+    &quot;src/collectors/number/StandardDeviationStable.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/min.js&quot;,
-    &quot;file/src/collectors/min.js.html&quot;,
-    &quot;src/collectors/min.js&quot;,
+    &quot;src/collectors/number/standarddeviationstable.js~standarddeviationstable#constructor&quot;,
+    &quot;class/src/collectors/number/StandardDeviationStable.js~StandardDeviationStable.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/StandardDeviationStable.js~StandardDeviationStable#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/standarddeviationstable.js~standarddeviationstable#handleget&quot;,
+    &quot;class/src/collectors/number/StandardDeviationStable.js~StandardDeviationStable.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/StandardDeviationStable.js~StandardDeviationStable#handleGet&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/sum.js&quot;,
+    &quot;file/src/collectors/number/Sum.js.html&quot;,
+    &quot;src/collectors/number/Sum.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/powersumavg_running.js&quot;,
-    &quot;file/src/collectors/powerSumAvg_running.js.html&quot;,
-    &quot;src/collectors/powerSumAvg_running.js&quot;,
+    &quot;src/collectors/number/sum.js~sum#constructor&quot;,
+    &quot;class/src/collectors/number/Sum.js~Sum.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/Sum.js~Sum#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/sum.js~sum#handleprocess&quot;,
+    &quot;class/src/collectors/number/Sum.js~Sum.html#instance-method-handleProcess&quot;,
+    &quot;src/collectors/number/Sum.js~Sum#handleProcess&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/sumofsquareddeviationsstable.js&quot;,
+    &quot;file/src/collectors/number/SumOfSquaredDeviationsStable.js.html&quot;,
+    &quot;src/collectors/number/SumOfSquaredDeviationsStable.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/standarddeviation_running.js&quot;,
-    &quot;file/src/collectors/standardDeviation_running.js.html&quot;,
-    &quot;src/collectors/standardDeviation_running.js&quot;,
+    &quot;src/collectors/number/sumofsquareddeviationsstable.js~sumofsquareddeviationsstable#constructor&quot;,
+    &quot;class/src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/sumofsquareddeviationsstable.js~sumofsquareddeviationsstable#handleget&quot;,
+    &quot;class/src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable#handleGet&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/values.js&quot;,
+    &quot;file/src/collectors/number/Values.js.html&quot;,
+    &quot;src/collectors/number/Values.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/standarddeviation_stable.js&quot;,
-    &quot;file/src/collectors/standardDeviation_stable.js.html&quot;,
-    &quot;src/collectors/standardDeviation_stable.js&quot;,
+    &quot;src/collectors/number/values.js~values#constructor&quot;,
+    &quot;class/src/collectors/number/Values.js~Values.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/Values.js~Values#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/values.js~values#handleprocess&quot;,
+    &quot;class/src/collectors/number/Values.js~Values.html#instance-method-handleProcess&quot;,
+    &quot;src/collectors/number/Values.js~Values#handleProcess&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/variancerunning.js&quot;,
+    &quot;file/src/collectors/number/VarianceRunning.js.html&quot;,
+    &quot;src/collectors/number/VarianceRunning.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/sum.js&quot;,
-    &quot;file/src/collectors/sum.js.html&quot;,
-    &quot;src/collectors/sum.js&quot;,
+    &quot;src/collectors/number/variancerunning.js~variancerunning#constructor&quot;,
+    &quot;class/src/collectors/number/VarianceRunning.js~VarianceRunning.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/VarianceRunning.js~VarianceRunning#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/variancerunning.js~variancerunning#handleget&quot;,
+    &quot;class/src/collectors/number/VarianceRunning.js~VarianceRunning.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/VarianceRunning.js~VarianceRunning#handleGet&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/variancestable.js&quot;,
+    &quot;file/src/collectors/number/VarianceStable.js.html&quot;,
+    &quot;src/collectors/number/VarianceStable.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/sumofsquareddeviations_stable.js&quot;,
-    &quot;file/src/collectors/sumOfSquaredDeviations_stable.js.html&quot;,
-    &quot;src/collectors/sumOfSquaredDeviations_stable.js&quot;,
+    &quot;src/collectors/number/variancestable.js~variancestable#constructor&quot;,
+    &quot;class/src/collectors/number/VarianceStable.js~VarianceStable.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/VarianceStable.js~VarianceStable#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/variancestable.js~variancestable#handleget&quot;,
+    &quot;class/src/collectors/number/VarianceStable.js~VarianceStable.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/VarianceStable.js~VarianceStable#handleGet&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/filters/number/even.js&quot;,
+    &quot;file/src/filters/number/even.js.html&quot;,
+    &quot;src/filters/number/even.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/values.js&quot;,
-    &quot;file/src/collectors/values.js.html&quot;,
-    &quot;src/collectors/values.js&quot;,
+    &quot;src/filters/number/float.js&quot;,
+    &quot;file/src/filters/number/float.js.html&quot;,
+    &quot;src/filters/number/float.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/variance_running.js&quot;,
-    &quot;file/src/collectors/variance_running.js.html&quot;,
-    &quot;src/collectors/variance_running.js&quot;,
+    &quot;src/filters/number/integer.js&quot;,
+    &quot;file/src/filters/number/integer.js.html&quot;,
+    &quot;src/filters/number/integer.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/collectors/variance_stable.js&quot;,
-    &quot;file/src/collectors/variance_stable.js.html&quot;,
-    &quot;src/collectors/variance_stable.js&quot;,
+    &quot;src/filters/number/negative.js&quot;,
+    &quot;file/src/filters/number/negative.js.html&quot;,
+    &quot;src/filters/number/negative.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/filters/even.js&quot;,
-    &quot;file/src/filters/even.js.html&quot;,
-    &quot;src/filters/even.js&quot;,
+    &quot;src/filters/number/nonzero.js&quot;,
+    &quot;file/src/filters/number/nonZero.js.html&quot;,
+    &quot;src/filters/number/nonZero.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/filters/float.js&quot;,
-    &quot;file/src/filters/float.js.html&quot;,
-    &quot;src/filters/float.js&quot;,
+    &quot;src/filters/number/odd.js&quot;,
+    &quot;file/src/filters/number/odd.js.html&quot;,
+    &quot;src/filters/number/odd.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/filters/integer.js&quot;,
-    &quot;file/src/filters/integer.js.html&quot;,
-    &quot;src/filters/integer.js&quot;,
+    &quot;src/filters/number/positive.js&quot;,
+    &quot;file/src/filters/number/positive.js.html&quot;,
+    &quot;src/filters/number/positive.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/filters/negative.js&quot;,
-    &quot;file/src/filters/negative.js.html&quot;,
-    &quot;src/filters/negative.js&quot;,
+    &quot;src/filters/number/prime.js&quot;,
+    &quot;file/src/filters/number/prime.js.html&quot;,
+    &quot;src/filters/number/prime.js&quot;,
     &quot;file&quot;
   ],
   [
-    &quot;src/filters/nonzero.js&quot;,
-    &quot;file/src/filters/nonZero.js.html&quot;,
-    &quot;src/filters/nonZero.js&quot;,
-    &quot;file&quot;
-  ],
-  [
-    &quot;src/filters/odd.js&quot;,
-    &quot;file/src/filters/odd.js.html&quot;,
-    &quot;src/filters/odd.js&quot;,
-    &quot;file&quot;
-  ],
-  [
-    &quot;src/filters/positive.js&quot;,
-    &quot;file/src/filters/positive.js.html&quot;,
-    &quot;src/filters/positive.js&quot;,
-    &quot;file&quot;
-  ],
-  [
-    &quot;src/filters/prime.js&quot;,
-    &quot;file/src/filters/prime.js.html&quot;,
-    &quot;src/filters/prime.js&quot;,
-    &quot;file&quot;
-  ],
-  [
-    &quot;src/filters/zero.js&quot;,
-    &quot;file/src/filters/zero.js.html&quot;,
-    &quot;src/filters/zero.js&quot;,
+    &quot;src/filters/number/zero.js&quot;,
+    &quot;file/src/filters/number/zero.js.html&quot;,
+    &quot;src/filters/number/zero.js&quot;,
     &quot;file&quot;
   ],
   [
@@ -714,15 +828,21 @@ window.esdocSearchIndex = [
     &quot;file&quot;
   ],
   [
-    &quot;src/helpers/execmethod.js&quot;,
-    &quot;file/src/helpers/execMethod.js.html&quot;,
-    &quot;src/helpers/execMethod.js&quot;,
+    &quot;src/helpers/collectors.number.js&quot;,
+    &quot;file/src/helpers/collectors.number.js.html&quot;,
+    &quot;src/helpers/collectors.number.js&quot;,
     &quot;file&quot;
   ],
   [
     &quot;src/helpers/filters.js&quot;,
     &quot;file/src/helpers/filters.js.html&quot;,
     &quot;src/helpers/filters.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/helpers/filters.number.js&quot;,
+    &quot;file/src/helpers/filters.number.js.html&quot;,
+    &quot;src/helpers/filters.number.js&quot;,
     &quot;file&quot;
   ],
   [
@@ -736,5 +856,95 @@ window.esdocSearchIndex = [
     &quot;file/src/index.js.html&quot;,
     &quot;src/index.js&quot;,
     &quot;file&quot;
+  ],
+  [
+    &quot;src/stats/basestats.js&quot;,
+    &quot;file/src/stats/BaseStats.js.html&quot;,
+    &quot;src/stats/BaseStats.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/stats/basestats.js~basestats#addcollector&quot;,
+    &quot;class/src/stats/BaseStats.js~BaseStats.html#instance-method-addCollector&quot;,
+    &quot;src/stats/BaseStats.js~BaseStats#addCollector&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/stats/basestats.js~basestats#addfilter&quot;,
+    &quot;class/src/stats/BaseStats.js~BaseStats.html#instance-method-addFilter&quot;,
+    &quot;src/stats/BaseStats.js~BaseStats#addFilter&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/stats/basestats.js~basestats#addignore&quot;,
+    &quot;class/src/stats/BaseStats.js~BaseStats.html#instance-method-addIgnore&quot;,
+    &quot;src/stats/BaseStats.js~BaseStats#addIgnore&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/stats/basestats.js~basestats#constructor&quot;,
+    &quot;class/src/stats/BaseStats.js~BaseStats.html#instance-constructor-constructor&quot;,
+    &quot;src/stats/BaseStats.js~BaseStats#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/stats/basestats.js~basestats#get&quot;,
+    &quot;class/src/stats/BaseStats.js~BaseStats.html#instance-method-get&quot;,
+    &quot;src/stats/BaseStats.js~BaseStats#get&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/stats/basestats.js~basestats#process&quot;,
+    &quot;class/src/stats/BaseStats.js~BaseStats.html#instance-method-process&quot;,
+    &quot;src/stats/BaseStats.js~BaseStats#process&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/stats/basestats.js~basestats#processall&quot;,
+    &quot;class/src/stats/BaseStats.js~BaseStats.html#instance-method-processAll&quot;,
+    &quot;src/stats/BaseStats.js~BaseStats#processAll&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/stats/basestats.js~basestats#reset&quot;,
+    &quot;class/src/stats/BaseStats.js~BaseStats.html#instance-method-reset&quot;,
+    &quot;src/stats/BaseStats.js~BaseStats#reset&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/stats/number/advancednumberstats.js&quot;,
+    &quot;file/src/stats/number/AdvancedNumberStats.js.html&quot;,
+    &quot;src/stats/number/AdvancedNumberStats.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/stats/number/advancednumberstats.js~advancednumberstats#constructor&quot;,
+    &quot;class/src/stats/number/AdvancedNumberStats.js~AdvancedNumberStats.html#instance-constructor-constructor&quot;,
+    &quot;src/stats/number/AdvancedNumberStats.js~AdvancedNumberStats#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/stats/number/basicnumberstats.js&quot;,
+    &quot;file/src/stats/number/BasicNumberStats.js.html&quot;,
+    &quot;src/stats/number/BasicNumberStats.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/stats/number/basicnumberstats.js~basicnumberstats#constructor&quot;,
+    &quot;class/src/stats/number/BasicNumberStats.js~BasicNumberStats.html#instance-constructor-constructor&quot;,
+    &quot;src/stats/number/BasicNumberStats.js~BasicNumberStats#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/stats/number/numberstats.js&quot;,
+    &quot;file/src/stats/number/NumberStats.js.html&quot;,
+    &quot;src/stats/number/NumberStats.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/stats/number/numberstats.js~numberstats#constructor&quot;,
+    &quot;class/src/stats/number/NumberStats.js~NumberStats.html#instance-constructor-constructor&quot;,
+    &quot;src/stats/number/NumberStats.js~NumberStats#constructor&quot;,
+    &quot;method&quot;
   ]
 ]
