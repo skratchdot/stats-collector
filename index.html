@@ -39,13 +39,17 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/FilteredCount.js~FilteredCount.html">FilteredCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Max.js~Max.html">Max</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Mean.js~Mean.html">Mean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Median.js~Median.html">Median</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/MidRange.js~MidRange.html">MidRange</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Min.js~Min.html">Min</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning.html">PowerSumAvgRunning</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Range.js~Range.html">Range</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning.html">StandardDeviationRunning</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/StandardDeviationStable.js~StandardDeviationStable.html">StandardDeviationStable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Sum.js~Sum.html">Sum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable.html">SumOfSquaredDeviationsStable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Values.js~Values.html">Values</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/ValuesSorted.js~ValuesSorted.html">ValuesSorted</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/VarianceRunning.js~VarianceRunning.html">VarianceRunning</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/VarianceStable.js~VarianceStable.html">VarianceStable</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">filters/number</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-even">even</a></span></span></li>
@@ -79,6 +83,10 @@
 collectors, but allows you to add your own &quot;stat collectors&quot; by exposing an
 API that lets you pass in reducer-like functions that act on numbers passed
 to it.</p>
+<p><code>stats-collector</code> comes in 2 formats: a
+<a href="#getting-started">node.js library</a>
+and a
+<a href="#command-line-tool">command line tool</a>.</p>
 <p>For examples and api documentation, continue reading below.</p>
 <h2 id="node-js-library">Node.js Library</h2>
 <h3 id="getting-started">Getting Started</h3>
@@ -136,7 +144,7 @@ const results = stats.get();</code>
 </tr>
 <tr>
 <td>AdvancedNumberStats</td>
-<td>{<br>&#xA0;&quot;count&quot;: 5,<br>&#xA0;&quot;count_even&quot;: 2,<br>&#xA0;&quot;count_float&quot;: 0,<br>&#xA0;&quot;count_integer&quot;: 5,<br>&#xA0;&quot;count_negative&quot;: 0,<br>&#xA0;&quot;count_nonZero&quot;: 5,<br>&#xA0;&quot;count_odd&quot;: 3,<br>&#xA0;&quot;count_positive&quot;: 5,<br>&#xA0;&quot;count_prime&quot;: 3,<br>&#xA0;&quot;count_zero&quot;: 0,<br>&#xA0;&quot;max&quot;: 5,<br>&#xA0;&quot;mean&quot;: 3,<br>&#xA0;&quot;min&quot;: 1,<br>&#xA0;&quot;powerSumAvgRunning&quot;: 11,<br>&#xA0;&quot;standardDeviationRunning&quot;: 1.5811388300841898,<br>&#xA0;&quot;standardDeviationStable&quot;: 1.5811388300841898,<br>&#xA0;&quot;sum&quot;: 15,<br>&#xA0;&quot;sumOfSquaredDeviationsStable&quot;: 10,<br>&#xA0;&quot;values&quot;: [<br>&#xA0;&#xA0;1,<br>&#xA0;&#xA0;2,<br>&#xA0;&#xA0;3,<br>&#xA0;&#xA0;4,<br>&#xA0;&#xA0;5<br>&#xA0;],<br>&#xA0;&quot;varianceRunning&quot;: 2.5,<br>&#xA0;&quot;varianceStable&quot;: 2.5<br>}</td>
+<td>{<br>&#xA0;&quot;count&quot;: 5,<br>&#xA0;&quot;count_even&quot;: 2,<br>&#xA0;&quot;count_float&quot;: 0,<br>&#xA0;&quot;count_integer&quot;: 5,<br>&#xA0;&quot;count_negative&quot;: 0,<br>&#xA0;&quot;count_nonZero&quot;: 5,<br>&#xA0;&quot;count_odd&quot;: 3,<br>&#xA0;&quot;count_positive&quot;: 5,<br>&#xA0;&quot;count_prime&quot;: 3,<br>&#xA0;&quot;count_zero&quot;: 0,<br>&#xA0;&quot;max&quot;: 5,<br>&#xA0;&quot;mean&quot;: 3,<br>&#xA0;&quot;median&quot;: 3,<br>&#xA0;&quot;midRange&quot;: 4,<br>&#xA0;&quot;min&quot;: 1,<br>&#xA0;&quot;powerSumAvgRunning&quot;: 11,<br>&#xA0;&quot;range&quot;: 4,<br>&#xA0;&quot;standardDeviationRunning&quot;: 1.5811388300841898,<br>&#xA0;&quot;standardDeviationStable&quot;: 1.5811388300841898,<br>&#xA0;&quot;sum&quot;: 15,<br>&#xA0;&quot;sumOfSquaredDeviationsStable&quot;: 10,<br>&#xA0;&quot;varianceRunning&quot;: 2.5,<br>&#xA0;&quot;varianceStable&quot;: 2.5<br>}</td>
 </tr>
 </tbody>
 </table>
@@ -146,6 +154,67 @@ by visiting the project site here:</p>
 <ul>
 <li><a href="http://projects.skratchdot.com/stats-collector/">http://projects.skratchdot.com/stats-collector/</a></li>
 </ul>
+<h2 id="command-line-tool">Command Line Tool</h2>
+<h3 id="installation">Installation</h3>
+<p>The command line utility can be install via <code>npm install -g stats-collector</code>.</p>
+<p>After doing so, you will have access to <code>stats-collector</code> from the command line.</p>
+<pre><code class="lang-bash"><code class="source-code prettyprint">$ stats-collector -h
+
+  Usage: stats-collector [options] &lt;values&gt;
+
+  Options:
+
+    -h, --help                     output usage information
+    -v, --version                  output the version number
+    -c, --collectors [collectors]  add collectors
+    -f, --filters [filters]        add filters
+    -t, --type [type]              type of stats [empty,basic,stats,advanced]
+    -p, --pipe                     whether or not to accept piped data from stdin</code>
+</code></pre>
+<h3 id="examples">Examples</h3>
+<h4 id="default-behavior">Default behavior</h4>
+<p>Here is the default behavior when passing in 5 numbers.</p>
+<pre><code class="lang-bash"><code class="source-code prettyprint">$ stats-collector 1,2,3,4,5
+{
+  &quot;count&quot;: 5,
+  &quot;max&quot;: 5,
+  &quot;mean&quot;: 3,
+  &quot;min&quot;: 1,
+  &quot;powerSumAvgRunning&quot;: 11,
+  &quot;standardDeviationRunning&quot;: 1.5811388300841898,
+  &quot;sum&quot;: 15,
+  &quot;varianceRunning&quot;: 2.5
+}</code>
+</code></pre>
+<h4 id="get-advanced-stats-about-10-random-numbers">Get &quot;advanced&quot; stats about 10 random numbers</h4>
+<p>The example uses the <code>--pipe</code> functionality:</p>
+<pre><code class="lang-bash"><code class="source-code prettyprint">$ for i in {1..10}; do echo $RANDOM; done | stats-collector -t advanced --pipe
+{
+  &quot;count&quot;: 10,
+  &quot;count_even&quot;: 4,
+  &quot;count_float&quot;: 0,
+  &quot;count_integer&quot;: 10,
+  &quot;count_negative&quot;: 0,
+  &quot;count_nonZero&quot;: 10,
+  &quot;count_odd&quot;: 6,
+  &quot;count_positive&quot;: 10,
+  &quot;count_prime&quot;: 1,
+  &quot;count_zero&quot;: 0,
+  &quot;max&quot;: 31476,
+  &quot;mean&quot;: 17110,
+  &quot;median&quot;: 28892,
+  &quot;midRange&quot;: 28377,
+  &quot;min&quot;: 3099,
+  &quot;powerSumAvgRunning&quot;: 402365513.4,
+  &quot;range&quot;: 28377,
+  &quot;standardDeviationRunning&quot;: 11035.97216177875,
+  &quot;standardDeviationStable&quot;: 11035.97216177875,
+  &quot;sum&quot;: 171100,
+  &quot;sumOfSquaredDeviationsStable&quot;: 1096134134,
+  &quot;varianceRunning&quot;: 121792681.55555555,
+  &quot;varianceStable&quot;: 121792681.55555555
+}</code>
+</code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="https://www.npmjs.com/package/covariance">covariance</a></li>

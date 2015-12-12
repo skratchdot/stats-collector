@@ -48,6 +48,18 @@ window.esdocSearchIndex = [
     &quot;class&quot;
   ],
   [
+    &quot;stats-collector/lib/collectors/number/median~median&quot;,
+    &quot;class/src/collectors/number/Median.js~Median.html&quot;,
+    &quot;<span>Median</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Median</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/midrange~midrange&quot;,
+    &quot;class/src/collectors/number/MidRange.js~MidRange.html&quot;,
+    &quot;<span>MidRange</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/MidRange</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
     &quot;stats-collector/lib/collectors/number/min~min&quot;,
     &quot;class/src/collectors/number/Min.js~Min.html&quot;,
     &quot;<span>Min</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Min</span>&quot;,
@@ -63,6 +75,12 @@ window.esdocSearchIndex = [
     &quot;stats-collector/lib/collectors/number/powersumavgrunning~powersumavgrunning&quot;,
     &quot;class/src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning.html&quot;,
     &quot;<span>PowerSumAvgRunning</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/PowerSumAvgRunning</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/range~range&quot;,
+    &quot;class/src/collectors/number/Range.js~Range.html&quot;,
+    &quot;<span>Range</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Range</span>&quot;,
     &quot;class&quot;
   ],
   [
@@ -93,6 +111,12 @@ window.esdocSearchIndex = [
     &quot;stats-collector/lib/collectors/number/values~values&quot;,
     &quot;class/src/collectors/number/Values.js~Values.html&quot;,
     &quot;<span>Values</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Values</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/valuessorted~valuessorted&quot;,
+    &quot;class/src/collectors/number/ValuesSorted.js~ValuesSorted.html&quot;,
+    &quot;<span>ValuesSorted</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/ValuesSorted</span>&quot;,
     &quot;class&quot;
   ],
   [
@@ -606,6 +630,42 @@ window.esdocSearchIndex = [
     &quot;method&quot;
   ],
   [
+    &quot;src/collectors/number/median.js&quot;,
+    &quot;file/src/collectors/number/Median.js.html&quot;,
+    &quot;src/collectors/number/Median.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/number/median.js~median#constructor&quot;,
+    &quot;class/src/collectors/number/Median.js~Median.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/Median.js~Median#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/median.js~median#handleget&quot;,
+    &quot;class/src/collectors/number/Median.js~Median.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/Median.js~Median#handleGet&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/midrange.js&quot;,
+    &quot;file/src/collectors/number/MidRange.js.html&quot;,
+    &quot;src/collectors/number/MidRange.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/number/midrange.js~midrange#constructor&quot;,
+    &quot;class/src/collectors/number/MidRange.js~MidRange.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/MidRange.js~MidRange#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/midrange.js~midrange#handleget&quot;,
+    &quot;class/src/collectors/number/MidRange.js~MidRange.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/MidRange.js~MidRange#handleGet&quot;,
+    &quot;method&quot;
+  ],
+  [
     &quot;src/collectors/number/min.js&quot;,
     &quot;file/src/collectors/number/Min.js.html&quot;,
     &quot;src/collectors/number/Min.js&quot;,
@@ -639,6 +699,24 @@ window.esdocSearchIndex = [
     &quot;src/collectors/number/powersumavgrunning.js~powersumavgrunning#handleprocess&quot;,
     &quot;class/src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning.html#instance-method-handleProcess&quot;,
     &quot;src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning#handleProcess&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/range.js&quot;,
+    &quot;file/src/collectors/number/Range.js.html&quot;,
+    &quot;src/collectors/number/Range.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/number/range.js~range#constructor&quot;,
+    &quot;class/src/collectors/number/Range.js~Range.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/Range.js~Range#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/range.js~range#handleget&quot;,
+    &quot;class/src/collectors/number/Range.js~Range.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/Range.js~Range#handleGet&quot;,
     &quot;method&quot;
   ],
   [
@@ -729,6 +807,24 @@ window.esdocSearchIndex = [
     &quot;src/collectors/number/values.js~values#handleprocess&quot;,
     &quot;class/src/collectors/number/Values.js~Values.html#instance-method-handleProcess&quot;,
     &quot;src/collectors/number/Values.js~Values#handleProcess&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/valuessorted.js&quot;,
+    &quot;file/src/collectors/number/ValuesSorted.js.html&quot;,
+    &quot;src/collectors/number/ValuesSorted.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/number/valuessorted.js~valuessorted#constructor&quot;,
+    &quot;class/src/collectors/number/ValuesSorted.js~ValuesSorted.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/ValuesSorted.js~ValuesSorted#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/valuessorted.js~valuessorted#handleget&quot;,
+    &quot;class/src/collectors/number/ValuesSorted.js~ValuesSorted.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/ValuesSorted.js~ValuesSorted#handleGet&quot;,
     &quot;method&quot;
   ],
   [

@@ -338,10 +338,10 @@
           "type": "ImportDefaultSpecifier",
           "local": {
             "type": "Identifier",
-            "name": "Min",
+            "name": "Median",
             "range": [
               265,
-              268
+              271
             ],
             "loc": {
               "start": {
@@ -350,13 +350,13 @@
               },
               "end": {
                 "line": 7,
-                "column": 10
+                "column": 13
               }
             }
           },
           "range": [
             265,
-            268
+            271
           ],
           "loc": {
             "start": {
@@ -365,6 +365,152 @@
             },
             "end": {
               "line": 7,
+              "column": 13
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "../collectors/number/Median",
+        "raw": "'../collectors/number/Median'",
+        "range": [
+          277,
+          306
+        ],
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 19
+          },
+          "end": {
+            "line": 7,
+            "column": 48
+          }
+        }
+      },
+      "range": [
+        258,
+        307
+      ],
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 0
+        },
+        "end": {
+          "line": 7,
+          "column": 49
+        }
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "MidRange",
+            "range": [
+              315,
+              323
+            ],
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 7
+              },
+              "end": {
+                "line": 8,
+                "column": 15
+              }
+            }
+          },
+          "range": [
+            315,
+            323
+          ],
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 7
+            },
+            "end": {
+              "line": 8,
+              "column": 15
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "../collectors/number/MidRange",
+        "raw": "'../collectors/number/MidRange'",
+        "range": [
+          329,
+          360
+        ],
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 21
+          },
+          "end": {
+            "line": 8,
+            "column": 52
+          }
+        }
+      },
+      "range": [
+        308,
+        361
+      ],
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 53
+        }
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "Min",
+            "range": [
+              369,
+              372
+            ],
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 7
+              },
+              "end": {
+                "line": 9,
+                "column": 10
+              }
+            }
+          },
+          "range": [
+            369,
+            372
+          ],
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 7
+            },
+            "end": {
+              "line": 9,
               "column": 10
             }
           }
@@ -375,31 +521,31 @@
         "value": "../collectors/number/Min",
         "raw": "'../collectors/number/Min'",
         "range": [
-          274,
-          300
+          378,
+          404
         ],
         "loc": {
           "start": {
-            "line": 7,
+            "line": 9,
             "column": 16
           },
           "end": {
-            "line": 7,
+            "line": 9,
             "column": 42
           }
         }
       },
       "range": [
-        258,
-        301
+        362,
+        405
       ],
       "loc": {
         "start": {
-          "line": 7,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 7,
+          "line": 9,
           "column": 43
         }
       }
@@ -413,31 +559,31 @@
             "type": "Identifier",
             "name": "PowerSumAvgRunning",
             "range": [
-              309,
-              327
+              413,
+              431
             ],
             "loc": {
               "start": {
-                "line": 8,
+                "line": 10,
                 "column": 7
               },
               "end": {
-                "line": 8,
+                "line": 10,
                 "column": 25
               }
             }
           },
           "range": [
-            309,
-            327
+            413,
+            431
           ],
           "loc": {
             "start": {
-              "line": 8,
+              "line": 10,
               "column": 7
             },
             "end": {
-              "line": 8,
+              "line": 10,
               "column": 25
             }
           }
@@ -448,32 +594,105 @@
         "value": "../collectors/number/PowerSumAvgRunning",
         "raw": "'../collectors/number/PowerSumAvgRunning'",
         "range": [
-          333,
-          374
+          437,
+          478
         ],
         "loc": {
           "start": {
-            "line": 8,
+            "line": 10,
             "column": 31
           },
           "end": {
-            "line": 8,
+            "line": 10,
             "column": 72
           }
         }
       },
       "range": [
-        302,
-        375
+        406,
+        479
       ],
       "loc": {
         "start": {
-          "line": 8,
+          "line": 10,
           "column": 0
         },
         "end": {
-          "line": 8,
+          "line": 10,
           "column": 73
+        }
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "Range",
+            "range": [
+              487,
+              492
+            ],
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 7
+              },
+              "end": {
+                "line": 11,
+                "column": 12
+              }
+            }
+          },
+          "range": [
+            487,
+            492
+          ],
+          "loc": {
+            "start": {
+              "line": 11,
+              "column": 7
+            },
+            "end": {
+              "line": 11,
+              "column": 12
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "../collectors/number/Range",
+        "raw": "'../collectors/number/Range'",
+        "range": [
+          498,
+          526
+        ],
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 18
+          },
+          "end": {
+            "line": 11,
+            "column": 46
+          }
+        }
+      },
+      "range": [
+        480,
+        527
+      ],
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 0
+        },
+        "end": {
+          "line": 11,
+          "column": 47
         }
       }
     },
@@ -486,31 +705,31 @@
             "type": "Identifier",
             "name": "StandardDeviationRunning",
             "range": [
-              383,
-              407
+              535,
+              559
             ],
             "loc": {
               "start": {
-                "line": 9,
+                "line": 12,
                 "column": 7
               },
               "end": {
-                "line": 9,
+                "line": 12,
                 "column": 31
               }
             }
           },
           "range": [
-            383,
-            407
+            535,
+            559
           ],
           "loc": {
             "start": {
-              "line": 9,
+              "line": 12,
               "column": 7
             },
             "end": {
-              "line": 9,
+              "line": 12,
               "column": 31
             }
           }
@@ -521,31 +740,31 @@
         "value": "../collectors/number/StandardDeviationRunning",
         "raw": "'../collectors/number/StandardDeviationRunning'",
         "range": [
-          413,
-          460
+          565,
+          612
         ],
         "loc": {
           "start": {
-            "line": 9,
+            "line": 12,
             "column": 37
           },
           "end": {
-            "line": 9,
+            "line": 12,
             "column": 84
           }
         }
       },
       "range": [
-        376,
-        461
+        528,
+        613
       ],
       "loc": {
         "start": {
-          "line": 9,
+          "line": 12,
           "column": 0
         },
         "end": {
-          "line": 9,
+          "line": 12,
           "column": 85
         }
       }
@@ -559,31 +778,31 @@
             "type": "Identifier",
             "name": "StandardDeviationStable",
             "range": [
-              469,
-              492
+              621,
+              644
             ],
             "loc": {
               "start": {
-                "line": 10,
+                "line": 13,
                 "column": 7
               },
               "end": {
-                "line": 10,
+                "line": 13,
                 "column": 30
               }
             }
           },
           "range": [
-            469,
-            492
+            621,
+            644
           ],
           "loc": {
             "start": {
-              "line": 10,
+              "line": 13,
               "column": 7
             },
             "end": {
-              "line": 10,
+              "line": 13,
               "column": 30
             }
           }
@@ -594,31 +813,31 @@
         "value": "../collectors/number/StandardDeviationStable",
         "raw": "'../collectors/number/StandardDeviationStable'",
         "range": [
-          498,
-          544
+          650,
+          696
         ],
         "loc": {
           "start": {
-            "line": 10,
+            "line": 13,
             "column": 36
           },
           "end": {
-            "line": 10,
+            "line": 13,
             "column": 82
           }
         }
       },
       "range": [
-        462,
-        545
+        614,
+        697
       ],
       "loc": {
         "start": {
-          "line": 10,
+          "line": 13,
           "column": 0
         },
         "end": {
-          "line": 10,
+          "line": 13,
           "column": 83
         }
       }
@@ -632,31 +851,31 @@
             "type": "Identifier",
             "name": "Sum",
             "range": [
-              553,
-              556
+              705,
+              708
             ],
             "loc": {
               "start": {
-                "line": 11,
+                "line": 14,
                 "column": 7
               },
               "end": {
-                "line": 11,
+                "line": 14,
                 "column": 10
               }
             }
           },
           "range": [
-            553,
-            556
+            705,
+            708
           ],
           "loc": {
             "start": {
-              "line": 11,
+              "line": 14,
               "column": 7
             },
             "end": {
-              "line": 11,
+              "line": 14,
               "column": 10
             }
           }
@@ -667,31 +886,31 @@
         "value": "../collectors/number/Sum",
         "raw": "'../collectors/number/Sum'",
         "range": [
-          562,
-          588
+          714,
+          740
         ],
         "loc": {
           "start": {
-            "line": 11,
+            "line": 14,
             "column": 16
           },
           "end": {
-            "line": 11,
+            "line": 14,
             "column": 42
           }
         }
       },
       "range": [
-        546,
-        589
+        698,
+        741
       ],
       "loc": {
         "start": {
-          "line": 11,
+          "line": 14,
           "column": 0
         },
         "end": {
-          "line": 11,
+          "line": 14,
           "column": 43
         }
       }
@@ -705,31 +924,31 @@
             "type": "Identifier",
             "name": "SumOfSquaredDeviationsStable",
             "range": [
-              597,
-              625
+              749,
+              777
             ],
             "loc": {
               "start": {
-                "line": 12,
+                "line": 15,
                 "column": 7
               },
               "end": {
-                "line": 12,
+                "line": 15,
                 "column": 35
               }
             }
           },
           "range": [
-            597,
-            625
+            749,
+            777
           ],
           "loc": {
             "start": {
-              "line": 12,
+              "line": 15,
               "column": 7
             },
             "end": {
-              "line": 12,
+              "line": 15,
               "column": 35
             }
           }
@@ -740,31 +959,31 @@
         "value": "../collectors/number/SumOfSquaredDeviationsStable",
         "raw": "'../collectors/number/SumOfSquaredDeviationsStable'",
         "range": [
-          631,
-          682
+          783,
+          834
         ],
         "loc": {
           "start": {
-            "line": 12,
+            "line": 15,
             "column": 41
           },
           "end": {
-            "line": 12,
+            "line": 15,
             "column": 92
           }
         }
       },
       "range": [
-        590,
-        683
+        742,
+        835
       ],
       "loc": {
         "start": {
-          "line": 12,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 12,
+          "line": 15,
           "column": 93
         }
       }
@@ -778,31 +997,31 @@
             "type": "Identifier",
             "name": "Values",
             "range": [
-              691,
-              697
+              843,
+              849
             ],
             "loc": {
               "start": {
-                "line": 13,
+                "line": 16,
                 "column": 7
               },
               "end": {
-                "line": 13,
+                "line": 16,
                 "column": 13
               }
             }
           },
           "range": [
-            691,
-            697
+            843,
+            849
           ],
           "loc": {
             "start": {
-              "line": 13,
+              "line": 16,
               "column": 7
             },
             "end": {
-              "line": 13,
+              "line": 16,
               "column": 13
             }
           }
@@ -813,32 +1032,105 @@
         "value": "../collectors/number/Values",
         "raw": "'../collectors/number/Values'",
         "range": [
-          703,
-          732
+          855,
+          884
         ],
         "loc": {
           "start": {
-            "line": 13,
+            "line": 16,
             "column": 19
           },
           "end": {
-            "line": 13,
+            "line": 16,
             "column": 48
           }
         }
       },
       "range": [
-        684,
-        733
+        836,
+        885
       ],
       "loc": {
         "start": {
-          "line": 13,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 13,
+          "line": 16,
           "column": 49
+        }
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "ValuesSorted",
+            "range": [
+              893,
+              905
+            ],
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 7
+              },
+              "end": {
+                "line": 17,
+                "column": 19
+              }
+            }
+          },
+          "range": [
+            893,
+            905
+          ],
+          "loc": {
+            "start": {
+              "line": 17,
+              "column": 7
+            },
+            "end": {
+              "line": 17,
+              "column": 19
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "../collectors/number/ValuesSorted",
+        "raw": "'../collectors/number/ValuesSorted'",
+        "range": [
+          911,
+          946
+        ],
+        "loc": {
+          "start": {
+            "line": 17,
+            "column": 25
+          },
+          "end": {
+            "line": 17,
+            "column": 60
+          }
+        }
+      },
+      "range": [
+        886,
+        947
+      ],
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 0
+        },
+        "end": {
+          "line": 17,
+          "column": 61
         }
       }
     },
@@ -851,31 +1143,31 @@
             "type": "Identifier",
             "name": "VarianceRunning",
             "range": [
-              741,
-              756
+              955,
+              970
             ],
             "loc": {
               "start": {
-                "line": 14,
+                "line": 18,
                 "column": 7
               },
               "end": {
-                "line": 14,
+                "line": 18,
                 "column": 22
               }
             }
           },
           "range": [
-            741,
-            756
+            955,
+            970
           ],
           "loc": {
             "start": {
-              "line": 14,
+              "line": 18,
               "column": 7
             },
             "end": {
-              "line": 14,
+              "line": 18,
               "column": 22
             }
           }
@@ -886,31 +1178,31 @@
         "value": "../collectors/number/VarianceRunning",
         "raw": "'../collectors/number/VarianceRunning'",
         "range": [
-          762,
-          800
+          976,
+          1014
         ],
         "loc": {
           "start": {
-            "line": 14,
+            "line": 18,
             "column": 28
           },
           "end": {
-            "line": 14,
+            "line": 18,
             "column": 66
           }
         }
       },
       "range": [
-        734,
-        801
+        948,
+        1015
       ],
       "loc": {
         "start": {
-          "line": 14,
+          "line": 18,
           "column": 0
         },
         "end": {
-          "line": 14,
+          "line": 18,
           "column": 67
         }
       }
@@ -924,31 +1216,31 @@
             "type": "Identifier",
             "name": "VarianceStable",
             "range": [
-              809,
-              823
+              1023,
+              1037
             ],
             "loc": {
               "start": {
-                "line": 15,
+                "line": 19,
                 "column": 7
               },
               "end": {
-                "line": 15,
+                "line": 19,
                 "column": 21
               }
             }
           },
           "range": [
-            809,
-            823
+            1023,
+            1037
           ],
           "loc": {
             "start": {
-              "line": 15,
+              "line": 19,
               "column": 7
             },
             "end": {
-              "line": 15,
+              "line": 19,
               "column": 21
             }
           }
@@ -959,31 +1251,31 @@
         "value": "../collectors/number/VarianceStable",
         "raw": "'../collectors/number/VarianceStable'",
         "range": [
-          829,
-          866
+          1043,
+          1080
         ],
         "loc": {
           "start": {
-            "line": 15,
+            "line": 19,
             "column": 27
           },
           "end": {
-            "line": 15,
+            "line": 19,
             "column": 64
           }
         }
       },
       "range": [
-        802,
-        867
+        1016,
+        1081
       ],
       "loc": {
         "start": {
-          "line": 15,
+          "line": 19,
           "column": 0
         },
         "end": {
-          "line": 15,
+          "line": 19,
           "column": 65
         }
       }
@@ -998,16 +1290,16 @@
             "type": "Identifier",
             "name": "Count",
             "range": [
-              879,
-              884
+              1093,
+              1098
             ],
             "loc": {
               "start": {
-                "line": 17,
+                "line": 21,
                 "column": 2
               },
               "end": {
-                "line": 17,
+                "line": 21,
                 "column": 7
               }
             }
@@ -1016,31 +1308,31 @@
             "type": "Identifier",
             "name": "Count",
             "range": [
-              879,
-              884
+              1093,
+              1098
             ],
             "loc": {
               "start": {
-                "line": 17,
+                "line": 21,
                 "column": 2
               },
               "end": {
-                "line": 17,
+                "line": 21,
                 "column": 7
               }
             }
           },
           "range": [
-            879,
-            884
+            1093,
+            1098
           ],
           "loc": {
             "start": {
-              "line": 17,
+              "line": 21,
               "column": 2
             },
             "end": {
-              "line": 17,
+              "line": 21,
               "column": 7
             }
           }
@@ -1051,16 +1343,16 @@
             "type": "Identifier",
             "name": "FilteredCount",
             "range": [
-              888,
-              901
+              1102,
+              1115
             ],
             "loc": {
               "start": {
-                "line": 18,
+                "line": 22,
                 "column": 2
               },
               "end": {
-                "line": 18,
+                "line": 22,
                 "column": 15
               }
             }
@@ -1069,31 +1361,31 @@
             "type": "Identifier",
             "name": "FilteredCount",
             "range": [
-              888,
-              901
+              1102,
+              1115
             ],
             "loc": {
               "start": {
-                "line": 18,
+                "line": 22,
                 "column": 2
               },
               "end": {
-                "line": 18,
+                "line": 22,
                 "column": 15
               }
             }
           },
           "range": [
-            888,
-            901
+            1102,
+            1115
           ],
           "loc": {
             "start": {
-              "line": 18,
+              "line": 22,
               "column": 2
             },
             "end": {
-              "line": 18,
+              "line": 22,
               "column": 15
             }
           }
@@ -1104,16 +1396,16 @@
             "type": "Identifier",
             "name": "Max",
             "range": [
-              905,
-              908
+              1119,
+              1122
             ],
             "loc": {
               "start": {
-                "line": 19,
+                "line": 23,
                 "column": 2
               },
               "end": {
-                "line": 19,
+                "line": 23,
                 "column": 5
               }
             }
@@ -1122,31 +1414,31 @@
             "type": "Identifier",
             "name": "Max",
             "range": [
-              905,
-              908
+              1119,
+              1122
             ],
             "loc": {
               "start": {
-                "line": 19,
+                "line": 23,
                 "column": 2
               },
               "end": {
-                "line": 19,
+                "line": 23,
                 "column": 5
               }
             }
           },
           "range": [
-            905,
-            908
+            1119,
+            1122
           ],
           "loc": {
             "start": {
-              "line": 19,
+              "line": 23,
               "column": 2
             },
             "end": {
-              "line": 19,
+              "line": 23,
               "column": 5
             }
           }
@@ -1157,16 +1449,16 @@
             "type": "Identifier",
             "name": "Mean",
             "range": [
-              912,
-              916
+              1126,
+              1130
             ],
             "loc": {
               "start": {
-                "line": 20,
+                "line": 24,
                 "column": 2
               },
               "end": {
-                "line": 20,
+                "line": 24,
                 "column": 6
               }
             }
@@ -1175,31 +1467,31 @@
             "type": "Identifier",
             "name": "Mean",
             "range": [
-              912,
-              916
+              1126,
+              1130
             ],
             "loc": {
               "start": {
-                "line": 20,
+                "line": 24,
                 "column": 2
               },
               "end": {
-                "line": 20,
+                "line": 24,
                 "column": 6
               }
             }
           },
           "range": [
-            912,
-            916
+            1126,
+            1130
           ],
           "loc": {
             "start": {
-              "line": 20,
+              "line": 24,
               "column": 2
             },
             "end": {
-              "line": 20,
+              "line": 24,
               "column": 6
             }
           }
@@ -1208,18 +1500,124 @@
           "type": "ExportSpecifier",
           "exported": {
             "type": "Identifier",
-            "name": "Min",
+            "name": "Median",
             "range": [
-              920,
-              923
+              1134,
+              1140
             ],
             "loc": {
               "start": {
-                "line": 21,
+                "line": 25,
                 "column": 2
               },
               "end": {
-                "line": 21,
+                "line": 25,
+                "column": 8
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "Median",
+            "range": [
+              1134,
+              1140
+            ],
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 2
+              },
+              "end": {
+                "line": 25,
+                "column": 8
+              }
+            }
+          },
+          "range": [
+            1134,
+            1140
+          ],
+          "loc": {
+            "start": {
+              "line": 25,
+              "column": 2
+            },
+            "end": {
+              "line": 25,
+              "column": 8
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MidRange",
+            "range": [
+              1144,
+              1152
+            ],
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 2
+              },
+              "end": {
+                "line": 26,
+                "column": 10
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MidRange",
+            "range": [
+              1144,
+              1152
+            ],
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 2
+              },
+              "end": {
+                "line": 26,
+                "column": 10
+              }
+            }
+          },
+          "range": [
+            1144,
+            1152
+          ],
+          "loc": {
+            "start": {
+              "line": 26,
+              "column": 2
+            },
+            "end": {
+              "line": 26,
+              "column": 10
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "Min",
+            "range": [
+              1156,
+              1159
+            ],
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 2
+              },
+              "end": {
+                "line": 27,
                 "column": 5
               }
             }
@@ -1228,31 +1626,31 @@
             "type": "Identifier",
             "name": "Min",
             "range": [
-              920,
-              923
+              1156,
+              1159
             ],
             "loc": {
               "start": {
-                "line": 21,
+                "line": 27,
                 "column": 2
               },
               "end": {
-                "line": 21,
+                "line": 27,
                 "column": 5
               }
             }
           },
           "range": [
-            920,
-            923
+            1156,
+            1159
           ],
           "loc": {
             "start": {
-              "line": 21,
+              "line": 27,
               "column": 2
             },
             "end": {
-              "line": 21,
+              "line": 27,
               "column": 5
             }
           }
@@ -1263,16 +1661,16 @@
             "type": "Identifier",
             "name": "PowerSumAvgRunning",
             "range": [
-              927,
-              945
+              1163,
+              1181
             ],
             "loc": {
               "start": {
-                "line": 22,
+                "line": 28,
                 "column": 2
               },
               "end": {
-                "line": 22,
+                "line": 28,
                 "column": 20
               }
             }
@@ -1281,32 +1679,85 @@
             "type": "Identifier",
             "name": "PowerSumAvgRunning",
             "range": [
-              927,
-              945
+              1163,
+              1181
             ],
             "loc": {
               "start": {
-                "line": 22,
+                "line": 28,
                 "column": 2
               },
               "end": {
-                "line": 22,
+                "line": 28,
                 "column": 20
               }
             }
           },
           "range": [
-            927,
-            945
+            1163,
+            1181
           ],
           "loc": {
             "start": {
-              "line": 22,
+              "line": 28,
               "column": 2
             },
             "end": {
-              "line": 22,
+              "line": 28,
               "column": 20
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "Range",
+            "range": [
+              1185,
+              1190
+            ],
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 2
+              },
+              "end": {
+                "line": 29,
+                "column": 7
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "Range",
+            "range": [
+              1185,
+              1190
+            ],
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 2
+              },
+              "end": {
+                "line": 29,
+                "column": 7
+              }
+            }
+          },
+          "range": [
+            1185,
+            1190
+          ],
+          "loc": {
+            "start": {
+              "line": 29,
+              "column": 2
+            },
+            "end": {
+              "line": 29,
+              "column": 7
             }
           }
         },
@@ -1316,16 +1767,16 @@
             "type": "Identifier",
             "name": "StandardDeviationRunning",
             "range": [
-              949,
-              973
+              1194,
+              1218
             ],
             "loc": {
               "start": {
-                "line": 23,
+                "line": 30,
                 "column": 2
               },
               "end": {
-                "line": 23,
+                "line": 30,
                 "column": 26
               }
             }
@@ -1334,31 +1785,31 @@
             "type": "Identifier",
             "name": "StandardDeviationRunning",
             "range": [
-              949,
-              973
+              1194,
+              1218
             ],
             "loc": {
               "start": {
-                "line": 23,
+                "line": 30,
                 "column": 2
               },
               "end": {
-                "line": 23,
+                "line": 30,
                 "column": 26
               }
             }
           },
           "range": [
-            949,
-            973
+            1194,
+            1218
           ],
           "loc": {
             "start": {
-              "line": 23,
+              "line": 30,
               "column": 2
             },
             "end": {
-              "line": 23,
+              "line": 30,
               "column": 26
             }
           }
@@ -1369,16 +1820,16 @@
             "type": "Identifier",
             "name": "StandardDeviationStable",
             "range": [
-              977,
-              1000
+              1222,
+              1245
             ],
             "loc": {
               "start": {
-                "line": 24,
+                "line": 31,
                 "column": 2
               },
               "end": {
-                "line": 24,
+                "line": 31,
                 "column": 25
               }
             }
@@ -1387,31 +1838,31 @@
             "type": "Identifier",
             "name": "StandardDeviationStable",
             "range": [
-              977,
-              1000
+              1222,
+              1245
             ],
             "loc": {
               "start": {
-                "line": 24,
+                "line": 31,
                 "column": 2
               },
               "end": {
-                "line": 24,
+                "line": 31,
                 "column": 25
               }
             }
           },
           "range": [
-            977,
-            1000
+            1222,
+            1245
           ],
           "loc": {
             "start": {
-              "line": 24,
+              "line": 31,
               "column": 2
             },
             "end": {
-              "line": 24,
+              "line": 31,
               "column": 25
             }
           }
@@ -1422,16 +1873,16 @@
             "type": "Identifier",
             "name": "Sum",
             "range": [
-              1004,
-              1007
+              1249,
+              1252
             ],
             "loc": {
               "start": {
-                "line": 25,
+                "line": 32,
                 "column": 2
               },
               "end": {
-                "line": 25,
+                "line": 32,
                 "column": 5
               }
             }
@@ -1440,31 +1891,31 @@
             "type": "Identifier",
             "name": "Sum",
             "range": [
-              1004,
-              1007
+              1249,
+              1252
             ],
             "loc": {
               "start": {
-                "line": 25,
+                "line": 32,
                 "column": 2
               },
               "end": {
-                "line": 25,
+                "line": 32,
                 "column": 5
               }
             }
           },
           "range": [
-            1004,
-            1007
+            1249,
+            1252
           ],
           "loc": {
             "start": {
-              "line": 25,
+              "line": 32,
               "column": 2
             },
             "end": {
-              "line": 25,
+              "line": 32,
               "column": 5
             }
           }
@@ -1475,16 +1926,16 @@
             "type": "Identifier",
             "name": "SumOfSquaredDeviationsStable",
             "range": [
-              1011,
-              1039
+              1256,
+              1284
             ],
             "loc": {
               "start": {
-                "line": 26,
+                "line": 33,
                 "column": 2
               },
               "end": {
-                "line": 26,
+                "line": 33,
                 "column": 30
               }
             }
@@ -1493,31 +1944,31 @@
             "type": "Identifier",
             "name": "SumOfSquaredDeviationsStable",
             "range": [
-              1011,
-              1039
+              1256,
+              1284
             ],
             "loc": {
               "start": {
-                "line": 26,
+                "line": 33,
                 "column": 2
               },
               "end": {
-                "line": 26,
+                "line": 33,
                 "column": 30
               }
             }
           },
           "range": [
-            1011,
-            1039
+            1256,
+            1284
           ],
           "loc": {
             "start": {
-              "line": 26,
+              "line": 33,
               "column": 2
             },
             "end": {
-              "line": 26,
+              "line": 33,
               "column": 30
             }
           }
@@ -1528,16 +1979,16 @@
             "type": "Identifier",
             "name": "Values",
             "range": [
-              1043,
-              1049
+              1288,
+              1294
             ],
             "loc": {
               "start": {
-                "line": 27,
+                "line": 34,
                 "column": 2
               },
               "end": {
-                "line": 27,
+                "line": 34,
                 "column": 8
               }
             }
@@ -1546,32 +1997,85 @@
             "type": "Identifier",
             "name": "Values",
             "range": [
-              1043,
-              1049
+              1288,
+              1294
             ],
             "loc": {
               "start": {
-                "line": 27,
+                "line": 34,
                 "column": 2
               },
               "end": {
-                "line": 27,
+                "line": 34,
                 "column": 8
               }
             }
           },
           "range": [
-            1043,
-            1049
+            1288,
+            1294
           ],
           "loc": {
             "start": {
-              "line": 27,
+              "line": 34,
               "column": 2
             },
             "end": {
-              "line": 27,
+              "line": 34,
               "column": 8
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "ValuesSorted",
+            "range": [
+              1298,
+              1310
+            ],
+            "loc": {
+              "start": {
+                "line": 35,
+                "column": 2
+              },
+              "end": {
+                "line": 35,
+                "column": 14
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "ValuesSorted",
+            "range": [
+              1298,
+              1310
+            ],
+            "loc": {
+              "start": {
+                "line": 35,
+                "column": 2
+              },
+              "end": {
+                "line": 35,
+                "column": 14
+              }
+            }
+          },
+          "range": [
+            1298,
+            1310
+          ],
+          "loc": {
+            "start": {
+              "line": 35,
+              "column": 2
+            },
+            "end": {
+              "line": 35,
+              "column": 14
             }
           }
         },
@@ -1581,16 +2085,16 @@
             "type": "Identifier",
             "name": "VarianceRunning",
             "range": [
-              1053,
-              1068
+              1314,
+              1329
             ],
             "loc": {
               "start": {
-                "line": 28,
+                "line": 36,
                 "column": 2
               },
               "end": {
-                "line": 28,
+                "line": 36,
                 "column": 17
               }
             }
@@ -1599,31 +2103,31 @@
             "type": "Identifier",
             "name": "VarianceRunning",
             "range": [
-              1053,
-              1068
+              1314,
+              1329
             ],
             "loc": {
               "start": {
-                "line": 28,
+                "line": 36,
                 "column": 2
               },
               "end": {
-                "line": 28,
+                "line": 36,
                 "column": 17
               }
             }
           },
           "range": [
-            1053,
-            1068
+            1314,
+            1329
           ],
           "loc": {
             "start": {
-              "line": 28,
+              "line": 36,
               "column": 2
             },
             "end": {
-              "line": 28,
+              "line": 36,
               "column": 17
             }
           }
@@ -1634,16 +2138,16 @@
             "type": "Identifier",
             "name": "VarianceStable",
             "range": [
-              1072,
-              1086
+              1333,
+              1347
             ],
             "loc": {
               "start": {
-                "line": 29,
+                "line": 37,
                 "column": 2
               },
               "end": {
-                "line": 29,
+                "line": 37,
                 "column": 16
               }
             }
@@ -1652,31 +2156,31 @@
             "type": "Identifier",
             "name": "VarianceStable",
             "range": [
-              1072,
-              1086
+              1333,
+              1347
             ],
             "loc": {
               "start": {
-                "line": 29,
+                "line": 37,
                 "column": 2
               },
               "end": {
-                "line": 29,
+                "line": 37,
                 "column": 16
               }
             }
           },
           "range": [
-            1072,
-            1086
+            1333,
+            1347
           ],
           "loc": {
             "start": {
-              "line": 29,
+              "line": 37,
               "column": 2
             },
             "end": {
-              "line": 29,
+              "line": 37,
               "column": 16
             }
           }
@@ -1684,16 +2188,16 @@
       ],
       "source": null,
       "range": [
-        868,
-        1089
+        1082,
+        1350
       ],
       "loc": {
         "start": {
-          "line": 16,
+          "line": 20,
           "column": 0
         },
         "end": {
-          "line": 30,
+          "line": 38,
           "column": 2
         }
       }
@@ -1702,7 +2206,7 @@
   "sourceType": "module",
   "range": [
     56,
-    1089
+    1350
   ],
   "loc": {
     "start": {
@@ -1710,7 +2214,7 @@
       "column": 0
     },
     "end": {
-      "line": 30,
+      "line": 38,
       "column": 2
     }
   },

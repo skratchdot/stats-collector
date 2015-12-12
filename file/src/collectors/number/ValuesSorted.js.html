@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../">
-  <title data-ice="title">AdvancedNumberStats | Stats Collector API Document</title>
+  <title data-ice="title">src/collectors/number/ValuesSorted.js | Stats Collector API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -70,156 +70,21 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import AdvancedNumberStats from &apos;<span><a href="file/src/stats/number/AdvancedNumberStats.js.html#lineNumber35">stats-collector/lib/stats/number/AdvancedNumberStats</a></span>&apos;</code></pre></div>
-  <span data-ice="access">public</span>
-  <span data-ice="kind">class</span>
-  
-  
-  
-  <span data-ice="source">| <span><a href="file/src/stats/number/AdvancedNumberStats.js.html#lineNumber35">source</a></span></span>
-</div>
+<div class="content" data-ice="content"><h1 data-ice="title">src/collectors/number/ValuesSorted.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Collector from &apos;../Collector&apos;;
 
-<div class="self-detail detail">
-  <h1 data-ice="name">AdvancedNumberStats</h1>
-
-  
-
-  
-  
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><a href="./class/src/stats/number/NumberStats.js~NumberStats.html">NumberStats</a></div></div>
-  
-  
-  
-  
-  
-  
-
-  
-  
-  <div class="description" data-ice="description"><p>A stat collector that includes the following collector functions:</p>
-<ul>
-<li>count</li>
-<li>sum</li>
-<li>min</li>
-<li>max</li>
-<li>mean</li>
-<li>powerSumAvg_running</li>
-<li>variance_running</li>
-<li>standardDeviation_running</li>
-<li>sumOfSquaredDeviations_stable</li>
-<li>variance_stable</li>
-<li>standardDeviation_stable</li>
-<li>count_* (a bunch of filtered counts)</li>
-<li>range</li>
-<li>midRange</li>
-<li>median</li>
-</ul>
-</div>
-
-  
-
-  <div data-ice="exampleDocs">
-    <h4>Example:</h4>
-    
-  <div class="example-doc" data-ice="exampleDoc">
-      
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">const stats = new AdvancedNumberStats();
-stats.processAll([1, 2, 3, 4, 5]);
-stats.get();</code></pre>
-    </div>
-</div>
-
-  
-
-  
-</div>
-
-
-
-<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="class/src/stats/number/AdvancedNumberStats.js~AdvancedNumberStats.html#instance-constructor-constructor">constructor</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
-
-
-
-
-
-
-
-<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-constructor-constructor">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    <span data-ice="name">constructor</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/stats/number/AdvancedNumberStats.js.html#lineNumber36">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
-
+/**
+ * A collector that captures `valuesSorted`
+ */
+export default class ValuesSorted extends Collector {
+  constructor() {
+    super(&apos;valuesSorted&apos;, [], [&apos;values&apos;]);
+  }
+  handleGet(state) {
+    return state.values.slice(0).sort();
+  }
+}
+</code></pre>
 
 </div>
 
