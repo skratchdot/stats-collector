@@ -4,4 +4,5 @@ const stats = new lib.AdvancedNumberStats();
 stats.processAll([1, 2]);
 stats.processAll([3, 4]);
 stats.process(5);
-stats.get();
+const results = stats.get();
+console.log(results);

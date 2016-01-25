@@ -9,6 +9,8 @@
 
 [![NPM](https://nodei.co/npm/stats-collector.png)](https://npmjs.org/package/stats-collector)
 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=59LH5AHNQ8XZW)
+
 
 ## Description
 
@@ -30,6 +32,8 @@ For examples and api documentation, continue reading below.
 ### Getting Started
 
 Install the module with: `npm install stats-collector`
+
+[View Live Demo on Tonic](https://tonicdev.com/npm/stats-collector)
 
 #### Usage (Method 1)
 
@@ -171,15 +175,19 @@ $ for i in {1..10}; do echo $RANDOM; done | stats-collector -t advanced --pipe
 ## See Also
 
 - [covariance](https://www.npmjs.com/package/covariance)
+- [d3-array](https://www.npmjs.com/package/d3-array)
 - [diversity](https://www.npmjs.com/package/diversity)
 - [ezstats](https://www.npmjs.com/package/ezstats)
+- [fast-stats](https://www.npmjs.com/package/fast-stats)
 - [gauss](https://www.npmjs.com/package/gauss)
 - [math-statistics](https://www.npmjs.com/package/math-statistics)
 - [stats-analysis](https://www.npmjs.com/package/stats-analysis)
 - [stats-incremental](https://www.npmjs.com/package/stats-incremental)
 - [stats-lite](https://www.npmjs.com/package/stats-lite)
 - [stats-percentile](https://www.npmjs.com/package/stats-percentile)
+- [statsjs](https://www.npmjs.com/package/statsjs)
 - [stream-statistics](https://www.npmjs.com/package/stream-statistics)
+- [summary](https://www.npmjs.com/package/summary)
 - [summary-statistics](https://www.npmjs.com/package/summary-statistics)
 - [very-simple-statistics](https://www.npmjs.com/package/very-simple-statistics)
 

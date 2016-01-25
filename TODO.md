@@ -1,2 +1,12 @@
 - prevent multiple calls to get() from changing state
 - update documentation
+- types of stats:
+  - Date
+  - String
+  - HTML
+  - Object
+  - Array
+  - Color
+  - Hex / Binary
+  - URL
+  - Path
