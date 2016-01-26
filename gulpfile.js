@@ -1,6 +1,6 @@
 /*eslint strict: 0, no-console: 0 */
 'use strict';
-
+require('babel-core/register');
 const childProcess = require('child_process');
 const fs = require('fs');
 const gulp = require('gulp');

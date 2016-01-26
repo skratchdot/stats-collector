@@ -1,7 +1,5 @@
-/*eslint strict:0 */
-'use strict';
-const expect = require('chai').expect;
-const leastFactor = require('../../src/helpers/leastFactor').default;
+import { expect } from 'chai';
+import leastFactor from '../../src/helpers/leastFactor';
 
 describe('leastFactor()', function () {
   it('should return 0', function () {

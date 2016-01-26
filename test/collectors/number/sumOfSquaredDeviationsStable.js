@@ -1,9 +1,7 @@
-/*eslint strict:0 */
-'use strict';
-const expect = require('chai').expect;
-const lib = require('../../src/index');
-const collectorNames = ['BasicNumberStats', 'NumberStats', 'AdvancedNumberStats'];
-const methodName = 'mean';
+import { expect } from 'chai';
+import * as lib from '../../../src/index';
+const collectorNames = ['AdvancedNumberStats'];
+const methodName = 'sumOfSquaredDeviationsStable';
 let collector;
 
 const test = function (values, expected) {
@@ -22,9 +20,11 @@ describe(`${methodName}() method`, function () {
         beforeEach(function () {
           collector = new lib[collectorName]();
         });
-        test([-12, 30, 0, -44, 11, 8], -7 / 6);
-        test([1, 2, 3, 4, 5], 3);
-        test([0, 10], 5);
+        test([0], 0);
+        test([-1], 0);
+        test([1], 0);
+        test([10, 10, 10, 10, 10], 0);
+        test([1, 2, 3, 4, 5], 10);
       });
     });
   });

@@ -1,8 +1,5 @@
-/*eslint strict:0 */
-'use strict';
-
-const expect = require('chai').expect;
-const lib = require('../src/index');
+import { expect } from 'chai';
+import * as lib from '../src/index';
 
 let stats;
 

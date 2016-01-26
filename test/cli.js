@@ -1,9 +1,6 @@
-/*eslint strict:0 */
-'use strict';
-
-const childProcess = require('child_process');
-const expect = require('chai').expect;
-const packageInfo = require('../package.json');
+import childProcess from 'child_process';
+import { expect } from 'chai';
+import packageInfo from '../package.json';
 const testHelper = function (commands, expected, fn) {
   const args = commands.split(' ');
   const result = childProcess.spawnSync(

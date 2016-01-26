@@ -1,10 +1,8 @@
-/*eslint strict:0 */
-'use strict';
-const expect = require('chai').expect;
-const lib = require('../../src/index');
+import { expect } from 'chai';
+import * as lib from '../../../src/index';
 const collectorNames = ['BasicNumberStats', 'NumberStats', 'AdvancedNumberStats'];
 const methodName = 'count';
-const filterName = 'nonZero';
+const filterName = 'negative';
 let collector;
 
 const test = function (values, expected) {
@@ -24,8 +22,8 @@ describe(`${methodName}() method`, function () {
           collector = new lib[collectorName]();
           collector.addFilter(lib.filters.number[filterName]);
         });
-        test([-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5], 10);
-        test([-5.1, -4.1, -3, -2, -1, 0, 1.1, 2.1, 3, 4, 5], 10);
+        test([-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5], 5);
+        test([-5.1, -4.1, -3, -2, -1, 0, 1.1, 2.1, 3, 4, 5], 5);
       });
     });
   });
