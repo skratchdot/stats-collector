@@ -10,11 +10,11 @@ import VarianceRunning from '../../collectors/number/VarianceRunning';
  *   - max
  *   - mean
  *   - min
- *   - powerSumAvg_running
+ *   - powerSumAvgRunning
  *   - product
- *   - standardDeviation_running
+ *   - standardDeviationRunning
  *   - sum
- *   - variance_running
+ *   - varianceRunning
  * @example
  * const stats = new NumberStats();
  * stats.processAll([1, 2, 3, 4, 5]);

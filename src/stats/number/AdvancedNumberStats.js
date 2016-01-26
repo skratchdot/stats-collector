@@ -26,16 +26,16 @@ import VarianceStable from '../../collectors/number/VarianceStable';
  *   - median
  *   - midRange
  *   - min
- *   - powerSumAvg_running
+ *   - powerSumAvgRunning
  *   - product
  *   - range
- *   - standardDeviation_running
- *   - standardDeviation_stable
+ *   - standardDeviationRunning
+ *   - standardDeviationStable
  *   - sum
  *   - sumOfRecipricals
- *   - sumOfSquaredDeviations_stable
- *   - variance_running
- *   - variance_stable
+ *   - sumOfSquaredDeviationsStable
+ *   - varianceRunning
+ *   - varianceStable
  * @example
  * const stats = new AdvancedNumberStats();
  * stats.processAll([1, 2, 3, 4, 5]);
