@@ -83,8 +83,8 @@ const results = stats.get();
 |--------------|-------|
 |BaseStats|{}|
 |BasicNumberStats|{<br />&nbsp;"count": 5,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"sum": 15<br />}|
-|NumberStats|{<br />&nbsp;"count": 5,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvgRunning": 11,<br />&nbsp;"standardDeviationRunning": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"varianceRunning": 2.5<br />}|
-|AdvancedNumberStats|{<br />&nbsp;"count": 5,<br />&nbsp;"count_even": 2,<br />&nbsp;"count_float": 0,<br />&nbsp;"count_integer": 5,<br />&nbsp;"count_negative": 0,<br />&nbsp;"count_nonZero": 5,<br />&nbsp;"count_odd": 3,<br />&nbsp;"count_positive": 5,<br />&nbsp;"count_prime": 3,<br />&nbsp;"count_zero": 0,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"median": 3,<br />&nbsp;"midRange": 4,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvgRunning": 11,<br />&nbsp;"range": 4,<br />&nbsp;"standardDeviationRunning": 1.5811388300841898,<br />&nbsp;"standardDeviationStable": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"sumOfSquaredDeviationsStable": 10,<br />&nbsp;"varianceRunning": 2.5,<br />&nbsp;"varianceStable": 2.5<br />}|
+|NumberStats|{<br />&nbsp;"count": 5,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvgRunning": 11,<br />&nbsp;"product": 120,<br />&nbsp;"standardDeviationRunning": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"varianceRunning": 2.5<br />}|
+|AdvancedNumberStats|{<br />&nbsp;"amean": 3,<br />&nbsp;"count": 5,<br />&nbsp;"count_even": 2,<br />&nbsp;"count_float": 0,<br />&nbsp;"count_integer": 5,<br />&nbsp;"count_negative": 0,<br />&nbsp;"count_nonZero": 5,<br />&nbsp;"count_odd": 3,<br />&nbsp;"count_positive": 5,<br />&nbsp;"count_prime": 3,<br />&nbsp;"count_zero": 0,<br />&nbsp;"gmean": 2.605171084697352,<br />&nbsp;"hmean": 2.18978102189781,<br />&nbsp;"max": 5,<br />&nbsp;"mean": 3,<br />&nbsp;"median": 3,<br />&nbsp;"midRange": 3,<br />&nbsp;"min": 1,<br />&nbsp;"powerSumAvgRunning": 11,<br />&nbsp;"product": 120,<br />&nbsp;"range": 4,<br />&nbsp;"standardDeviationRunning": 1.5811388300841898,<br />&nbsp;"standardDeviationStable": 1.5811388300841898,<br />&nbsp;"sum": 15,<br />&nbsp;"sumOfRecipricals": 2.283333333333333,<br />&nbsp;"sumOfSquaredDeviationsStable": 10,<br />&nbsp;"varianceRunning": 2.5,<br />&nbsp;"varianceStable": 2.5<br />}|
 
 
 ### API Documentation
@@ -132,6 +132,7 @@ $ stats-collector 1,2,3,4,5
   "mean": 3,
   "min": 1,
   "powerSumAvgRunning": 11,
+  "product": 120,
   "standardDeviationRunning": 1.5811388300841898,
   "sum": 15,
   "varianceRunning": 2.5
@@ -145,29 +146,34 @@ The example uses the `--pipe` functionality:
 ```bash
 $ for i in {1..10}; do echo $RANDOM; done | stats-collector -t advanced --pipe
 {
+  "amean": 15239.3,
   "count": 10,
-  "count_even": 4,
+  "count_even": 7,
   "count_float": 0,
   "count_integer": 10,
   "count_negative": 0,
   "count_nonZero": 10,
-  "count_odd": 6,
+  "count_odd": 3,
   "count_positive": 10,
   "count_prime": 1,
   "count_zero": 0,
-  "max": 31476,
-  "mean": 17110,
-  "median": 28892,
-  "midRange": 28377,
-  "min": 3099,
-  "powerSumAvgRunning": 402365513.4,
-  "range": 28377,
-  "standardDeviationRunning": 11035.97216177875,
-  "standardDeviationStable": 11035.97216177875,
-  "sum": 171100,
-  "sumOfSquaredDeviationsStable": 1096134134,
-  "varianceRunning": 121792681.55555555,
-  "varianceStable": 121792681.55555555
+  "gmean": 9896.019927976335,
+  "hmean": 5947.676087129243,
+  "max": 30937,
+  "mean": 15239.3,
+  "median": 26478,
+  "midRange": 16430.5,
+  "min": 1924,
+  "powerSumAvgRunning": 360452286.7,
+  "product": 9.007527812504433e+39,
+  "range": 29013,
+  "standardDeviationRunning": 11935.754978215662,
+  "standardDeviationStable": 11935.754978215662,
+  "sum": 152393,
+  "sumOfRecipricals": 0.0016813289515950568,
+  "sumOfSquaredDeviationsStable": 1282160222.1,
+  "varianceRunning": 142462246.89999998,
+  "varianceStable": 142462246.89999998
 }
 ```
 
