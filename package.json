@@ -1,6 +1,6 @@
 {
   "name": "stats-collector",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "collect stats about numbers",
   "main": "lib/index.js",
   "bin": {
