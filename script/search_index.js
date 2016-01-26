@@ -6,6 +6,12 @@ window.esdocSearchIndex = [
     &quot;class&quot;
   ],
   [
+    &quot;stats-collector/lib/collectors/number/arithmeticmean~arithmeticmean&quot;,
+    &quot;class/src/collectors/number/ArithmeticMean.js~ArithmeticMean.html&quot;,
+    &quot;<span>ArithmeticMean</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/ArithmeticMean</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
     &quot;stats-collector/lib/stats/basestats~basestats&quot;,
     &quot;class/src/stats/BaseStats.js~BaseStats.html&quot;,
     &quot;<span>BaseStats</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/stats/BaseStats</span>&quot;,
@@ -33,6 +39,18 @@ window.esdocSearchIndex = [
     &quot;stats-collector/lib/collectors/number/filteredcount~filteredcount&quot;,
     &quot;class/src/collectors/number/FilteredCount.js~FilteredCount.html&quot;,
     &quot;<span>FilteredCount</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/FilteredCount</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/geometricmean~geometricmean&quot;,
+    &quot;class/src/collectors/number/GeometricMean.js~GeometricMean.html&quot;,
+    &quot;<span>GeometricMean</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/GeometricMean</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/harmonicmean~harmonicmean&quot;,
+    &quot;class/src/collectors/number/HarmonicMean.js~HarmonicMean.html&quot;,
+    &quot;<span>HarmonicMean</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/HarmonicMean</span>&quot;,
     &quot;class&quot;
   ],
   [
@@ -78,6 +96,12 @@ window.esdocSearchIndex = [
     &quot;class&quot;
   ],
   [
+    &quot;stats-collector/lib/collectors/number/product~product&quot;,
+    &quot;class/src/collectors/number/Product.js~Product.html&quot;,
+    &quot;<span>Product</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Product</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
     &quot;stats-collector/lib/collectors/number/range~range&quot;,
     &quot;class/src/collectors/number/Range.js~Range.html&quot;,
     &quot;<span>Range</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Range</span>&quot;,
@@ -99,6 +123,12 @@ window.esdocSearchIndex = [
     &quot;stats-collector/lib/collectors/number/sum~sum&quot;,
     &quot;class/src/collectors/number/Sum.js~Sum.html&quot;,
     &quot;<span>Sum</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/Sum</span>&quot;,
+    &quot;class&quot;
+  ],
+  [
+    &quot;stats-collector/lib/collectors/number/sumofrecipricals~sumofrecipricals&quot;,
+    &quot;class/src/collectors/number/SumOfRecipricals.js~SumOfRecipricals.html&quot;,
+    &quot;<span>SumOfRecipricals</span> <span class="\&quot;search-result-import-path\&quot;">stats-collector/lib/collectors/number/SumOfRecipricals</span>&quot;,
     &quot;class&quot;
   ],
   [
@@ -558,6 +588,24 @@ window.esdocSearchIndex = [
     &quot;member&quot;
   ],
   [
+    &quot;src/collectors/number/arithmeticmean.js&quot;,
+    &quot;file/src/collectors/number/ArithmeticMean.js.html&quot;,
+    &quot;src/collectors/number/ArithmeticMean.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/number/arithmeticmean.js~arithmeticmean#constructor&quot;,
+    &quot;class/src/collectors/number/ArithmeticMean.js~ArithmeticMean.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/ArithmeticMean.js~ArithmeticMean#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/arithmeticmean.js~arithmeticmean#handleget&quot;,
+    &quot;class/src/collectors/number/ArithmeticMean.js~ArithmeticMean.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/ArithmeticMean.js~ArithmeticMean#handleGet&quot;,
+    &quot;method&quot;
+  ],
+  [
     &quot;src/collectors/number/count.js&quot;,
     &quot;file/src/collectors/number/Count.js.html&quot;,
     &quot;src/collectors/number/Count.js&quot;,
@@ -591,6 +639,42 @@ window.esdocSearchIndex = [
     &quot;src/collectors/number/filteredcount.js~filteredcount#handleprocess&quot;,
     &quot;class/src/collectors/number/FilteredCount.js~FilteredCount.html#instance-method-handleProcess&quot;,
     &quot;src/collectors/number/FilteredCount.js~FilteredCount#handleProcess&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/geometricmean.js&quot;,
+    &quot;file/src/collectors/number/GeometricMean.js.html&quot;,
+    &quot;src/collectors/number/GeometricMean.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/number/geometricmean.js~geometricmean#constructor&quot;,
+    &quot;class/src/collectors/number/GeometricMean.js~GeometricMean.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/GeometricMean.js~GeometricMean#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/geometricmean.js~geometricmean#handleget&quot;,
+    &quot;class/src/collectors/number/GeometricMean.js~GeometricMean.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/GeometricMean.js~GeometricMean#handleGet&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/harmonicmean.js&quot;,
+    &quot;file/src/collectors/number/HarmonicMean.js.html&quot;,
+    &quot;src/collectors/number/HarmonicMean.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/number/harmonicmean.js~harmonicmean#constructor&quot;,
+    &quot;class/src/collectors/number/HarmonicMean.js~HarmonicMean.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/HarmonicMean.js~HarmonicMean#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/harmonicmean.js~harmonicmean#handleget&quot;,
+    &quot;class/src/collectors/number/HarmonicMean.js~HarmonicMean.html#instance-method-handleGet&quot;,
+    &quot;src/collectors/number/HarmonicMean.js~HarmonicMean#handleGet&quot;,
     &quot;method&quot;
   ],
   [
@@ -702,6 +786,24 @@ window.esdocSearchIndex = [
     &quot;method&quot;
   ],
   [
+    &quot;src/collectors/number/product.js&quot;,
+    &quot;file/src/collectors/number/Product.js.html&quot;,
+    &quot;src/collectors/number/Product.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/number/product.js~product#constructor&quot;,
+    &quot;class/src/collectors/number/Product.js~Product.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/Product.js~Product#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/product.js~product#handleprocess&quot;,
+    &quot;class/src/collectors/number/Product.js~Product.html#instance-method-handleProcess&quot;,
+    &quot;src/collectors/number/Product.js~Product#handleProcess&quot;,
+    &quot;method&quot;
+  ],
+  [
     &quot;src/collectors/number/range.js&quot;,
     &quot;file/src/collectors/number/Range.js.html&quot;,
     &quot;src/collectors/number/Range.js&quot;,
@@ -771,6 +873,24 @@ window.esdocSearchIndex = [
     &quot;src/collectors/number/sum.js~sum#handleprocess&quot;,
     &quot;class/src/collectors/number/Sum.js~Sum.html#instance-method-handleProcess&quot;,
     &quot;src/collectors/number/Sum.js~Sum#handleProcess&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/sumofrecipricals.js&quot;,
+    &quot;file/src/collectors/number/SumOfRecipricals.js.html&quot;,
+    &quot;src/collectors/number/SumOfRecipricals.js&quot;,
+    &quot;file&quot;
+  ],
+  [
+    &quot;src/collectors/number/sumofrecipricals.js~sumofrecipricals#constructor&quot;,
+    &quot;class/src/collectors/number/SumOfRecipricals.js~SumOfRecipricals.html#instance-constructor-constructor&quot;,
+    &quot;src/collectors/number/SumOfRecipricals.js~SumOfRecipricals#constructor&quot;,
+    &quot;method&quot;
+  ],
+  [
+    &quot;src/collectors/number/sumofrecipricals.js~sumofrecipricals#handleprocess&quot;,
+    &quot;class/src/collectors/number/SumOfRecipricals.js~SumOfRecipricals.html#instance-method-handleProcess&quot;,
+    &quot;src/collectors/number/SumOfRecipricals.js~SumOfRecipricals#handleProcess&quot;,
     &quot;method&quot;
   ],
   [

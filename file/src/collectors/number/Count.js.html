@@ -35,18 +35,23 @@
   <ul>
     
   <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collectors</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/Collector.js~Collector.html">Collector</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collectors/number</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Count.js~Count.html">Count</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collectors/number</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/ArithmeticMean.js~ArithmeticMean.html">ArithmeticMean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Count.js~Count.html">Count</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/FilteredCount.js~FilteredCount.html">FilteredCount</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/GeometricMean.js~GeometricMean.html">GeometricMean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/HarmonicMean.js~HarmonicMean.html">HarmonicMean</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Max.js~Max.html">Max</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Mean.js~Mean.html">Mean</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Median.js~Median.html">Median</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/MidRange.js~MidRange.html">MidRange</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Min.js~Min.html">Min</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning.html">PowerSumAvgRunning</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Product.js~Product.html">Product</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Range.js~Range.html">Range</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning.html">StandardDeviationRunning</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/StandardDeviationStable.js~StandardDeviationStable.html">StandardDeviationStable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Sum.js~Sum.html">Sum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/SumOfRecipricals.js~SumOfRecipricals.html">SumOfRecipricals</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable.html">SumOfSquaredDeviationsStable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Values.js~Values.html">Values</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/ValuesSorted.js~ValuesSorted.html">ValuesSorted</a></span></span></li>
@@ -75,6 +80,7 @@
 
 /**
  * A collector that captures `count`
+ *   - The total number of data values in a data set.
  */
 export default class Count extends Collector {
   constructor() {

@@ -154,7 +154,7 @@
           "type": "ImportDefaultSpecifier",
           "local": {
             "type": "Identifier",
-            "name": "Sum",
+            "name": "Max",
             "range": [
               96,
               99
@@ -188,8 +188,8 @@
       ],
       "source": {
         "type": "Literal",
-        "value": "../../collectors/number/Sum",
-        "raw": "'../../collectors/number/Sum'",
+        "value": "../../collectors/number/Max",
+        "raw": "'../../collectors/number/Max'",
         "range": [
           105,
           134
@@ -227,179 +227,33 @@
           "type": "ImportDefaultSpecifier",
           "local": {
             "type": "Identifier",
-            "name": "Min",
-            "range": [
-              143,
-              146
-            ],
-            "loc": {
-              "start": {
-                "line": 4,
-                "column": 7
-              },
-              "end": {
-                "line": 4,
-                "column": 10
-              }
-            }
-          },
-          "range": [
-            143,
-            146
-          ],
-          "loc": {
-            "start": {
-              "line": 4,
-              "column": 7
-            },
-            "end": {
-              "line": 4,
-              "column": 10
-            }
-          }
-        }
-      ],
-      "source": {
-        "type": "Literal",
-        "value": "../../collectors/number/Min",
-        "raw": "'../../collectors/number/Min'",
-        "range": [
-          152,
-          181
-        ],
-        "loc": {
-          "start": {
-            "line": 4,
-            "column": 16
-          },
-          "end": {
-            "line": 4,
-            "column": 45
-          }
-        }
-      },
-      "range": [
-        136,
-        182
-      ],
-      "loc": {
-        "start": {
-          "line": 4,
-          "column": 0
-        },
-        "end": {
-          "line": 4,
-          "column": 46
-        }
-      }
-    },
-    {
-      "type": "ImportDeclaration",
-      "specifiers": [
-        {
-          "type": "ImportDefaultSpecifier",
-          "local": {
-            "type": "Identifier",
-            "name": "Max",
-            "range": [
-              190,
-              193
-            ],
-            "loc": {
-              "start": {
-                "line": 5,
-                "column": 7
-              },
-              "end": {
-                "line": 5,
-                "column": 10
-              }
-            }
-          },
-          "range": [
-            190,
-            193
-          ],
-          "loc": {
-            "start": {
-              "line": 5,
-              "column": 7
-            },
-            "end": {
-              "line": 5,
-              "column": 10
-            }
-          }
-        }
-      ],
-      "source": {
-        "type": "Literal",
-        "value": "../../collectors/number/Max",
-        "raw": "'../../collectors/number/Max'",
-        "range": [
-          199,
-          228
-        ],
-        "loc": {
-          "start": {
-            "line": 5,
-            "column": 16
-          },
-          "end": {
-            "line": 5,
-            "column": 45
-          }
-        }
-      },
-      "range": [
-        183,
-        229
-      ],
-      "loc": {
-        "start": {
-          "line": 5,
-          "column": 0
-        },
-        "end": {
-          "line": 5,
-          "column": 46
-        }
-      }
-    },
-    {
-      "type": "ImportDeclaration",
-      "specifiers": [
-        {
-          "type": "ImportDefaultSpecifier",
-          "local": {
-            "type": "Identifier",
             "name": "Mean",
             "range": [
-              237,
-              241
+              143,
+              147
             ],
             "loc": {
               "start": {
-                "line": 6,
+                "line": 4,
                 "column": 7
               },
               "end": {
-                "line": 6,
+                "line": 4,
                 "column": 11
               }
             }
           },
           "range": [
-            237,
-            241
+            143,
+            147
           ],
           "loc": {
             "start": {
-              "line": 6,
+              "line": 4,
               "column": 7
             },
             "end": {
-              "line": 6,
+              "line": 4,
               "column": 11
             }
           }
@@ -410,22 +264,168 @@
         "value": "../../collectors/number/Mean",
         "raw": "'../../collectors/number/Mean'",
         "range": [
-          247,
-          277
+          153,
+          183
         ],
         "loc": {
           "start": {
-            "line": 6,
+            "line": 4,
             "column": 17
           },
           "end": {
-            "line": 6,
+            "line": 4,
             "column": 47
           }
         }
       },
       "range": [
-        230,
+        136,
+        184
+      ],
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 48
+        }
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "Min",
+            "range": [
+              192,
+              195
+            ],
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 7
+              },
+              "end": {
+                "line": 5,
+                "column": 10
+              }
+            }
+          },
+          "range": [
+            192,
+            195
+          ],
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 7
+            },
+            "end": {
+              "line": 5,
+              "column": 10
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "../../collectors/number/Min",
+        "raw": "'../../collectors/number/Min'",
+        "range": [
+          201,
+          230
+        ],
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 16
+          },
+          "end": {
+            "line": 5,
+            "column": 45
+          }
+        }
+      },
+      "range": [
+        185,
+        231
+      ],
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 46
+        }
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "Sum",
+            "range": [
+              239,
+              242
+            ],
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 7
+              },
+              "end": {
+                "line": 6,
+                "column": 10
+              }
+            }
+          },
+          "range": [
+            239,
+            242
+          ],
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 7
+            },
+            "end": {
+              "line": 6,
+              "column": 10
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "../../collectors/number/Sum",
+        "raw": "'../../collectors/number/Sum'",
+        "range": [
+          248,
+          277
+        ],
+        "loc": {
+          "start": {
+            "line": 6,
+            "column": 16
+          },
+          "end": {
+            "line": 6,
+            "column": 45
+          }
+        }
+      },
+      "range": [
+        232,
         278
       ],
       "loc": {
@@ -435,13 +435,13 @@
         },
         "end": {
           "line": 6,
-          "column": 48
+          "column": 46
         }
       },
       "trailingComments": [
         {
           "type": "Block",
-          "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n * @example\n * const stats = new BasicNumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
+          "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - max\n *   - mean\n *   - min\n *   - sum\n * @example\n * const stats = new BasicNumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
           "range": [
             280,
             521
@@ -1290,7 +1290,7 @@
         "leadingComments": [
           {
             "type": "Block",
-            "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n * @example\n * const stats = new BasicNumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
+            "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - max\n *   - mean\n *   - min\n *   - sum\n * @example\n * const stats = new BasicNumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
             "range": [
               280,
               521
@@ -1326,7 +1326,7 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n * @example\n * const stats = new BasicNumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
+          "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - max\n *   - mean\n *   - min\n *   - sum\n * @example\n * const stats = new BasicNumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
           "range": [
             280,
             521
@@ -1363,7 +1363,7 @@
   "comments": [
     {
       "type": "Block",
-      "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n * @example\n * const stats = new BasicNumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
+      "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - max\n *   - mean\n *   - min\n *   - sum\n * @example\n * const stats = new BasicNumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
       "range": [
         280,
         521

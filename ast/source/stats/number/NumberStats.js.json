@@ -154,10 +154,10 @@
           "type": "ImportDefaultSpecifier",
           "local": {
             "type": "Identifier",
-            "name": "VarianceRunning",
+            "name": "Product",
             "range": [
               135,
-              150
+              142
             ],
             "loc": {
               "start": {
@@ -166,13 +166,13 @@
               },
               "end": {
                 "line": 3,
-                "column": 22
+                "column": 14
               }
             }
           },
           "range": [
             135,
-            150
+            142
           ],
           "loc": {
             "start": {
@@ -181,33 +181,33 @@
             },
             "end": {
               "line": 3,
-              "column": 22
+              "column": 14
             }
           }
         }
       ],
       "source": {
         "type": "Literal",
-        "value": "../../collectors/number/VarianceRunning",
-        "raw": "'../../collectors/number/VarianceRunning'",
+        "value": "../../collectors/number/Product",
+        "raw": "'../../collectors/number/Product'",
         "range": [
-          156,
-          197
+          148,
+          181
         ],
         "loc": {
           "start": {
             "line": 3,
-            "column": 28
+            "column": 20
           },
           "end": {
             "line": 3,
-            "column": 69
+            "column": 53
           }
         }
       },
       "range": [
         128,
-        198
+        182
       ],
       "loc": {
         "start": {
@@ -216,7 +216,7 @@
         },
         "end": {
           "line": 3,
-          "column": 70
+          "column": 54
         }
       }
     },
@@ -229,8 +229,8 @@
             "type": "Identifier",
             "name": "StandardDeviationRunning",
             "range": [
-              206,
-              230
+              190,
+              214
             ],
             "loc": {
               "start": {
@@ -244,8 +244,8 @@
             }
           },
           "range": [
-            206,
-            230
+            190,
+            214
           ],
           "loc": {
             "start": {
@@ -264,8 +264,8 @@
         "value": "../../collectors/number/StandardDeviationRunning",
         "raw": "'../../collectors/number/StandardDeviationRunning'",
         "range": [
-          236,
-          286
+          220,
+          270
         ],
         "loc": {
           "start": {
@@ -279,8 +279,8 @@
         }
       },
       "range": [
-        199,
-        287
+        183,
+        271
       ],
       "loc": {
         "start": {
@@ -291,22 +291,95 @@
           "line": 4,
           "column": 88
         }
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "VarianceRunning",
+            "range": [
+              279,
+              294
+            ],
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 7
+              },
+              "end": {
+                "line": 5,
+                "column": 22
+              }
+            }
+          },
+          "range": [
+            279,
+            294
+          ],
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 7
+            },
+            "end": {
+              "line": 5,
+              "column": 22
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "../../collectors/number/VarianceRunning",
+        "raw": "'../../collectors/number/VarianceRunning'",
+        "range": [
+          300,
+          341
+        ],
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 28
+          },
+          "end": {
+            "line": 5,
+            "column": 69
+          }
+        }
+      },
+      "range": [
+        272,
+        342
+      ],
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 70
+        }
       },
       "trailingComments": [
         {
           "type": "Block",
-          "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n *   - powerSumAvg_running\n *   - variance_running\n *   - standardDeviation_running\n * @example\n * const stats = new NumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
+          "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - max\n *   - mean\n *   - min\n *   - powerSumAvg_running\n *   - product\n *   - standardDeviation_running\n *   - sum\n *   - variance_running\n * @example\n * const stats = new NumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
           "range": [
-            289,
-            609
+            344,
+            679
           ],
           "loc": {
             "start": {
-              "line": 6,
+              "line": 7,
               "column": 0
             },
             "end": {
-              "line": 20,
+              "line": 22,
               "column": 3
             }
           }
@@ -321,16 +394,16 @@
           "type": "Identifier",
           "name": "NumberStats",
           "range": [
-            631,
-            642
+            701,
+            712
           ],
           "loc": {
             "start": {
-              "line": 21,
+              "line": 23,
               "column": 21
             },
             "end": {
-              "line": 21,
+              "line": 23,
               "column": 32
             }
           }
@@ -339,16 +412,16 @@
           "type": "Identifier",
           "name": "BasicNumberStats",
           "range": [
-            651,
-            667
+            721,
+            737
           ],
           "loc": {
             "start": {
-              "line": 21,
+              "line": 23,
               "column": 41
             },
             "end": {
-              "line": 21,
+              "line": 23,
               "column": 57
             }
           }
@@ -362,16 +435,16 @@
                 "type": "Identifier",
                 "name": "constructor",
                 "range": [
-                  672,
-                  683
+                  742,
+                  753
                 ],
                 "loc": {
                   "start": {
-                    "line": 22,
+                    "line": 24,
                     "column": 2
                   },
                   "end": {
-                    "line": 22,
+                    "line": 24,
                     "column": 13
                   }
                 }
@@ -390,47 +463,47 @@
                         "callee": {
                           "type": "Super",
                           "range": [
-                            692,
-                            697
+                            762,
+                            767
                           ],
                           "loc": {
                             "start": {
-                              "line": 23,
+                              "line": 25,
                               "column": 4
                             },
                             "end": {
-                              "line": 23,
+                              "line": 25,
                               "column": 9
                             }
                           }
                         },
                         "arguments": [],
                         "range": [
-                          692,
-                          699
+                          762,
+                          769
                         ],
                         "loc": {
                           "start": {
-                            "line": 23,
+                            "line": 25,
                             "column": 4
                           },
                           "end": {
-                            "line": 23,
+                            "line": 25,
                             "column": 11
                           }
                         }
                       },
                       "range": [
-                        692,
-                        700
+                        762,
+                        770
                       ],
                       "loc": {
                         "start": {
-                          "line": 23,
+                          "line": 25,
                           "column": 4
                         },
                         "end": {
-                          "line": 23,
+                          "line": 25,
                           "column": 12
                         }
                       }
@@ -445,16 +518,16 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              705,
-                              709
+                              775,
+                              779
                             ],
                             "loc": {
                               "start": {
-                                "line": 24,
+                                "line": 26,
                                 "column": 4
                               },
                               "end": {
-                                "line": 24,
+                                "line": 26,
                                 "column": 8
                               }
                             }
@@ -463,31 +536,156 @@
                             "type": "Identifier",
                             "name": "addCollector",
                             "range": [
-                              710,
-                              722
+                              780,
+                              792
                             ],
                             "loc": {
                               "start": {
-                                "line": 24,
+                                "line": 26,
                                 "column": 9
                               },
                               "end": {
-                                "line": 24,
+                                "line": 26,
                                 "column": 21
                               }
                             }
                           },
                           "range": [
-                            705,
-                            722
+                            775,
+                            792
                           ],
                           "loc": {
                             "start": {
-                              "line": 24,
+                              "line": 26,
                               "column": 4
                             },
                             "end": {
-                              "line": 24,
+                              "line": 26,
+                              "column": 21
+                            }
+                          }
+                        },
+                        "arguments": [
+                          {
+                            "type": "NewExpression",
+                            "callee": {
+                              "type": "Identifier",
+                              "name": "Product",
+                              "range": [
+                                797,
+                                804
+                              ],
+                              "loc": {
+                                "start": {
+                                  "line": 26,
+                                  "column": 26
+                                },
+                                "end": {
+                                  "line": 26,
+                                  "column": 33
+                                }
+                              }
+                            },
+                            "arguments": [],
+                            "range": [
+                              793,
+                              806
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 26,
+                                "column": 22
+                              },
+                              "end": {
+                                "line": 26,
+                                "column": 35
+                              }
+                            }
+                          }
+                        ],
+                        "range": [
+                          775,
+                          807
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 26,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 26,
+                            "column": 36
+                          }
+                        }
+                      },
+                      "range": [
+                        775,
+                        808
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 26,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 26,
+                          "column": 37
+                        }
+                      }
+                    },
+                    {
+                      "type": "ExpressionStatement",
+                      "expression": {
+                        "type": "CallExpression",
+                        "callee": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "ThisExpression",
+                            "range": [
+                              813,
+                              817
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 27,
+                                "column": 4
+                              },
+                              "end": {
+                                "line": 27,
+                                "column": 8
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "addCollector",
+                            "range": [
+                              818,
+                              830
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 27,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 27,
+                                "column": 21
+                              }
+                            }
+                          },
+                          "range": [
+                            813,
+                            830
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 27,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 27,
                               "column": 21
                             }
                           }
@@ -499,63 +697,63 @@
                               "type": "Identifier",
                               "name": "PowerSumAvgRunning",
                               "range": [
-                                727,
-                                745
+                                835,
+                                853
                               ],
                               "loc": {
                                 "start": {
-                                  "line": 24,
+                                  "line": 27,
                                   "column": 26
                                 },
                                 "end": {
-                                  "line": 24,
+                                  "line": 27,
                                   "column": 44
                                 }
                               }
                             },
                             "arguments": [],
                             "range": [
-                              723,
-                              747
+                              831,
+                              855
                             ],
                             "loc": {
                               "start": {
-                                "line": 24,
+                                "line": 27,
                                 "column": 22
                               },
                               "end": {
-                                "line": 24,
+                                "line": 27,
                                 "column": 46
                               }
                             }
                           }
                         ],
                         "range": [
-                          705,
-                          748
+                          813,
+                          856
                         ],
                         "loc": {
                           "start": {
-                            "line": 24,
+                            "line": 27,
                             "column": 4
                           },
                           "end": {
-                            "line": 24,
+                            "line": 27,
                             "column": 47
                           }
                         }
                       },
                       "range": [
-                        705,
-                        749
+                        813,
+                        857
                       ],
                       "loc": {
                         "start": {
-                          "line": 24,
+                          "line": 27,
                           "column": 4
                         },
                         "end": {
-                          "line": 24,
+                          "line": 27,
                           "column": 48
                         }
                       }
@@ -570,16 +768,16 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              754,
-                              758
+                              862,
+                              866
                             ],
                             "loc": {
                               "start": {
-                                "line": 25,
+                                "line": 28,
                                 "column": 4
                               },
                               "end": {
-                                "line": 25,
+                                "line": 28,
                                 "column": 8
                               }
                             }
@@ -588,31 +786,31 @@
                             "type": "Identifier",
                             "name": "addCollector",
                             "range": [
-                              759,
-                              771
+                              867,
+                              879
                             ],
                             "loc": {
                               "start": {
-                                "line": 25,
+                                "line": 28,
                                 "column": 9
                               },
                               "end": {
-                                "line": 25,
+                                "line": 28,
                                 "column": 21
                               }
                             }
                           },
                           "range": [
-                            754,
-                            771
+                            862,
+                            879
                           ],
                           "loc": {
                             "start": {
-                              "line": 25,
+                              "line": 28,
                               "column": 4
                             },
                             "end": {
-                              "line": 25,
+                              "line": 28,
                               "column": 21
                             }
                           }
@@ -624,63 +822,63 @@
                               "type": "Identifier",
                               "name": "VarianceRunning",
                               "range": [
-                                776,
-                                791
+                                884,
+                                899
                               ],
                               "loc": {
                                 "start": {
-                                  "line": 25,
+                                  "line": 28,
                                   "column": 26
                                 },
                                 "end": {
-                                  "line": 25,
+                                  "line": 28,
                                   "column": 41
                                 }
                               }
                             },
                             "arguments": [],
                             "range": [
-                              772,
-                              793
+                              880,
+                              901
                             ],
                             "loc": {
                               "start": {
-                                "line": 25,
+                                "line": 28,
                                 "column": 22
                               },
                               "end": {
-                                "line": 25,
+                                "line": 28,
                                 "column": 43
                               }
                             }
                           }
                         ],
                         "range": [
-                          754,
-                          794
+                          862,
+                          902
                         ],
                         "loc": {
                           "start": {
-                            "line": 25,
+                            "line": 28,
                             "column": 4
                           },
                           "end": {
-                            "line": 25,
+                            "line": 28,
                             "column": 44
                           }
                         }
                       },
                       "range": [
-                        754,
-                        795
+                        862,
+                        903
                       ],
                       "loc": {
                         "start": {
-                          "line": 25,
+                          "line": 28,
                           "column": 4
                         },
                         "end": {
-                          "line": 25,
+                          "line": 28,
                           "column": 45
                         }
                       }
@@ -695,16 +893,16 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              800,
-                              804
+                              908,
+                              912
                             ],
                             "loc": {
                               "start": {
-                                "line": 26,
+                                "line": 29,
                                 "column": 4
                               },
                               "end": {
-                                "line": 26,
+                                "line": 29,
                                 "column": 8
                               }
                             }
@@ -713,31 +911,31 @@
                             "type": "Identifier",
                             "name": "addCollector",
                             "range": [
-                              805,
-                              817
+                              913,
+                              925
                             ],
                             "loc": {
                               "start": {
-                                "line": 26,
+                                "line": 29,
                                 "column": 9
                               },
                               "end": {
-                                "line": 26,
+                                "line": 29,
                                 "column": 21
                               }
                             }
                           },
                           "range": [
-                            800,
-                            817
+                            908,
+                            925
                           ],
                           "loc": {
                             "start": {
-                              "line": 26,
+                              "line": 29,
                               "column": 4
                             },
                             "end": {
-                              "line": 26,
+                              "line": 29,
                               "column": 21
                             }
                           }
@@ -749,79 +947,79 @@
                               "type": "Identifier",
                               "name": "StandardDeviationRunning",
                               "range": [
-                                822,
-                                846
+                                930,
+                                954
                               ],
                               "loc": {
                                 "start": {
-                                  "line": 26,
+                                  "line": 29,
                                   "column": 26
                                 },
                                 "end": {
-                                  "line": 26,
+                                  "line": 29,
                                   "column": 50
                                 }
                               }
                             },
                             "arguments": [],
                             "range": [
-                              818,
-                              848
+                              926,
+                              956
                             ],
                             "loc": {
                               "start": {
-                                "line": 26,
+                                "line": 29,
                                 "column": 22
                               },
                               "end": {
-                                "line": 26,
+                                "line": 29,
                                 "column": 52
                               }
                             }
                           }
                         ],
                         "range": [
-                          800,
-                          849
+                          908,
+                          957
                         ],
                         "loc": {
                           "start": {
-                            "line": 26,
+                            "line": 29,
                             "column": 4
                           },
                           "end": {
-                            "line": 26,
+                            "line": 29,
                             "column": 53
                           }
                         }
                       },
                       "range": [
-                        800,
-                        850
+                        908,
+                        958
                       ],
                       "loc": {
                         "start": {
-                          "line": 26,
+                          "line": 29,
                           "column": 4
                         },
                         "end": {
-                          "line": 26,
+                          "line": 29,
                           "column": 54
                         }
                       }
                     }
                   ],
                   "range": [
-                    686,
-                    854
+                    756,
+                    962
                   ],
                   "loc": {
                     "start": {
-                      "line": 22,
+                      "line": 24,
                       "column": 16
                     },
                     "end": {
-                      "line": 27,
+                      "line": 30,
                       "column": 3
                     }
                   }
@@ -829,16 +1027,16 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  683,
-                  854
+                  753,
+                  962
                 ],
                 "loc": {
                   "start": {
-                    "line": 22,
+                    "line": 24,
                     "column": 13
                   },
                   "end": {
-                    "line": 27,
+                    "line": 30,
                     "column": 3
                   }
                 }
@@ -846,16 +1044,16 @@
               "kind": "constructor",
               "computed": false,
               "range": [
-                672,
-                854
+                742,
+                962
               ],
               "loc": {
                 "start": {
-                  "line": 22,
+                  "line": 24,
                   "column": 2
                 },
                 "end": {
-                  "line": 27,
+                  "line": 30,
                   "column": 3
                 }
               },
@@ -863,49 +1061,49 @@
             }
           ],
           "range": [
-            668,
-            856
+            738,
+            964
           ],
           "loc": {
             "start": {
-              "line": 21,
+              "line": 23,
               "column": 58
             },
             "end": {
-              "line": 28,
+              "line": 31,
               "column": 1
             }
           }
         },
         "range": [
-          625,
-          856
+          695,
+          964
         ],
         "loc": {
           "start": {
-            "line": 21,
+            "line": 23,
             "column": 15
           },
           "end": {
-            "line": 28,
+            "line": 31,
             "column": 1
           }
         },
         "leadingComments": [
           {
             "type": "Block",
-            "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n *   - powerSumAvg_running\n *   - variance_running\n *   - standardDeviation_running\n * @example\n * const stats = new NumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
+            "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - max\n *   - mean\n *   - min\n *   - powerSumAvg_running\n *   - product\n *   - standardDeviation_running\n *   - sum\n *   - variance_running\n * @example\n * const stats = new NumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
             "range": [
-              289,
-              609
+              344,
+              679
             ],
             "loc": {
               "start": {
-                "line": 6,
+                "line": 7,
                 "column": 0
               },
               "end": {
-                "line": 20,
+                "line": 22,
                 "column": 3
               }
             }
@@ -914,34 +1112,34 @@
         "trailingComments": []
       },
       "range": [
-        610,
-        856
+        680,
+        964
       ],
       "loc": {
         "start": {
-          "line": 21,
+          "line": 23,
           "column": 0
         },
         "end": {
-          "line": 28,
+          "line": 31,
           "column": 1
         }
       },
       "leadingComments": [
         {
           "type": "Block",
-          "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n *   - powerSumAvg_running\n *   - variance_running\n *   - standardDeviation_running\n * @example\n * const stats = new NumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
+          "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - max\n *   - mean\n *   - min\n *   - powerSumAvg_running\n *   - product\n *   - standardDeviation_running\n *   - sum\n *   - variance_running\n * @example\n * const stats = new NumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
           "range": [
-            289,
-            609
+            344,
+            679
           ],
           "loc": {
             "start": {
-              "line": 6,
+              "line": 7,
               "column": 0
             },
             "end": {
-              "line": 20,
+              "line": 22,
               "column": 3
             }
           }
@@ -952,7 +1150,7 @@
   "sourceType": "module",
   "range": [
     0,
-    856
+    964
   ],
   "loc": {
     "start": {
@@ -960,25 +1158,25 @@
       "column": 0
     },
     "end": {
-      "line": 28,
+      "line": 31,
       "column": 1
     }
   },
   "comments": [
     {
       "type": "Block",
-      "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - sum\n *   - min\n *   - max\n *   - mean\n *   - powerSumAvg_running\n *   - variance_running\n *   - standardDeviation_running\n * @example\n * const stats = new NumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
+      "value": "*\n * A stat collector that includes the following collector functions:\n *   - count\n *   - max\n *   - mean\n *   - min\n *   - powerSumAvg_running\n *   - product\n *   - standardDeviation_running\n *   - sum\n *   - variance_running\n * @example\n * const stats = new NumberStats();\n * stats.processAll([1, 2, 3, 4, 5]);\n * stats.get();\n ",
       "range": [
-        289,
-        609
+        344,
+        679
       ],
       "loc": {
         "start": {
-          "line": 6,
+          "line": 7,
           "column": 0
         },
         "end": {
-          "line": 20,
+          "line": 22,
           "column": 3
         }
       }

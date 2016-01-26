@@ -35,18 +35,23 @@
   <ul>
     
   <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collectors</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/Collector.js~Collector.html">Collector</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collectors/number</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Count.js~Count.html">Count</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collectors/number</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/ArithmeticMean.js~ArithmeticMean.html">ArithmeticMean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Count.js~Count.html">Count</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/FilteredCount.js~FilteredCount.html">FilteredCount</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/GeometricMean.js~GeometricMean.html">GeometricMean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/HarmonicMean.js~HarmonicMean.html">HarmonicMean</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Max.js~Max.html">Max</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Mean.js~Mean.html">Mean</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Median.js~Median.html">Median</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/MidRange.js~MidRange.html">MidRange</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Min.js~Min.html">Min</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning.html">PowerSumAvgRunning</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Product.js~Product.html">Product</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Range.js~Range.html">Range</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning.html">StandardDeviationRunning</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/StandardDeviationStable.js~StandardDeviationStable.html">StandardDeviationStable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Sum.js~Sum.html">Sum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/SumOfRecipricals.js~SumOfRecipricals.html">SumOfRecipricals</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable.html">SumOfSquaredDeviationsStable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Values.js~Values.html">Values</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/ValuesSorted.js~ValuesSorted.html">ValuesSorted</a></span></span></li>
@@ -94,22 +99,53 @@
         
         <div data-ice="description"><p>A stat collector that includes the following collector functions:</p>
 <ul>
+<li>amean</li>
 <li>count</li>
-<li>sum</li>
-<li>min</li>
+<li>count_* (a bunch of filtered counts)</li>
+<li>gmean</li>
+<li>hmean</li>
 <li>max</li>
 <li>mean</li>
-<li>powerSumAvg_running</li>
-<li>variance_running</li>
-<li>standardDeviation_running</li>
-<li>sumOfSquaredDeviations_stable</li>
-<li>variance_stable</li>
-<li>standardDeviation_stable</li>
-<li>count_* (a bunch of filtered counts)</li>
-<li>range</li>
-<li>midRange</li>
 <li>median</li>
+<li>midRange</li>
+<li>min</li>
+<li>powerSumAvg_running</li>
+<li>product</li>
+<li>range</li>
+<li>standardDeviation_running</li>
+<li>standardDeviation_stable</li>
+<li>sum</li>
+<li>sumOfRecipricals</li>
+<li>sumOfSquaredDeviations_stable</li>
+<li>variance_running</li>
+<li>variance_stable</li>
 </ul>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/collectors/number/ArithmeticMean.js~ArithmeticMean.html">ArithmeticMean</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>A collector that captures <code>amean</code></p>
 </div>
       </div>
     </td>
@@ -164,10 +200,10 @@
         <div data-ice="description"><p>A stat collector that includes the following collector functions:</p>
 <ul>
 <li>count</li>
-<li>sum</li>
-<li>min</li>
 <li>max</li>
 <li>mean</li>
+<li>min</li>
+<li>sum</li>
 </ul>
 </div>
       </div>
@@ -221,6 +257,9 @@
         
         
         <div data-ice="description"><p>A collector that captures <code>count</code></p>
+<ul>
+<li>The total number of data values in a data set.</li>
+</ul>
 </div>
       </div>
     </td>
@@ -266,6 +305,58 @@
     <td>
       <div>
         <p>
+           <span data-ice="name"><span><a href="class/src/collectors/number/GeometricMean.js~GeometricMean.html">GeometricMean</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>A collector that captures <code>gmean</code></p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/collectors/number/HarmonicMean.js~HarmonicMean.html">HarmonicMean</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>A collector that captures <code>hmean</code></p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
            <span data-ice="name"><span><a href="class/src/collectors/number/Max.js~Max.html">Max</a></span></span>
         </p>
       </div>
@@ -273,6 +364,9 @@
         
         
         <div data-ice="description"><p>A collector that captures <code>max</code></p>
+<ul>
+<li>The largest value in a sample data set.</li>
+</ul>
 </div>
       </div>
     </td>
@@ -299,6 +393,10 @@
         
         
         <div data-ice="description"><p>A collector that captures <code>mean</code></p>
+<ul>
+<li>The sum of all of the data divided by the count; the average;
+mean = sum / n.</li>
+</ul>
 </div>
       </div>
     </td>
@@ -324,9 +422,11 @@
       <div>
         
         
-        <div data-ice="description"><p>A collector that captures <code>median</code>:
-  The numeric value separating the higher half of the ordered
-  sample data from the lower half.</p>
+        <div data-ice="description"><p>A collector that captures <code>median</code></p>
+<ul>
+<li>The numeric value separating the higher half of the ordered
+sample data from the lower half.</li>
+</ul>
 </div>
       </div>
     </td>
@@ -352,8 +452,10 @@
       <div>
         
         
-        <div data-ice="description"><p>A collector that captures <code>midRange</code>:
-  The average of the minimum and maximum of the data set.</p>
+        <div data-ice="description"><p>A collector that captures <code>midRange</code></p>
+<ul>
+<li>The average of the minimum and maximum of the data set.</li>
+</ul>
 </div>
       </div>
     </td>
@@ -380,6 +482,9 @@
         
         
         <div data-ice="description"><p>A collector that captures <code>min</code></p>
+<ul>
+<li>The smallest value in a sample data set.</li>
+</ul>
 </div>
       </div>
     </td>
@@ -408,13 +513,14 @@
         <div data-ice="description"><p>A stat collector that includes the following collector functions:</p>
 <ul>
 <li>count</li>
-<li>sum</li>
-<li>min</li>
 <li>max</li>
 <li>mean</li>
+<li>min</li>
 <li>powerSumAvg_running</li>
-<li>variance_running</li>
+<li>product</li>
 <li>standardDeviation_running</li>
+<li>sum</li>
+<li>variance_running</li>
 </ul>
 </div>
       </div>
@@ -465,15 +571,46 @@
     <td>
       <div>
         <p>
+           <span data-ice="name"><span><a href="class/src/collectors/number/Product.js~Product.html">Product</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>A collector that captures <code>product</code></p>
+<ul>
+<li>The result of multiplying all data values.</li>
+</ul>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
            <span data-ice="name"><span><a href="class/src/collectors/number/Range.js~Range.html">Range</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>A collector that captures <code>range</code>:
-  The range from the minimum to the maximum
-  range = max - min</p>
+        <div data-ice="description"><p>A collector that captures <code>range</code></p>
+<ul>
+<li>The range from the minimum to the maximum
+range = max - min</li>
+</ul>
 </div>
       </div>
     </td>
@@ -556,6 +693,38 @@
         
         
         <div data-ice="description"><p>A collector that captures <code>sum</code></p>
+<ul>
+<li>The total of all data values.</li>
+</ul>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/collectors/number/SumOfRecipricals.js~SumOfRecipricals.html">SumOfRecipricals</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>A collector that captures <code>sumOfRecipricals</code></p>
+<ul>
+<li>The total of all the recipricals of the data values.</li>
+</ul>
 </div>
       </div>
     </td>
@@ -608,6 +777,9 @@
         
         
         <div data-ice="description"><p>A collector that captures <code>values</code></p>
+<ul>
+<li>This is an array of all the values collected.</li>
+</ul>
 </div>
       </div>
     </td>
@@ -634,6 +806,9 @@
         
         
         <div data-ice="description"><p>A collector that captures <code>valuesSorted</code></p>
+<ul>
+<li>A sorted array of all the values collected.</li>
+</ul>
 </div>
       </div>
     </td>

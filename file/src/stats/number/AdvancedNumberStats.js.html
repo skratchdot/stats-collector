@@ -35,18 +35,23 @@
   <ul>
     
   <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collectors</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/Collector.js~Collector.html">Collector</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collectors/number</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Count.js~Count.html">Count</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collectors/number</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/ArithmeticMean.js~ArithmeticMean.html">ArithmeticMean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Count.js~Count.html">Count</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/FilteredCount.js~FilteredCount.html">FilteredCount</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/GeometricMean.js~GeometricMean.html">GeometricMean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/HarmonicMean.js~HarmonicMean.html">HarmonicMean</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Max.js~Max.html">Max</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Mean.js~Mean.html">Mean</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Median.js~Median.html">Median</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/MidRange.js~MidRange.html">MidRange</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Min.js~Min.html">Min</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/PowerSumAvgRunning.js~PowerSumAvgRunning.html">PowerSumAvgRunning</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Product.js~Product.html">Product</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Range.js~Range.html">Range</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/StandardDeviationRunning.js~StandardDeviationRunning.html">StandardDeviationRunning</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/StandardDeviationStable.js~StandardDeviationStable.html">StandardDeviationStable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Sum.js~Sum.html">Sum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/SumOfRecipricals.js~SumOfRecipricals.html">SumOfRecipricals</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/SumOfSquaredDeviationsStable.js~SumOfSquaredDeviationsStable.html">SumOfSquaredDeviationsStable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/Values.js~Values.html">Values</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/collectors/number/ValuesSorted.js~ValuesSorted.html">ValuesSorted</a></span></span></li>
@@ -73,33 +78,42 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/stats/number/AdvancedNumberStats.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import * as filters from &apos;../../helpers/filters&apos;;
 import NumberStats from &apos;./NumberStats&apos;;
-import Values from &apos;../../collectors/number/Values&apos;;
-import SumOfSquaredDeviationsStable from &apos;../../collectors/number/SumOfSquaredDeviationsStable&apos;;
-import VarianceStable from &apos;../../collectors/number/VarianceStable&apos;;
-import StandardDeviationStable from &apos;../../collectors/number/StandardDeviationStable&apos;;
+import ArithmeticMean from &apos;../../collectors/number/ArithmeticMean&apos;;
 import FilteredCount from &apos;../../collectors/number/FilteredCount&apos;;
-import Range from &apos;../../collectors/number/Range&apos;;
-import MidRange from &apos;../../collectors/number/MidRange&apos;;
-import ValuesSorted from &apos;../../collectors/number/ValuesSorted&apos;;
+import GeometricMean from &apos;../../collectors/number/GeometricMean&apos;;
+import HarmonicMean from &apos;../../collectors/number/HarmonicMean&apos;;
 import Median from &apos;../../collectors/number/Median&apos;;
+import MidRange from &apos;../../collectors/number/MidRange&apos;;
+import Range from &apos;../../collectors/number/Range&apos;;
+import StandardDeviationStable from &apos;../../collectors/number/StandardDeviationStable&apos;;
+import SumOfRecipricals from &apos;../../collectors/number/SumOfRecipricals&apos;;
+import SumOfSquaredDeviationsStable from &apos;../../collectors/number/SumOfSquaredDeviationsStable&apos;;
+import Values from &apos;../../collectors/number/Values&apos;;
+import ValuesSorted from &apos;../../collectors/number/ValuesSorted&apos;;
+import VarianceStable from &apos;../../collectors/number/VarianceStable&apos;;
 
 /**
 * A stat collector that includes the following collector functions:
+ *   - amean
  *   - count
- *   - sum
- *   - min
+ *   - count_* (a bunch of filtered counts)
+ *   - gmean
+ *   - hmean
  *   - max
  *   - mean
- *   - powerSumAvg_running
- *   - variance_running
- *   - standardDeviation_running
- *   - sumOfSquaredDeviations_stable
- *   - variance_stable
- *   - standardDeviation_stable
- *   - count_* (a bunch of filtered counts)
- *   - range
- *   - midRange
  *   - median
+ *   - midRange
+ *   - min
+ *   - powerSumAvg_running
+ *   - product
+ *   - range
+ *   - standardDeviation_running
+ *   - standardDeviation_stable
+ *   - sum
+ *   - sumOfRecipricals
+ *   - sumOfSquaredDeviations_stable
+ *   - variance_running
+ *   - variance_stable
  * @example
  * const stats = new AdvancedNumberStats();
  * stats.processAll([1, 2, 3, 4, 5]);
@@ -121,6 +135,10 @@ export default class AdvancedNumberStats extends NumberStats {
     this.addCollector(new MidRange());
     this.addCollector(new ValuesSorted());
     this.addCollector(new Median());
+    this.addCollector(new SumOfRecipricals());
+    this.addCollector(new ArithmeticMean());
+    this.addCollector(new GeometricMean());
+    this.addCollector(new HarmonicMean());
     this.addIgnore(&apos;values&apos;);
     this.addIgnore(&apos;valuesSorted&apos;);
   }

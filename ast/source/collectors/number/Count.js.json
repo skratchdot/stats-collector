@@ -76,10 +76,10 @@
       "trailingComments": [
         {
           "type": "Block",
-          "value": "*\n * A collector that captures `count`\n ",
+          "value": "*\n * A collector that captures `count`\n *   - The total number of data values in a data set.\n ",
           "range": [
             39,
-            83
+            137
           ],
           "loc": {
             "start": {
@@ -87,7 +87,7 @@
               "column": 0
             },
             "end": {
-              "line": 5,
+              "line": 6,
               "column": 3
             }
           }
@@ -102,16 +102,16 @@
           "type": "Identifier",
           "name": "Count",
           "range": [
-            105,
-            110
+            159,
+            164
           ],
           "loc": {
             "start": {
-              "line": 6,
+              "line": 7,
               "column": 21
             },
             "end": {
-              "line": 6,
+              "line": 7,
               "column": 26
             }
           }
@@ -120,16 +120,16 @@
           "type": "Identifier",
           "name": "Collector",
           "range": [
-            119,
-            128
+            173,
+            182
           ],
           "loc": {
             "start": {
-              "line": 6,
+              "line": 7,
               "column": 35
             },
             "end": {
-              "line": 6,
+              "line": 7,
               "column": 44
             }
           }
@@ -143,16 +143,16 @@
                 "type": "Identifier",
                 "name": "constructor",
                 "range": [
-                  133,
-                  144
+                  187,
+                  198
                 ],
                 "loc": {
                   "start": {
-                    "line": 7,
+                    "line": 8,
                     "column": 2
                   },
                   "end": {
-                    "line": 7,
+                    "line": 8,
                     "column": 13
                   }
                 }
@@ -171,16 +171,16 @@
                         "callee": {
                           "type": "Super",
                           "range": [
-                            153,
-                            158
+                            207,
+                            212
                           ],
                           "loc": {
                             "start": {
-                              "line": 8,
+                              "line": 9,
                               "column": 4
                             },
                             "end": {
-                              "line": 8,
+                              "line": 9,
                               "column": 9
                             }
                           }
@@ -191,16 +191,16 @@
                             "value": "count",
                             "raw": "'count'",
                             "range": [
-                              159,
-                              166
+                              213,
+                              220
                             ],
                             "loc": {
                               "start": {
-                                "line": 8,
+                                "line": 9,
                                 "column": 10
                               },
                               "end": {
-                                "line": 8,
+                                "line": 9,
                                 "column": 17
                               }
                             }
@@ -210,63 +210,63 @@
                             "value": 0,
                             "raw": "0",
                             "range": [
-                              168,
-                              169
+                              222,
+                              223
                             ],
                             "loc": {
                               "start": {
-                                "line": 8,
+                                "line": 9,
                                 "column": 19
                               },
                               "end": {
-                                "line": 8,
+                                "line": 9,
                                 "column": 20
                               }
                             }
                           }
                         ],
                         "range": [
-                          153,
-                          170
+                          207,
+                          224
                         ],
                         "loc": {
                           "start": {
-                            "line": 8,
+                            "line": 9,
                             "column": 4
                           },
                           "end": {
-                            "line": 8,
+                            "line": 9,
                             "column": 21
                           }
                         }
                       },
                       "range": [
-                        153,
-                        171
+                        207,
+                        225
                       ],
                       "loc": {
                         "start": {
-                          "line": 8,
+                          "line": 9,
                           "column": 4
                         },
                         "end": {
-                          "line": 8,
+                          "line": 9,
                           "column": 22
                         }
                       }
                     }
                   ],
                   "range": [
-                    147,
-                    175
+                    201,
+                    229
                   ],
                   "loc": {
                     "start": {
-                      "line": 7,
+                      "line": 8,
                       "column": 16
                     },
                     "end": {
-                      "line": 9,
+                      "line": 10,
                       "column": 3
                     }
                   }
@@ -274,16 +274,16 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  144,
-                  175
+                  198,
+                  229
                 ],
                 "loc": {
                   "start": {
-                    "line": 7,
+                    "line": 8,
                     "column": 13
                   },
                   "end": {
-                    "line": 9,
+                    "line": 10,
                     "column": 3
                   }
                 }
@@ -291,16 +291,16 @@
               "kind": "constructor",
               "computed": false,
               "range": [
-                133,
-                175
+                187,
+                229
               ],
               "loc": {
                 "start": {
-                  "line": 7,
+                  "line": 8,
                   "column": 2
                 },
                 "end": {
-                  "line": 9,
+                  "line": 10,
                   "column": 3
                 }
               },
@@ -312,16 +312,16 @@
                 "type": "Identifier",
                 "name": "handleProcess",
                 "range": [
-                  178,
-                  191
+                  232,
+                  245
                 ],
                 "loc": {
                   "start": {
-                    "line": 10,
+                    "line": 11,
                     "column": 2
                   },
                   "end": {
-                    "line": 10,
+                    "line": 11,
                     "column": 15
                   }
                 }
@@ -334,16 +334,16 @@
                     "type": "Identifier",
                     "name": "state",
                     "range": [
-                      192,
-                      197
+                      246,
+                      251
                     ],
                     "loc": {
                       "start": {
-                        "line": 10,
+                        "line": 11,
                         "column": 16
                       },
                       "end": {
-                        "line": 10,
+                        "line": 11,
                         "column": 21
                       }
                     }
@@ -352,16 +352,16 @@
                     "type": "Identifier",
                     "name": "prev",
                     "range": [
-                      199,
-                      203
+                      253,
+                      257
                     ],
                     "loc": {
                       "start": {
-                        "line": 10,
+                        "line": 11,
                         "column": 23
                       },
                       "end": {
-                        "line": 10,
+                        "line": 11,
                         "column": 27
                       }
                     }
@@ -379,16 +379,16 @@
                           "type": "Identifier",
                           "name": "prev",
                           "range": [
-                            218,
-                            222
+                            272,
+                            276
                           ],
                           "loc": {
                             "start": {
-                              "line": 11,
+                              "line": 12,
                               "column": 11
                             },
                             "end": {
-                              "line": 11,
+                              "line": 12,
                               "column": 15
                             }
                           }
@@ -398,62 +398,62 @@
                           "value": 1,
                           "raw": "1",
                           "range": [
-                            225,
-                            226
+                            279,
+                            280
                           ],
                           "loc": {
                             "start": {
-                              "line": 11,
+                              "line": 12,
                               "column": 18
                             },
                             "end": {
-                              "line": 11,
+                              "line": 12,
                               "column": 19
                             }
                           }
                         },
                         "range": [
-                          218,
-                          226
+                          272,
+                          280
                         ],
                         "loc": {
                           "start": {
-                            "line": 11,
+                            "line": 12,
                             "column": 11
                           },
                           "end": {
-                            "line": 11,
+                            "line": 12,
                             "column": 19
                           }
                         }
                       },
                       "range": [
-                        211,
-                        227
+                        265,
+                        281
                       ],
                       "loc": {
                         "start": {
-                          "line": 11,
+                          "line": 12,
                           "column": 4
                         },
                         "end": {
-                          "line": 11,
+                          "line": 12,
                           "column": 20
                         }
                       }
                     }
                   ],
                   "range": [
-                    205,
-                    231
+                    259,
+                    285
                   ],
                   "loc": {
                     "start": {
-                      "line": 10,
+                      "line": 11,
                       "column": 29
                     },
                     "end": {
-                      "line": 12,
+                      "line": 13,
                       "column": 3
                     }
                   }
@@ -461,16 +461,16 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  191,
-                  231
+                  245,
+                  285
                 ],
                 "loc": {
                   "start": {
-                    "line": 10,
+                    "line": 11,
                     "column": 15
                   },
                   "end": {
-                    "line": 12,
+                    "line": 13,
                     "column": 3
                   }
                 }
@@ -478,16 +478,16 @@
               "kind": "method",
               "computed": false,
               "range": [
-                178,
-                231
+                232,
+                285
               ],
               "loc": {
                 "start": {
-                  "line": 10,
+                  "line": 11,
                   "column": 2
                 },
                 "end": {
-                  "line": 12,
+                  "line": 13,
                   "column": 3
                 }
               },
@@ -495,41 +495,41 @@
             }
           ],
           "range": [
-            129,
-            233
+            183,
+            287
           ],
           "loc": {
             "start": {
-              "line": 6,
+              "line": 7,
               "column": 45
             },
             "end": {
-              "line": 13,
+              "line": 14,
               "column": 1
             }
           }
         },
         "range": [
-          99,
-          233
+          153,
+          287
         ],
         "loc": {
           "start": {
-            "line": 6,
+            "line": 7,
             "column": 15
           },
           "end": {
-            "line": 13,
+            "line": 14,
             "column": 1
           }
         },
         "leadingComments": [
           {
             "type": "Block",
-            "value": "*\n * A collector that captures `count`\n ",
+            "value": "*\n * A collector that captures `count`\n *   - The total number of data values in a data set.\n ",
             "range": [
               39,
-              83
+              137
             ],
             "loc": {
               "start": {
@@ -537,7 +537,7 @@
                 "column": 0
               },
               "end": {
-                "line": 5,
+                "line": 6,
                 "column": 3
               }
             }
@@ -546,26 +546,26 @@
         "trailingComments": []
       },
       "range": [
-        84,
-        233
+        138,
+        287
       ],
       "loc": {
         "start": {
-          "line": 6,
+          "line": 7,
           "column": 0
         },
         "end": {
-          "line": 13,
+          "line": 14,
           "column": 1
         }
       },
       "leadingComments": [
         {
           "type": "Block",
-          "value": "*\n * A collector that captures `count`\n ",
+          "value": "*\n * A collector that captures `count`\n *   - The total number of data values in a data set.\n ",
           "range": [
             39,
-            83
+            137
           ],
           "loc": {
             "start": {
@@ -573,7 +573,7 @@
               "column": 0
             },
             "end": {
-              "line": 5,
+              "line": 6,
               "column": 3
             }
           }
@@ -584,7 +584,7 @@
   "sourceType": "module",
   "range": [
     0,
-    233
+    287
   ],
   "loc": {
     "start": {
@@ -592,17 +592,17 @@
       "column": 0
     },
     "end": {
-      "line": 13,
+      "line": 14,
       "column": 1
     }
   },
   "comments": [
     {
       "type": "Block",
-      "value": "*\n * A collector that captures `count`\n ",
+      "value": "*\n * A collector that captures `count`\n *   - The total number of data values in a data set.\n ",
       "range": [
         39,
-        83
+        137
       ],
       "loc": {
         "start": {
@@ -610,7 +610,7 @@
           "column": 0
         },
         "end": {
-          "line": 5,
+          "line": 6,
           "column": 3
         }
       }
