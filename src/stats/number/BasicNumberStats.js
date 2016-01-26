@@ -1,17 +1,17 @@
 import BaseStats from '../BaseStats';
 import Count from '../../collectors/number/Count';
-import Sum from '../../collectors/number/Sum';
-import Min from '../../collectors/number/Min';
 import Max from '../../collectors/number/Max';
 import Mean from '../../collectors/number/Mean';
+import Min from '../../collectors/number/Min';
+import Sum from '../../collectors/number/Sum';
 
 /**
  * A stat collector that includes the following collector functions:
  *   - count
- *   - sum
- *   - min
  *   - max
  *   - mean
+ *   - min
+ *   - sum
  * @example
  * const stats = new BasicNumberStats();
  * stats.processAll([1, 2, 3, 4, 5]);

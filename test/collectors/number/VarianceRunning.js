@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import * as lib from '../../../src/index';
-const collectorNames = ['BasicNumberStats', 'NumberStats', 'AdvancedNumberStats'];
-const methodName = 'max';
+const collectorNames = ['AdvancedNumberStats'];
+const methodName = 'varianceRunning';
 let collector;
 
 const test = function (values, expected) {
@@ -20,7 +20,12 @@ describe(`${methodName}() method`, function () {
         beforeEach(function () {
           collector = new lib[collectorName]();
         });
-        test([-12, 30, 0, -44, 11, 8], 30);
+        test([25, 35, 10, 17, 29, 14, 21, 31], 76.78571428571429);
+        test([0], 0);
+        test([-1], 0);
+        test([1], 0);
+        test([10, 10, 10, 10, 10], 0);
+        test([1, 2, 3, 4, 5], 5 / 2);
       });
     });
   });

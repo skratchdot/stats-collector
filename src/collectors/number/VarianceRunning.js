@@ -10,8 +10,8 @@ export default class VarianceRunning extends Collector {
     super('varianceRunning', 0, ['count', 'mean', 'powerSumAvgRunning']);
   }
   handleGet(state) {
+    const len = Math.max(1, state.count - 1);
     return (state.powerSumAvgRunning * state.count -
-      state.count * state.mean * state.mean) / (
-      state.count - 1);
+      state.count * state.mean * state.mean) / (len);
   }
 }

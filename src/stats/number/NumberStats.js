@@ -1,18 +1,20 @@
 import BasicNumberStats from './BasicNumberStats';
 import PowerSumAvgRunning from '../../collectors/number/PowerSumAvgRunning';
-import VarianceRunning from '../../collectors/number/VarianceRunning';
+import Product from '../../collectors/number/Product';
 import StandardDeviationRunning from '../../collectors/number/StandardDeviationRunning';
+import VarianceRunning from '../../collectors/number/VarianceRunning';
 
 /**
  * A stat collector that includes the following collector functions:
  *   - count
- *   - sum
- *   - min
  *   - max
  *   - mean
+ *   - min
  *   - powerSumAvg_running
- *   - variance_running
+ *   - product
  *   - standardDeviation_running
+ *   - sum
+ *   - variance_running
  * @example
  * const stats = new NumberStats();
  * stats.processAll([1, 2, 3, 4, 5]);
@@ -21,6 +23,7 @@ import StandardDeviationRunning from '../../collectors/number/StandardDeviationR
 export default class NumberStats extends BasicNumberStats {
   constructor() {
     super();
+    this.addCollector(new Product());
     this.addCollector(new PowerSumAvgRunning());
     this.addCollector(new VarianceRunning());
     this.addCollector(new StandardDeviationRunning());

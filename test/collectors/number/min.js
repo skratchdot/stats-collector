@@ -9,7 +9,7 @@ const test = function (values, expected) {
   it(`${methodName} should be ${expected} after calling ${u}`, function () {
     collector.processAll(values);
     const result = collector.get();
-    expect(result[methodName]).to.equal(expected);
+    expect(result[methodName]).to.deep.equal(expected);
   });
 };
 

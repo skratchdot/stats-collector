@@ -9,7 +9,7 @@ const test = function (values, expected) {
   it(`${methodName} should be ${expected} after calling ${u}`, function () {
     collector.processAll(values);
     const result = collector.get();
-    expect(result[methodName]).to.equal(expected);
+    expect(result[methodName]).to.deep.equal(expected);
   });
 };
 
@@ -20,6 +20,7 @@ describe(`${methodName}() method`, function () {
         beforeEach(function () {
           collector = new lib[collectorName]();
         });
+        test([25, 35, 10, 17, 29, 14, 21, 31], 8.762745818846641);
         test([0], 0);
         test([-1], 0);
         test([1], 0);
