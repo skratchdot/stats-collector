@@ -43,6 +43,7 @@
     "gulp-mocha": "^3.0.1",
     "gulp-rimraf": "^0.2.0",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-watch": "^4.3.5",
     "isparta": "^4.0.0",
     "matcha": "^0.7.0"
   },

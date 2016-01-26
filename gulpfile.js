@@ -2,22 +2,23 @@
 'use strict';
 require('babel-core/register');
 const childProcess = require('child_process');
-const fs = require('fs');
-const gulp = require('gulp');
 const babel = require('gulp-babel');
 const eslint = require('gulp-eslint');
+const fs = require('fs');
+const gulp = require('gulp');
 const isparta = require('isparta');
 const istanbul = require('gulp-istanbul');
 const mocha = require('gulp-mocha');
 const rimraf = require('gulp-rimraf');
 const sourcemaps = require('gulp-sourcemaps');
+const watch = require('gulp-watch');
 const files = {
   benchmark: ['./benchmark/**/*.js'],
-  build: ['./src/**/*.js'],
   cover: ['./src/**/*.js', '!./src/cli.js'],
   clean: ['./lib'],
   lint: ['./src/**/*.js', './test/**/*.js', './gulpfile.js'],
-  test: ['./test/**/*.js']
+  test: ['./test/**/*.js'],
+  transpile: ['./src/**/*.js']
 };
 
 gulp.task('clean', function () {
@@ -96,7 +97,7 @@ gulp.task('build-helpers', function (next) {
 });
 
 gulp.task('transpile', function () {
-  return gulp.src(files.build)
+  return gulp.src(files.transpile)
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(sourcemaps.write('.'))
@@ -141,21 +142,18 @@ gulp.task('test', function () {
     });
 });
 
-gulp.task('watch', function () {
-  const watchFiles = [];
-  Object.keys(files).forEach(function (key) {
-    files[key].forEach(function (file) {
-      if (watchFiles.indexOf(file) === -1) {
-        watchFiles.push(file);
-      }
-    });
-  });
-  gulp.watch(watchFiles, ['build']);
-});
-
-gulp.task('build', ['build-helpers', 'lint', 'transpile', 'test']);
 gulp.task('build-clean', ['clean', 'build']);
+gulp.task('build', ['build-helpers', 'lint', 'transpile', 'test']);
+gulp.task('cover', ['test']);
 gulp.task('default', ['build', 'watch']);
+
+gulp.task('watch', function () {
+	Object.keys(files).filter((name) => name !== 'clean').forEach((name) => {
+		watch(files[name], function () {
+			gulp.start(name);
+		});
+	});
+});
 
 // handle errors
 process.on('uncaughtException', function (e) {
