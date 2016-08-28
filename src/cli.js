@@ -24,7 +24,6 @@ const types = {
   'stats': 'NumberStats',
   'advanced': 'AdvancedNumberStats'
 };
-let collector;
 
 // handle errors
 process.on('uncaughtException', function (e) {
@@ -49,7 +48,7 @@ if (!types.hasOwnProperty(program.type)) {
   throw new Error('Invalid type passed');
 }
 program.type = types[program.type];
-collector = new (lib[program.type])();
+const collector = new (lib[program.type])();
 
 // validate collectors and filters
 ['collectors', 'filters'].forEach(function (type) {

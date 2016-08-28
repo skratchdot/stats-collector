@@ -29,7 +29,7 @@ describe('command line tool', function () {
   it('should print help information', function () {
     test('-h', 'Usage');
   });
-  it(`should only work when valid types are passed`, function () {
+  it('should only work when valid types are passed', function () {
     testError('-t fooo 1,2', 'Invalid');
     test('-t empty 1,2', '{}');
     test('-t basic 1,2', 'count');
