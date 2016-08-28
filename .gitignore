@@ -28,6 +28,7 @@ iisnode/
 tags
 
 # Code Coverage
+.nyc_output/
 coverage/
 
 # Benchmarks
