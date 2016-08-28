@@ -7,8 +7,21 @@
     "stats-collector": "./scripts/cli.js"
   },
   "scripts": {
-    "prepublish": "gulp build",
-    "test": "gulp test"
+    "benchmark": "matcha -R csv ./benchmark/benchmark.js >> ./benchmark/results.csv",
+    "build-helpers": "node ./scripts/build.helpers.js",
+    "build": "npm-run-all clean build-helpers lint transpile cover",
+    "clean": "rimraf .nyc_output/ coverage/ lib/",
+    "cover": "nyc npm test",
+    "coveralls": "cat coverage/lcov.info | coveralls --verbose",
+    "gh-pages": "esdoc -c ./esdoc.json",
+    "lint": "eslint src test",
+    "prepublish": "npm run build",
+    "readme": "node ./scripts/readme.examples.js",
+    "test": "mocha -r babel-register --recursive test",
+    "transpile": "babel -s true -d lib src",
+    "watch": "npm-run-all --parallel watch:lint watch:test",
+    "watch:lint": "watch 'npm run lint' .",
+    "watch:test": "npm run test -- -w"
   },
   "engines": {
     "node": ">=4.0.0"
@@ -36,18 +49,21 @@
     "esdoc": "^0.4.8",
     "esdoc-importpath-plugin": "0.0.1",
     "eslint": "^3.4.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^3.0.1",
-    "gulp-istanbul": "^1.1.1",
-    "gulp-mocha": "^3.0.1",
-    "gulp-rimraf": "^0.2.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-watch": "^4.3.9",
-    "isparta": "^4.0.0",
-    "matcha": "^0.7.0"
+    "matcha": "^0.7.0",
+    "mocha": "^3.0.2",
+    "npm-run-all": "^3.0.0",
+    "nyc": "^8.1.0",
+    "rimraf": "^2.5.4",
+    "watch": "^0.19.2"
   },
   "tonicExampleFilename": "./scripts/tonic.example.js",
+  "nyc": {
+    "reporter": [
+      "text",
+      "html",
+      "lcovonly"
+    ]
+  },
   "keywords": [
     "aggregate",
     "aggregation",
