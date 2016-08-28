@@ -178,6 +178,15 @@ $ for i in {1..10}; do echo $RANDOM; done | stats-collector -t advanced --pipe
 ```
 
 
+## Links
+
+- [Source Code](https://github.com/skratchdot/stats-collector)
+- [API Docs](http://projects.skratchdot.com/stats-collector/)
+- [Project Page](http://projects.skratchdot.com/stats-collector/)
+- [Changelog](https://github.com/skratchdot/stats-collector/blob/master/CHANGELOG.md)
+- [Live example on Tonic](https://tonicdev.com/npm/stats-collector)
+
+
 ## See Also
 
 - [covariance](https://www.npmjs.com/package/covariance)
