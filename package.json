@@ -12,14 +12,14 @@
     "build": "npm-run-all clean build-helpers lint transpile cover",
     "clean": "rimraf .nyc_output/ coverage/ lib/",
     "changelog": "github_changelog_generator",
-    "cover": "nyc npm test",
+    "cover": "cross-env NODE_ENV=test nyc -c npm test",
     "coveralls": "cat coverage/lcov.info | coveralls --verbose",
     "gh-pages": "esdoc -c ./esdoc.json",
     "lint": "eslint src test",
     "prepublish": "npm run build",
     "readme": "node ./scripts/readme.examples.js",
-    "test": "mocha -r babel-register --recursive test",
-    "transpile": "babel -s true -d lib src",
+    "test": "cross-env NODE_ENV=test mocha -r babel-register --recursive test",
+    "transpile": "babel -d lib src",
     "watch": "npm-run-all --parallel watch:lint watch:test",
     "watch:lint": "watch 'npm run lint' .",
     "watch:test": "npm run test -- -w"
@@ -44,11 +44,13 @@
     "babel-cli": "^6.14.0",
     "babel-core": "^6.14.0",
     "babel-eslint": "^6.1.2",
+    "babel-plugin-istanbul": "^2.0.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-register": "^6.14.0",
     "chai": "^3.5.0",
     "cheerio": "^0.22.0",
     "coveralls": "^2.11.12",
+    "cross-env": "^2.0.0",
     "esdoc": "^0.4.8",
     "esdoc-importpath-plugin": "0.0.1",
     "eslint": "^3.4.0",
@@ -61,8 +63,13 @@
   },
   "tonicExampleFilename": "./scripts/tonic.example.js",
   "nyc": {
+    "sourceMap": false,
+    "instrument": false,
+    "require": [
+      "babel-register"
+    ],
     "reporter": [
-      "text",
+      "text-summary",
       "html",
       "lcovonly"
     ]
