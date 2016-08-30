@@ -1,6 +1,5 @@
-#!/usr/bin/env node
+#!/usr/bin/env babel-node
 'use strict';
 
-require('babel-register');
 import cli from '../src/cli.js';
 cli();
