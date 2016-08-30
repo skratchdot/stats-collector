@@ -1,6 +1,10 @@
 import childProcess from 'child_process';
 import { expect } from 'chai';
 import packageInfo from '../package.json';
+import { convertToList } from '../src/cli';
+
+const scriptPath = 'scripts/cli-babel.js';
+let promises = [];
 
 const testHelper = function (commands, expected, isError) {
   return new Promise((resolve) => {
@@ -8,7 +12,7 @@ const testHelper = function (commands, expected, isError) {
     let stdout = '';
     let stderr = '';
     const cli = childProcess.spawn(
-      `${__dirname}/../scripts/cli.js`,
+      `${__dirname}/../${scriptPath}`,
       args,
       { encoding: 'utf-8' }
     );
@@ -31,58 +35,63 @@ const testError = function (commands, expected) {
 
 describe('command line tool', function () {
   this.timeout(100000);
+  beforeEach(() => {
+    promises = [];
+  });
+  it('should handle convertToList calls', () => {
+    expect(convertToList()).to.eql([]);
+    expect(convertToList()).to.eql([]);
+    expect(convertToList()).to.eql([]);
+    expect(convertToList()).to.eql([]);
+    expect(convertToList()).to.eql([]);
+    expect(convertToList()).to.eql([]);
+  });
   it('should print version information', function () {
-    return Promise.all([
-      test('--version', packageInfo.name),
-      test('-v', packageInfo.version)
-    ]);
+    //promises.push(test('--version', packageInfo.name));
+    promises.push(test('-v', packageInfo.version));
+    return Promise.all(promises);
   });
   it('should print help information', function () {
-    return Promise.all([
-      test('-h', 'Usage')
-    ]);
+    promises.push(test('-h', 'Usage'));
+    return Promise.all(promises);
   });
   it('should only work when valid types are passed', function () {
-    return Promise.all([
-      testError('-t fooo 1,2', 'Invalid'),
-      test('-t empty 1,2', '{}'),
-      test('-t basic 1,2', 'count'),
-      test('-t stats 1,2', 'varianceRunning'),
-      test('-t advanced 1,2', 'varianceStable')
-    ]);
+    promises.push(testError('-t fooo 1,2', 'Invalid'));
+    promises.push(test('-t empty 1,2', '{}'));
+    promises.push(test('-t basic 1,2', 'count'));
+    promises.push(test('-t stats 1,2', 'varianceRunning'));
+    promises.push(test('-t advanced 1,2', 'varianceStable'));
+    return Promise.all(promises);
   });
   it('should accept a filter list', function () {
-    return Promise.all([
-      test('-f odd 0,1,2,3,4,5', '"count": 3'),
-      test('-f odd,prime 0,1,2,3,4,5', '"count": 2'),
-      test('-f odd,even 0,1,2,3,4,5', '"count": 0'),
-      test('-f zero 0,1,2,0,1,0', '"count": 3')
-    ]);
+    promises.push(test('-f odd 0,1,2,3,4,5', '"count": 3'));
+    promises.push(test('-f odd,prime 0,1,2,3,4,5', '"count": 2'));
+    promises.push(test('-f odd,even 0,1,2,3,4,5', '"count": 0'));
+    promises.push(test('-f zero 0,1,2,0,1,0', '"count": 3'));
+    return Promise.all(promises);
   });
   it('should accept a collector list', function () {
-    return Promise.all([
-      test('-t empty -c count 0,1,2,3,4,5', '"count": 6'),
-      test('-t empty -c min,max 0,5,2,1,4,3', '"max": 5')
-    ]);
+    promises.push(test('-t empty -c count 0,1,2,3,4,5', '"count": 6'));
+    promises.push(test('-t empty -c min,max 0,5,2,1,4,3', '"max": 5'));
+    return Promise.all(promises);
   });
   it('should work with --pipe', function () {
-    return Promise.all([
-      expect(childProcess.execSync(
-        `echo "1 2 3 4 5" | ${__dirname}/../scripts/cli.js --pipe`,
-        { encoding: 'utf-8' }
-      )).to.contain('"count": 5'),
-      expect(childProcess.execSync(
-        `echo "1 2 3 4 5" | ${__dirname}/../scripts/cli.js --pipe 4,5,6`,
-        { encoding: 'utf-8' }
-      )).to.contain('"count": 8'),
-      expect(childProcess.execSync(
-        `echo "1 2 3 4 5" | ${__dirname}/../scripts/cli.js`,
-        { encoding: 'utf-8' }
-      )).to.contain('"count": 0'),
-      expect(childProcess.execSync(
-        `echo "1 2 3 4 5" | ${__dirname}/../scripts/cli.js 4,5,6`,
-        { encoding: 'utf-8' }
-      )).to.contain('"count": 3')
-    ]);
+    promises.push(expect(childProcess.execSync(
+      `echo "1 2 3 4 5" | ${__dirname}/../${scriptPath} --pipe`,
+      { encoding: 'utf-8' }
+    )).to.contain('"count": 5'));
+    promises.push(expect(childProcess.execSync(
+      `echo "1 2 3 4 5" | ${__dirname}/../${scriptPath} --pipe 4,5,6`,
+      { encoding: 'utf-8' }
+    )).to.contain('"count": 8'));
+    promises.push(expect(childProcess.execSync(
+      `echo "1 2 3 4 5" | ${__dirname}/../${scriptPath}`,
+      { encoding: 'utf-8' }
+    )).to.contain('"count": 0'));
+    promises.push(expect(childProcess.execSync(
+      `echo "1 2 3 4 5" | ${__dirname}/../${scriptPath} 4,5,6`,
+      { encoding: 'utf-8' }
+    )).to.contain('"count": 3'));
+    return Promise.all(promises);
   });
 });
