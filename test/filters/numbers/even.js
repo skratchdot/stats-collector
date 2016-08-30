@@ -5,20 +5,20 @@ const methodName = 'count';
 const filterName = 'even';
 let collector;
 
-const test = function (values, expected) {
+const test = (values, expected) => {
   const u = `processAll(${JSON.stringify(values)})`;
-  it(`with filter ${filterName}: ${methodName} should be ${expected} after calling ${u}`, function () {
+  it(`with filter ${filterName}: ${methodName} should be ${expected} after calling ${u}`, () => {
     collector.processAll(values);
     const result = collector.get();
     expect(result[methodName]).to.eql(expected);
   });
 };
 
-describe(`${methodName}() method`, function () {
-  it('should run for each collector', function () {
-    collectorNames.forEach(function (collectorName) {
-      describe(`${collectorName}:`, function () {
-        beforeEach(function () {
+describe(`${methodName}() method`, () => {
+  it('should run for each collector', () => {
+    collectorNames.forEach((collectorName) => {
+      describe(`${collectorName}:`, () => {
+        beforeEach(() => {
           collector = new lib[collectorName]();
           collector.addFilter(lib.filters.number[filterName]);
         });

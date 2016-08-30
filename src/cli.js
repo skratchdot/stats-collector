@@ -35,7 +35,7 @@ export const convertToNumberList = (val) => {
 
 export default () => {
   // handle errors
-  process.on('uncaughtException', function (e) {
+  process.on('uncaughtException', (e) => {
     console.error(e.toString());
   });
 
@@ -59,13 +59,13 @@ export default () => {
   const collector = new (lib[program.type])();
 
   // validate collectors and filters
-  ['collectors', 'filters'].forEach(function (type) {
-    program[type].forEach(function (curr) {
+  ['collectors', 'filters'].forEach((type) => {
+    program[type].forEach((curr) => {
       // allow case-insensitivity on cli
       curr = curr.toLowerCase();
       const keys = Object.keys(lib[type].number);
       const lcaseKeys = Object.keys(lib[type].number)
-        .map(function (k) {
+        .map((k) => {
           return k.toLowerCase();
         });
       const keyIndex = lcaseKeys.indexOf(curr);
@@ -81,11 +81,11 @@ export default () => {
 
   collector.processAll(convertToNumberList(program.args));
 
-  const onData = function (data) {
+  const onData = (data) => {
     collector.processAll(convertToNumberList(data.toString()));
   };
 
-  const onFinish = function () {
+  const onFinish = () => {
     console.log(JSON.stringify(collector.get(true), null, '  '));
     process.exit(0);
   };

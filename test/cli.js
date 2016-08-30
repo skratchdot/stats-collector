@@ -4,9 +4,10 @@ import packageInfo from '../package.json';
 import { convertToList } from '../src/cli';
 
 const scriptPath = `${__dirname}/../scripts/cli-babel.js`;
+const timeout = 100000;
 let promises = [];
 
-const testHelper = function (commands, expected, isError) {
+const testHelper = (commands, expected, isError) => {
   return new Promise((resolve) => {
     const args = commands.split(' ');
     let stdout = '';
@@ -25,16 +26,15 @@ const testHelper = function (commands, expected, isError) {
   });
 };
 
-const test = function (commands, expected) {
+const test = (commands, expected) => {
   return testHelper(commands, expected, false);
 };
 
-const testError = function (commands, expected) {
+const testError = (commands, expected) => {
   return testHelper(commands, expected, true);
 };
 
-describe('command line tool', function () {
-  this.timeout(100000);
+describe('command line tool', () => {
   beforeEach(() => {
     promises = [];
   });
@@ -46,40 +46,40 @@ describe('command line tool', function () {
     expect(convertToList()).to.eql([]);
     expect(convertToList()).to.eql([]);
   });
-  it('should print version information', function () {
+  it('should print version information', () => {
     //promises.push(test('--version', packageInfo.name));
     promises.push(test('-v', packageInfo.version));
     return Promise.all(promises);
-  });
-  it('should print help information', function () {
+  }).timeout(timeout);
+  it('should print help information', () => {
     promises.push(test('-h', 'Usage'));
     return Promise.all(promises);
-  });
-  it('should only work when valid types are passed', function () {
+  }).timeout(timeout);
+  it('should only work when valid types are passed', () => {
     promises.push(testError('-t fooo 1,2', 'Invalid'));
     promises.push(test('-t empty 1,2', '{}'));
     promises.push(test('-t basic 1,2', 'count'));
     promises.push(test('-t stats 1,2', 'varianceRunning'));
     promises.push(test('-t advanced 1,2', 'varianceStable'));
     return Promise.all(promises);
-  });
-  it('should throw when an invalid collector is passed', function () {
+  }).timeout(timeout);
+  it('should throw when an invalid collector is passed', () => {
     promises.push(testError('-c foo', 'Invalid'));
     return Promise.all(promises);
-  });
-  it('should accept a filter list', function () {
+  }).timeout(timeout);
+  it('should accept a filter list', () => {
     promises.push(test('-f odd 0,1,2,3,4,5', '"count": 3'));
     promises.push(test('-f odd,prime 0,1,2,3,4,5', '"count": 2'));
     promises.push(test('-f odd,even 0,1,2,3,4,5', '"count": 0'));
     promises.push(test('-f zero 0,1,2,0,1,0', '"count": 3'));
     return Promise.all(promises);
-  });
-  it('should accept a collector list', function () {
+  }).timeout(timeout);
+  it('should accept a collector list', () => {
     promises.push(test('-t empty -c count 0,1,2,3,4,5', '"count": 6'));
     promises.push(test('-t empty -c min,max 0,5,2,1,4,3', '"max": 5'));
     return Promise.all(promises);
-  });
-  it('should work with --pipe', function () {
+  }).timeout(timeout);
+  it('should work with --pipe', () => {
     promises.push(expect(childProcess.execSync(
       `echo "1 2 3 4 5" | ${scriptPath} --pipe`,
       { encoding: 'utf-8' }
@@ -97,5 +97,5 @@ describe('command line tool', function () {
       { encoding: 'utf-8' }
     )).to.contain('"count": 3'));
     return Promise.all(promises);
-  });
+  }).timeout(timeout);
 });

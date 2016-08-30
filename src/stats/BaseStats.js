@@ -54,7 +54,7 @@ export default class BaseStats {
       // make a copy
       requirements = requirements.slice(0);
       // check requirements
-      self._collectorNames.forEach(function (collectorName) {
+      self._collectorNames.forEach((collectorName) => {
         const currentCollector = self._collectors[collectorName];
         if (currentCollector.name === collector.name) {
           throw new Error('A collector with that name has already been added.');
@@ -106,7 +106,7 @@ export default class BaseStats {
       }
     }
     // sort, ignore, deep-copy, and use zeroForUndefined if neeeded
-    Object.keys(this._state).sort().forEach(function (key) {
+    Object.keys(this._state).sort().forEach((key) => {
       if (self._ignore.indexOf(key) === -1) {
         let val = self._state[key];
         if (val) {
@@ -147,7 +147,7 @@ export default class BaseStats {
   reset() {
     const self = this;
     this._state = {};
-    this._collectorNames.forEach(function (collectorName) {
+    this._collectorNames.forEach((collectorName) => {
       self._state[collectorName] = undefined;
     });
     this._processCount = 0;

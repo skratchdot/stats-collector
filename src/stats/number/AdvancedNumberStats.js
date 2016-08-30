@@ -49,7 +49,7 @@ export default class AdvancedNumberStats extends NumberStats {
     this.addCollector(new VarianceStable());
     this.addCollector(new StandardDeviationStable());
     const self = this;
-    Object.keys(filters.number).forEach(function (filterName) {
+    Object.keys(filters.number).forEach((filterName) => {
       const filter = filters.number[filterName];
       self.addCollector(new FilteredCount(`count_${filterName}`, filter));
     });
