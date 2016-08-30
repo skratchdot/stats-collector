@@ -49,10 +49,9 @@ export default () => {
     .parse(process.argv);
 
   // setup defaults and validate
-  program.collectors = program.collectors || [];
-  program.filters = program.filters || [];
-  program.type = program.type || '';
-  program.type = program.type.toLowerCase();
+  program.collectors = program.collectors;
+  program.filters = program.filters;
+  program.type = program.type.toString().toLowerCase();
   if (!types.hasOwnProperty(program.type)) {
     throw new Error('Invalid type passed');
   }
@@ -71,7 +70,7 @@ export default () => {
         });
       const keyIndex = lcaseKeys.indexOf(curr);
       if (keyIndex === -1) {
-        throw new Error(`Invalid ${type} passed`);
+        throw new Error(`Invalid value "${curr}" for ${type}`);
       } else if (type === 'collectors') {
         collector.addCollector(new lib[type].number[keys[keyIndex]]());
       } else {

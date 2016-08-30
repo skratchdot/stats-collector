@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import packageInfo from '../package.json';
 import { convertToList } from '../src/cli';
 
-const scriptPath = 'scripts/cli-babel.js';
+const scriptPath = `${__dirname}/../scripts/cli-babel.js`;
 let promises = [];
 
 const testHelper = function (commands, expected, isError) {
@@ -12,7 +12,7 @@ const testHelper = function (commands, expected, isError) {
     let stdout = '';
     let stderr = '';
     const cli = childProcess.spawn(
-      `${__dirname}/../${scriptPath}`,
+      scriptPath,
       args,
       { encoding: 'utf-8' }
     );
@@ -63,6 +63,10 @@ describe('command line tool', function () {
     promises.push(test('-t advanced 1,2', 'varianceStable'));
     return Promise.all(promises);
   });
+  it('should throw when an invalid collector is passed', function () {
+    promises.push(testError('-c foo', 'Invalid'));
+    return Promise.all(promises);
+  });
   it('should accept a filter list', function () {
     promises.push(test('-f odd 0,1,2,3,4,5', '"count": 3'));
     promises.push(test('-f odd,prime 0,1,2,3,4,5', '"count": 2'));
@@ -77,19 +81,19 @@ describe('command line tool', function () {
   });
   it('should work with --pipe', function () {
     promises.push(expect(childProcess.execSync(
-      `echo "1 2 3 4 5" | ${__dirname}/../${scriptPath} --pipe`,
+      `echo "1 2 3 4 5" | ${scriptPath} --pipe`,
       { encoding: 'utf-8' }
     )).to.contain('"count": 5'));
     promises.push(expect(childProcess.execSync(
-      `echo "1 2 3 4 5" | ${__dirname}/../${scriptPath} --pipe 4,5,6`,
+      `echo "1 2 3 4 5" | ${scriptPath} --pipe 4,5,6`,
       { encoding: 'utf-8' }
     )).to.contain('"count": 8'));
     promises.push(expect(childProcess.execSync(
-      `echo "1 2 3 4 5" | ${__dirname}/../${scriptPath}`,
+      `echo "1 2 3 4 5" | ${scriptPath}`,
       { encoding: 'utf-8' }
     )).to.contain('"count": 0'));
     promises.push(expect(childProcess.execSync(
-      `echo "1 2 3 4 5" | ${__dirname}/../${scriptPath} 4,5,6`,
+      `echo "1 2 3 4 5" | ${scriptPath} 4,5,6`,
       { encoding: 'utf-8' }
     )).to.contain('"count": 3'));
     return Promise.all(promises);
