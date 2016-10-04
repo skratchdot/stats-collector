@@ -50,7 +50,7 @@
     "chai": "^3.5.0",
     "cheerio": "^0.22.0",
     "coveralls": "^2.11.12",
-    "cross-env": "^2.0.1",
+    "cross-env": "^3.1.0",
     "esdoc": "^0.4.8",
     "esdoc-importpath-plugin": "0.0.1",
     "eslint": "^3.4.0",
